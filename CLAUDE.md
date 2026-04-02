@@ -21,5 +21,6 @@ When creating new documents, match the existing style in `pets/dog-feeding-guide
 ## Adding Documents
 
 1. Create the HTML file in the appropriate subdirectory (or root for general docs)
-2. Add an entry to `index.html`
-3. Commit and push — GitHub Pages deploys automatically
+2. Add a card entry to `index.html`
+3. Update `README.md` to reflect the new document and any structural changes
+4. Commit and push — GitHub Pages deploys automatically
