@@ -5,85 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Dog Feeding Guide</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
 <style>
-  :root {
-    --bg: #FAF7F2;
-    --surface: #FFFFFF;
-    --surface-alt: #F5F0E8;
-    --border: #E4DDD1;
-    --border-strong: #C8BFAE;
-    --text: #2D2518;
-    --text-muted: #6B6152;
-    --text-light: #96897A;
-    --accent: #B5632E;
-    --accent-light: #E8A86D;
-    --accent-bg: #FDF3EB;
-    --green: #4A7C5C;
-    --green-bg: #EDF5F0;
-    --blue: #3E6B8A;
-    --blue-bg: #EBF2F7;
-    --red: #9E4444;
-    --red-bg: #FBF0F0;
-    --shadow-sm: 0 1px 3px rgba(45,37,24,0.06);
-    --shadow-md: 0 4px 12px rgba(45,37,24,0.08);
-    --radius: 12px;
-  }
-
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-
-  body {
-    font-family: 'DM Sans', sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.65;
-    -webkit-font-smoothing: antialiased;
-  }
-
-  .container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 24px 20px 80px;
-  }
-
-  /* Header */
-  .header {
-    text-align: center;
-    padding: 48px 20px 40px;
-    border-bottom: 2px solid var(--border);
-    margin-bottom: 32px;
-  }
-
-  .header-icon {
-    font-size: 48px;
-    margin-bottom: 12px;
-  }
-
-  .header h1 {
-    font-family: 'DM Serif Display', serif;
-    font-size: 2.2rem;
-    font-weight: 400;
-    color: var(--text);
-    margin-bottom: 8px;
-    letter-spacing: -0.01em;
-  }
-
-  .header .subtitle {
-    color: var(--text-muted);
-    font-size: 1rem;
-    font-weight: 400;
-  }
-
-  .updated {
-    display: inline-block;
-    margin-top: 16px;
-    font-size: 0.8rem;
-    color: var(--text-light);
-    background: var(--surface-alt);
-    padding: 4px 14px;
-    border-radius: 20px;
-  }
-
-  /* Quick ref banner */
+  /* ─── Quick Reference Banner ───────────────────────────────────────── */
   .quick-ref {
     background: var(--accent-bg);
     border: 1.5px solid var(--accent-light);
@@ -135,7 +59,7 @@
     color: var(--text);
   }
 
-  /* Collapsible Sections */
+  /* ─── Collapsible Sections ─────────────────────────────────────────── */
   details {
     background: var(--surface);
     border: 1.5px solid var(--border);
@@ -146,13 +70,8 @@
     transition: box-shadow 0.2s;
   }
 
-  details:hover {
-    box-shadow: var(--shadow-md);
-  }
-
-  details[open] {
-    box-shadow: var(--shadow-md);
-  }
+  details:hover { box-shadow: var(--shadow-md); }
+  details[open] { box-shadow: var(--shadow-md); }
 
   summary {
     display: flex;
@@ -168,10 +87,7 @@
     transition: background 0.15s;
   }
 
-  summary:hover {
-    background: var(--surface-alt);
-  }
-
+  summary:hover { background: var(--surface-alt); }
   summary::-webkit-details-marker { display: none; }
 
   summary .icon {
@@ -193,14 +109,11 @@
     font-size: 0.9rem;
   }
 
-  details[open] summary .chevron {
-    transform: rotate(180deg);
-  }
+  details[open] summary .chevron { transform: rotate(180deg); }
 
   .section-content {
-    padding: 0 24px 24px;
+    padding: 20px 24px 24px;
     border-top: 1px solid var(--border);
-    padding-top: 20px;
   }
 
   .section-content p {
@@ -209,50 +122,32 @@
     font-size: 0.95rem;
   }
 
-  .section-content p:last-child {
-    margin-bottom: 0;
-  }
+  .section-content p:last-child { margin-bottom: 0; }
 
-  /* Tables */
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 16px 0;
-    font-size: 0.9rem;
-  }
-
-  thead th {
-    background: var(--surface-alt);
-    text-align: left;
-    padding: 10px 14px;
-    font-weight: 600;
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-    color: var(--text-muted);
-    border-bottom: 2px solid var(--border);
-  }
-
-  tbody td {
-    padding: 10px 14px;
-    border-bottom: 1px solid var(--border);
+  .section-content h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.1rem;
+    font-weight: 400;
+    margin: 24px 0 12px;
     color: var(--text);
   }
 
-  tbody tr:last-child td {
-    border-bottom: none;
+  .section-content h3:first-child { margin-top: 0; }
+
+  .section-content ul, .section-content ol {
+    padding-left: 20px;
+    margin: 12px 0;
   }
 
-  tbody tr:hover {
-    background: var(--surface-alt);
+  .section-content li {
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    color: var(--text-muted);
   }
 
-  .highlight-row td {
-    background: var(--accent-bg);
-    font-weight: 600;
-  }
+  .section-content li strong { color: var(--text); }
 
-  /* Callouts */
+  /* ─── Callouts ─────────────────────────────────────────────────────── */
   .callout {
     border-radius: 8px;
     padding: 16px 18px;
@@ -261,26 +156,9 @@
     line-height: 1.6;
   }
 
-  .callout-tip {
-    background: var(--green-bg);
-    border-left: 3px solid var(--green);
-  }
-
-  .callout-tip .callout-label { color: var(--green); }
-
-  .callout-info {
-    background: var(--blue-bg);
-    border-left: 3px solid var(--blue);
-  }
-
-  .callout-info .callout-label { color: var(--blue); }
-
-  .callout-warning {
-    background: var(--red-bg);
-    border-left: 3px solid var(--red);
-  }
-
-  .callout-warning .callout-label { color: var(--red); }
+  .callout-tip     { background: var(--green-bg); border-left: 3px solid var(--green); }
+  .callout-info    { background: var(--blue-bg);  border-left: 3px solid var(--blue);  }
+  .callout-warning { background: var(--red-bg);   border-left: 3px solid var(--red);   }
 
   .callout-label {
     font-weight: 700;
@@ -290,7 +168,11 @@
     margin-bottom: 4px;
   }
 
-  /* Steps */
+  .callout-tip .callout-label     { color: var(--green); }
+  .callout-info .callout-label    { color: var(--blue);  }
+  .callout-warning .callout-label { color: var(--red);   }
+
+  /* ─── Steps ────────────────────────────────────────────────────────── */
   .step {
     display: flex;
     gap: 16px;
@@ -312,9 +194,7 @@
     margin-top: 2px;
   }
 
-  .step-body {
-    flex: 1;
-  }
+  .step-body { flex: 1; }
 
   .step-body h4 {
     font-size: 0.95rem;
@@ -328,20 +208,7 @@
     margin-bottom: 6px;
   }
 
-  /* Sub headings inside sections */
-  .section-content h3 {
-    font-family: 'DM Serif Display', serif;
-    font-size: 1.1rem;
-    font-weight: 400;
-    margin: 24px 0 12px;
-    color: var(--text);
-  }
-
-  .section-content h3:first-child {
-    margin-top: 0;
-  }
-
-  /* Tag/badge */
+  /* ─── Tags ─────────────────────────────────────────────────────────── */
   .tag {
     display: inline-block;
     font-size: 0.75rem;
@@ -352,11 +219,11 @@
     letter-spacing: 0.03em;
   }
 
-  .tag-green { background: var(--green-bg); color: var(--green); }
+  .tag-green  { background: var(--green-bg);  color: var(--green);  }
   .tag-orange { background: var(--accent-bg); color: var(--accent); }
-  .tag-blue { background: var(--blue-bg); color: var(--blue); }
+  .tag-blue   { background: var(--blue-bg);   color: var(--blue);   }
 
-  /* Cost summary box */
+  /* ─── Cost Summary Box ─────────────────────────────────────────────── */
   .cost-box {
     background: var(--surface-alt);
     border-radius: var(--radius);
@@ -367,9 +234,7 @@
     gap: 16px;
   }
 
-  .cost-item {
-    text-align: center;
-  }
+  .cost-item { text-align: center; }
 
   .cost-item .label {
     font-size: 0.75rem;
@@ -385,34 +250,9 @@
     color: var(--text);
   }
 
-  .cost-item .value.savings {
-    color: var(--green);
-  }
+  .cost-item .value.savings { color: var(--green); }
 
-  /* Lists */
-  .section-content ul, .section-content ol {
-    padding-left: 20px;
-    margin: 12px 0;
-  }
-
-  .section-content li {
-    margin-bottom: 8px;
-    font-size: 0.9rem;
-    color: var(--text-muted);
-  }
-
-  .section-content li strong {
-    color: var(--text);
-  }
-
-  /* Divider */
-  .divider {
-    height: 1px;
-    background: var(--border);
-    margin: 20px 0;
-  }
-
-  /* Emergency footer */
+  /* ─── Contact Footer (card style, unique to this page) ─────────────── */
   .footer {
     margin-top: 40px;
     padding: 24px;
@@ -440,23 +280,18 @@
     font-weight: 600;
   }
 
-  /* Print styles */
+  /* ─── Print ────────────────────────────────────────────────────────── */
   @media print {
-    body { background: white; }
     details { break-inside: avoid; }
     details[open] summary .chevron { display: none; }
-    .container { max-width: 100%; }
   }
 
-  /* Mobile */
+  /* ─── Mobile ───────────────────────────────────────────────────────── */
   @media (max-width: 600px) {
-    .header h1 { font-size: 1.6rem; }
     .quick-ref-grid { grid-template-columns: 1fr; }
     .cost-box { grid-template-columns: 1fr 1fr; }
     summary { padding: 16px 18px; font-size: 0.95rem; }
-    .section-content { padding: 0 18px 18px; padding-top: 16px; }
-    table { font-size: 0.82rem; }
-    thead th, tbody td { padding: 8px 10px; }
+    .section-content { padding: 16px 18px 18px; }
   }
 </style>
 </head>
@@ -464,12 +299,14 @@
 
 <div class="container">
 
+  <a href="../index.html" class="back-btn">All Documents</a>
+
   <!-- Header -->
   <div class="header">
     <div class="header-icon">🐾</div>
     <h1>Dog Feeding Guide</h1>
     <div class="subtitle">Cali, Buddy &amp; Odin — Weekly Batch Cook + Kibble Plan</div>
-    <div class="updated">Last updated: April 2026</div>
+    <div class="updated">Last updated: April 2, 2026</div>
   </div>
 
   <!-- Quick Reference -->
@@ -481,7 +318,8 @@
         <div class="breed">Lab mix · 70–75 lbs</div>
         <div class="amounts">
           <strong>120g</strong> kibble<br>
-          <strong>145g</strong> topper
+          <strong>145g</strong> topper<br>
+          <strong>1</strong> Cosequin (AM)
         </div>
       </div>
       <div class="dog-card-mini">
@@ -489,7 +327,8 @@
         <div class="breed">Lab mix · 65–70 lbs</div>
         <div class="amounts">
           <strong>120g</strong> kibble<br>
-          <strong>145g</strong> topper
+          <strong>145g</strong> topper<br>
+          <strong>1</strong> Cosequin (AM)
         </div>
       </div>
       <div class="dog-card-mini">
@@ -497,7 +336,8 @@
         <div class="breed">Great Dane mix · ~105 lbs</div>
         <div class="amounts">
           <strong>210g</strong> kibble<br>
-          <strong>230g</strong> topper
+          <strong>230g</strong> topper<br>
+          <strong>2</strong> Cosequin (AM)
         </div>
       </div>
     </div>
@@ -558,7 +398,7 @@
       </div>
 
       <h3>Supplements</h3>
-      <p>All three dogs take <strong>Cosequin</strong> (glucosamine/chondroitin joint supplement). Continue giving this as normal — one dose per dog per day with a meal. Since we reduced the kibble by 25%, they're getting less of the built-in glucosamine from the Victor, so the Cosequin is even more important now.</p>
+      <p>All three dogs get <strong>Cosequin</strong> (glucosamine/chondroitin joint supplement) with their <strong>morning meal</strong>. Cali and Buddy each get <strong>1 chew</strong>; Odin gets <strong>2 chews</strong>. Since we reduced the kibble by 25%, they're getting less of the built-in glucosamine from the Victor, so the Cosequin is even more important now.</p>
     </div>
   </details>
 
@@ -867,7 +707,12 @@
       <p>Use the kitchen scale. Place the bowl on it, hit tare, add kibble, tare again, add topper. Stir everything together in the bowl before giving it to them.</p>
 
       <h3>Supplements</h3>
-      <p>Each dog gets one <strong>Cosequin</strong> chew per day. Give it with a meal. It's a joint supplement — looks like a brown treat. Container is on the counter or in the pantry.</p>
+      <p>Each dog gets <strong>Cosequin</strong> chews with their <strong>morning meal only</strong>. It's a joint supplement — looks like a brown treat. Container is on the counter or in the pantry.</p>
+      <ul>
+        <li><strong>Cali</strong> — 1 chew</li>
+        <li><strong>Buddy</strong> — 1 chew</li>
+        <li><strong>Odin</strong> — 2 chews</li>
+      </ul>
 
       <h3>Important Notes</h3>
       <ul>

@@ -1,0 +1,1151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashcam Guide for Nicole</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  /* ─── Camera Card ───────────────────────────────────────────────────── */
+  .card {
+    background: var(--surface);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px;
+    margin-bottom: 20px;
+    position: relative;
+    box-shadow: var(--shadow-sm);
+    transition: box-shadow 0.2s;
+  }
+
+  .card:hover {
+    box-shadow: var(--shadow-md);
+  }
+
+  .card-rank {
+    position: absolute;
+    top: -12px;
+    left: 20px;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 700;
+    font-size: 0.78rem;
+    padding: 3px 12px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .rank-gold {
+    background: var(--gold-bg);
+    color: var(--gold);
+    border: 1px solid #D4A850;
+  }
+
+  .rank-silver {
+    background: var(--surface-alt);
+    color: #6B6152;
+    border: 1px solid var(--border-strong);
+  }
+
+  .rank-bronze {
+    background: #FBF0E8;
+    color: #8A4E2A;
+    border: 1px solid #D4916A;
+  }
+
+  .rank-default {
+    background: var(--surface-alt);
+    color: var(--text-muted);
+    border: 1px solid var(--border);
+  }
+
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 12px;
+    margin-top: 8px;
+  }
+
+  .card-header h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: var(--text);
+  }
+
+  .card-price {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--green);
+    white-space: nowrap;
+  }
+
+  /* Badge row spacing (badge colors from styles.css) */
+  .badge-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 12px;
+  }
+
+  /* Card description */
+  .card-desc {
+    font-size: 0.93rem;
+    color: var(--text-muted);
+    line-height: 1.65;
+    margin-bottom: 16px;
+  }
+
+  /* Specs grid */
+  .specs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+
+  .spec {
+    background: var(--bg);
+    border-radius: 8px;
+    padding: 10px 12px;
+  }
+
+  .spec-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-light);
+    margin-bottom: 2px;
+  }
+
+  .spec-value {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  /* Score bars */
+  .scores {
+    margin-bottom: 16px;
+  }
+
+  .score-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+
+  .score-bar .score-label {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    width: 100px;
+    text-align: right;
+    flex-shrink: 0;
+  }
+
+  .bar-track {
+    flex: 1;
+    height: 7px;
+    background: var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .bar-fill {
+    height: 100%;
+    border-radius: 4px;
+    background: var(--accent);
+  }
+
+  .bar-fill-green {
+    background: var(--green);
+  }
+
+  .score-num {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--text);
+    width: 28px;
+  }
+
+  /* Pros / cons */
+  .pros-cons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+
+  @media (max-width: 560px) {
+    .pros-cons { grid-template-columns: 1fr; }
+  }
+
+  .pros h4, .cons h4 {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 6px;
+  }
+
+  .pros h4 { color: var(--green); }
+  .cons h4 { color: var(--red); }
+
+  .pros ul, .cons ul {
+    padding-left: 16px;
+  }
+
+  .pros li, .cons li {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    margin-bottom: 3px;
+  }
+
+  /* Buy links */
+  .buy-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .buy-link {
+    display: inline-block;
+    font-size: 0.83rem;
+    font-weight: 600;
+    color: var(--accent);
+    text-decoration: none;
+    padding: 6px 14px;
+    border: 1.5px solid var(--accent);
+    border-radius: 8px;
+    transition: background 0.15s, color 0.15s;
+  }
+
+  .buy-link:hover {
+    background: var(--accent);
+    color: white;
+  }
+
+  .buy-link-primary {
+    background: var(--accent);
+    color: white;
+  }
+
+  .buy-link-primary:hover {
+    background: #96511F;
+    border-color: #96511F;
+    color: white;
+  }
+
+  /* Methodology */
+  .methodology {
+    background: var(--surface);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px;
+    margin-top: 28px;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .methodology h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.3rem;
+    font-weight: 400;
+    margin-bottom: 12px;
+    color: var(--text);
+  }
+
+  .methodology h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.05rem;
+    font-weight: 400;
+    color: var(--text);
+    margin: 20px 0 6px;
+  }
+
+  .methodology p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin-bottom: 8px;
+  }
+
+  .methodology ul {
+    padding-left: 18px;
+    margin: 10px 0;
+  }
+
+  .methodology li {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+    line-height: 1.6;
+  }
+
+  .methodology a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+
+  .methodology a:hover {
+    text-decoration: underline;
+  }
+
+  /* Criteria grid */
+  .criteria-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 10px;
+    margin: 16px 0;
+  }
+
+  .criteria-item {
+    background: var(--bg);
+    border-radius: 8px;
+    padding: 14px;
+    text-align: center;
+  }
+
+  .criteria-weight {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: var(--accent);
+  }
+
+  .criteria-label {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    margin-top: 4px;
+  }
+
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <a href="../index.html" class="back-btn">All Documents</a>
+
+  <div class="header">
+    <div class="header-icon">📷</div>
+    <h1>Dashcam Buyer's Guide</h1>
+    <p class="subtitle">Researched picks ranked by ease of install, reliability, video quality, and value. No wiring required — just mount and plug in.</p>
+    <span class="updated">Last updated: February 2026</span>
+  </div>
+
+  <div class="tldr">
+    <div class="tldr-title">The Short Version</div>
+    <p>If you want a reliable dashcam that's dead simple to install and will last years: get the <strong>Viofo A119 Mini 2</strong> (~$100) for front-only, or the <strong>Viofo A229 Plus Duo</strong> (~$210) if you want front and rear coverage. Both use supercapacitors (longer lifespan than batteries), have excellent video quality, and plug right into your cigarette lighter.</p>
+  </div>
+
+  <div class="note note-green">
+    <h3>About Installation</h3>
+    <p>Every camera on this list can be installed by simply mounting it to your windshield (adhesive or suction cup) and plugging the power cable into your car's cigarette lighter / 12V outlet. No wiring, no fuse box access, no tools needed. Some cameras offer optional hardwire kits for parking surveillance, but that's entirely optional and not required for normal driving use.</p>
+  </div>
+
+  <div class="note note-orange">
+    <h3>A Note on Rear Cameras</h3>
+    <p>If you choose a front + rear camera system, the rear camera connects to the front unit with a cable that you'll need to tuck along the headliner from the front to the back of the car. It's not wiring in the electrical sense (no splicing or fuse boxes), but it does take a bit of effort to route neatly. Most people do this once and never touch it again. If that sounds like too much, stick with a front-only camera — it still covers the most important angle.</p>
+  </div>
+
+  <div class="section-heading">The Recommendations</div>
+
+  <!-- #1 Viofo A119 Mini 2 -->
+  <div class="card">
+    <div class="card-rank rank-gold">#1 Best Overall Pick</div>
+    <div class="card-header">
+      <h3>Viofo A119 Mini 2</h3>
+      <div class="card-price">~$100–$120</div>
+    </div>
+    <div class="badge-row">
+      <span class="badge badge-green">Supercapacitor</span>
+      <span class="badge badge-green">Front-Only (Simple)</span>
+      <span class="badge badge-blue">STARVIS 2</span>
+      <span class="badge badge-blue">2K QHD</span>
+      <span class="badge badge-orange">SD Card Not Included</span>
+    </div>
+    <p class="card-desc">The best entry point for most people. This tiny, key-sized dashcam packs premium features into a simple package. The supercapacitor means it'll handle extreme heat and cold without degrading over time, and the Sony STARVIS 2 sensor delivers video quality that rivals cameras costing twice as much. Front-only keeps installation as simple as it gets.</p>
+
+    <div class="specs-grid">
+      <div class="spec">
+        <div class="spec-label">Resolution</div>
+        <div class="spec-value">2K (2560×1440) @ 60fps</div>
+      </div>
+      <div class="spec">
+        <div class="spec-label">Field of View</div>
+        <div class="spec-value">140°</div>
+      </div>
+      <div class="spec">
+        <div class="spec-label">Display</div>
+        <div class="spec-value">1.5" LCD</div>
+      </div>
+      <div class="spec">
+        <div class="spec-label">Connectivity</div>
+        <div class="spec-value">5GHz Wi-Fi, GPS</div>
+      </div>
+      <div class="spec">
+        <div class="spec-label">Power</div>
+        <div class="spec-value">Supercapacitor</div>
+      </div>
+      <div class="spec">
+        <div class="spec-label">Operating Temp</div>
+        <div class="spec-value">-15°C to 65°C</div>
+      </div>
+      <div class="spec">
+        <div class="spec-label">Storage</div>
+        <div class="spec-value">microSD up to 512GB</div>
+      </div>
+      <div class="spec">
+        <div class="spec-label">Night Vision</div>
+        <div class="spec-value">Night Vision 2.0 + HDR</div>
+      </div>
+    </div>
+
+    <div class="scores">
+      <div class="score-bar">
+        <span class="score-label">Ease of Install</span>
+        <div class="bar-track"><div class="bar-fill bar-fill-green" style="width:98%"></div></div>
+        <span class="score-num">10</span>
+      </div>
+      <div class="score-bar">
+        <span class="score-label">Reliability</span>
+        <div class="bar-track"><div class="bar-fill bar-fill-green" style="width:95%"></div></div>
+        <span class="score-num">9.5</span>
+      </div>
+      <div class="score-bar">
+        <span class="score-label">Video Quality</span>
+        <div class="bar-track"><div class="bar-fill" style="width:85%"></div></div>
+        <span class="score-num">8.5</span>
+      </div>
+      <div class="score-bar">
+        <span class="score-label">Value</span>
+        <div class="bar-track"><div class="bar-fill bar-fill-green" style="width:96%"></div></div>
+        <span class="score-num">9.6</span>
+      </div>
+    </div>
+
+    <div class="pros-cons">
+      <div class="pros">
+        <h4>Pros</h4>
+        <ul>
+          <li>Supercapacitor = years of reliable use in any climate</li>
+          <li>Tiny size, barely visible on windshield</li>
+          <li>Video quality rivals many 4K cameras</li>
+          <li>Voice control, GPS, Wi-Fi app</li>
+          <li>Great price for the features</li>
+        </ul>
+      </div>
+      <div class="cons">
+        <h4>Cons</h4>
+        <ul>
+          <li>Front camera only (no rear)</li>
+          <li>SD card sold separately</li>
+          <li>Voice controls occasionally inconsistent</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="buy-links">
+      <a class="buy-link buy-link-primary" href="https://www.amazon.com/VIOFO-STARVIS-Control-Parking-Supercapacitor/dp/B0C5MVB7NX" target="_blank" rel="noopener">Amazon</a>
+      <a class="buy-link" href="https://www.viofo.com/" target="_blank" rel="noopener">Viofo Official</a>
+      <a class="buy-link" href="https://www.blackboxmycar.com/" target="_blank" rel="noopener">BlackboxMyCar</a>
+    </div>
+  </div>
+
+  <!-- #2 Viofo A229 Plus Duo -->
+  <div class="card">
+    <div class="card-rank rank-silver">#2 Best Front + Rear</div>
+    <div class="card-header">
+      <h3>Viofo A229 Plus Duo</h3>
+      <div class="card-price">~$200–$230</div>
+    </div>
+    <div class="badge-row">
+      <span class="badge badge-green">Supercapacitor</span>
+      <span class="badge badge-green">Front + Rear</span>
+      <span class="badge badge-blue">Dual STARVIS 2</span>
+      <span class="badge badge-blue">2K + 2K HDR</span>
+      <span class="badge badge-orange">SD Card Not Included</span>
+    </div>
+    <p class="card-desc">If you want full coverage (front and rear) at a reasonable price, this is the sweet spot. Both cameras use Sony STARVIS 2 sensors with HDR, delivering crisp 2K footage day and night. The supercapacitor ensures it'll survive years of dashboard heat. Comes with a cigarette lighter adapter in the box.</p>
+
+    <div class="specs-grid">
+      <div class="spec">
+        <div class="spec-label">Front Resolution</div>
+        <div class="spec-value">2K (1440P) @ 60fps</div>
+      </div>
+      <div class="spec">
+        <div class="spec-label">Rear Resolution</div>
+        <div class="spec-value">2K (1440P) @ 30fps</div>
+      </div>
+      <div class="spec">
+        <div class="spec-label">Field of View</div>
+        <div class="spec-value">140° front / 140° rear</div>
+      </div>
+      <div class="spec">
+        <div class="spec-label">Display</div>
+        <div class="spec-value">2.4" LCD</div>
+      </div>
+      <div class="spec">
+        <div class="spec-label">Connectivity</div>
+        <div class="spec-value">5GHz Wi-Fi, GPS</div>
+      </div>
+      <div class="spec">
+        <div class="spec-label">Power</div>
+        <div class="spec-value">Supercapacitor</div>
+      </div>
+      <div class="spec">
+        <div class="spec-label">Storage</div>
+        <div class="spec-value">microSD up to 512GB</div>
+      </div>
+      <div class="spec">
+        <div class="spec-label">Parking Mode</div>
+        <div class="spec-value">Buffered (w/ hardwire kit)</div>
+      </div>
+    </div>
+
+    <div class="scores">
+      <div class="score-bar">
+        <span class="score-label">Ease of Install</span>
+        <div class="bar-track"><div class="bar-fill" style="width:78%"></div></div>
+        <span class="score-num">7.8</span>
+      </div>
+      <div class="score-bar">
+        <span class="score-label">Reliability</span>
+        <div class="bar-track"><div class="bar-fill bar-fill-green" style="width:95%"></div></div>
+        <span class="score-num">9.5</span>
+      </div>
+      <div class="score-bar">
+        <span class="score-label">Video Quality</span>
+        <div class="bar-track"><div class="bar-fill" style="width:88%"></div></div>
+        <span class="score-num">8.8</span>
+      </div>
+      <div class="score-bar">
+        <span class="score-label">Value</span>
+        <div class="bar-track"><div class="bar-fill bar-fill-green" style="width:94%"></div></div>
+        <span class="score-num">9.4</span>
+      </div>
+    </div>
+
+    <div class="pros-cons">
+      <div class="pros">
+        <h4>Pros</h4>
+        <ul>
+          <li>Excellent front AND rear coverage</li>
+          <li>Supercapacitor for long-term durability</li>
+          <li>Dual STARVIS 2 sensors with HDR</li>
+          <li>Strong community support and proven track record</li>
+          <li>Great value for dual-camera setup</li>
+        </ul>
+      </div>
+      <div class="cons">
+        <h4>Cons</h4>
+        <ul>
+          <li>Rear cam cable needs to be routed to the back</li>
+          <li>SD card sold separately</li>
+          <li>Not 4K (but 2K is plenty for most uses)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="buy-links">
+      <a class="buy-link buy-link-primary" href="https://www.amazon.com/VIOFO-A229-Plus-STARVIS-Ultra-Precise/dp/B0CKX14L34" target="_blank" rel="noopener">Amazon</a>
+      <a class="buy-link" href="https://www.viofo.com/products/viofo-a229-plus-2ch-front-and-rear-2k2k-hdr-5ghz-wi-fi-gps-voice-control-dual-dash-camera-with-sony-starvis-2-sensor" target="_blank" rel="noopener">Viofo Official</a>
+      <a class="buy-link" href="https://www.blackboxmycar.com/" target="_blank" rel="noopener">BlackboxMyCar</a>
+    </div>
+  </div>
+
+  <!-- #3 Garmin Dash Cam Mini 3 -->
+  <div class="card">
+    <div class="card-rank rank-bronze">#3 Simplest Option</div>
+    <div class="card-header">
+      <h3>Garmin Dash Cam Mini 3</h3>
+      <div class="card-price">~$120–$150</div>
+    </div>
+    <div class="badge-row">
+      <span class="badge badge-green">Ultra-Compact</span>
+      <span class="badge badge-green">Trusted Brand</span>
+      <span class="badge badge-blue">1080p HD</span>
+      <span class="badge badge-blue">Built-in Polarizer</span>
+      <span class="badge badge-red">Lithium Battery</span>
+    </div>
+    <p class="card-desc">The tiniest, most discreet dashcam on this list — about the size of a car key. Garmin's build quality is excellent and the setup is about as simple as it gets. The tradeoff: it's only 1080p (not 2K or 4K), and it uses a lithium-ion battery instead of a supercapacitor, which may degrade faster in hot climates over 5+ years. Still a solid choice if simplicity is the top priority.</p>
+
+    <div class="specs-grid">
+      <div class="spec">
+        <div class="spec-label">Resolution</div>
+        <div class="spec-value">1080p HD @ 30fps</div>
+      </div>
+      <div class="spec">
+        <div class="spec-label">Field of View</div>
+        <div class="spec-value">140°</div>
+      </div>
+      <div class="spec">
+        <div class="spec-label">Display</div>
+        <div class="spec-value">None (app only)</div>
+      </div>
+      <div class="spec">
+        <div class="spec-label">Connectivity</div>
+        <div class="spec-value">Wi-Fi, Bluetooth, GPS</div>
+      </div>
+      <div class="spec">
+        <div class="spec-label">Power</div>
+        <div class="spec-value">Lithium-Ion Battery</div>
+      </div>
+      <div class="spec">
+        <div class="spec-label">Special</div>
+        <div class="spec-value">Clarity HDR Polarizer</div>
+      </div>
+      <div class="spec">
+        <div class="spec-label">Storage</div>
+        <div class="spec-value">microSD up to 512GB</div>
+      </div>
+      <div class="spec">
+        <div class="spec-label">Voice Control</div>
+        <div class="spec-value">Yes</div>
+      </div>
+    </div>
+
+    <div class="scores">
+      <div class="score-bar">
+        <span class="score-label">Ease of Install</span>
+        <div class="bar-track"><div class="bar-fill bar-fill-green" style="width:100%"></div></div>
+        <span class="score-num">10</span>
+      </div>
+      <div class="score-bar">
+        <span class="score-label">Reliability</span>
+        <div class="bar-track"><div class="bar-fill" style="width:78%"></div></div>
+        <span class="score-num">7.8</span>
+      </div>
+      <div class="score-bar">
+        <span class="score-label">Video Quality</span>
+        <div class="bar-track"><div class="bar-fill" style="width:70%"></div></div>
+        <span class="score-num">7.0</span>
+      </div>
+      <div class="score-bar">
+        <span class="score-label">Value</span>
+        <div class="bar-track"><div class="bar-fill" style="width:75%"></div></div>
+        <span class="score-num">7.5</span>
+      </div>
+    </div>
+
+    <div class="pros-cons">
+      <div class="pros">
+        <h4>Pros</h4>
+        <ul>
+          <li>Absolute simplest install — nearly invisible</li>
+          <li>Garmin brand trust and support</li>
+          <li>Built-in polarizer reduces glare</li>
+          <li>Voice control works well</li>
+          <li>Good Garmin Drive app</li>
+        </ul>
+      </div>
+      <div class="cons">
+        <h4>Cons</h4>
+        <ul>
+          <li>Only 1080p — less detail than 2K/4K</li>
+          <li>Lithium battery may degrade in heat over 5+ years</li>
+          <li>Front only, no rear camera</li>
+          <li>No on-device screen (need phone app)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="buy-links">
+      <a class="buy-link buy-link-primary" href="https://www.amazon.com/Garmin-Ultracompact-140-degree-ClarityTM-Controlled/dp/B0DDM7PFLW" target="_blank" rel="noopener">Amazon</a>
+      <a class="buy-link" href="https://www.garmin.com/en-US/p/1223369/" target="_blank" rel="noopener">Garmin Official</a>
+      <a class="buy-link" href="https://www.bestbuy.com/product/garmin-dash-cam-mini-3-ultracompact-1080p-dash-cam-with-a-140-degree-field-of-view-and-built-in-clarity-polarizer-black/JXF9YF5P8W" target="_blank" rel="noopener">Best Buy</a>
+    </div>
+  </div>
+
+  <!-- #4 70mai A810 -->
+  <div class="card">
+    <div class="card-rank rank-default">#4 Best Budget Front + Rear</div>
+    <div class="card-header">
+      <h3>70mai A810</h3>
+      <div class="card-price">~$150–$180</div>
+    </div>
+    <div class="badge-row">
+      <span class="badge badge-green">Supercapacitor</span>
+      <span class="badge badge-green">Front + Rear Available</span>
+      <span class="badge badge-blue">4K STARVIS 2 Front</span>
+      <span class="badge badge-blue">ADAS Driver Alerts</span>
+      <span class="badge badge-orange">Rear Cam 1080p Only</span>
+    </div>
+    <p class="card-desc">A strong budget option that punches above its weight. True 4K front video with a Sony STARVIS 2 sensor, supercapacitor for heat durability, and smart features like lane departure warnings — all under $180 with a rear camera. The build quality is plasticky and the rear cam is only 1080p, but you're getting a lot for the money. Successor model (A810S) is also worth checking.</p>
+
+    <div class="specs-grid">
+      <div class="spec">
+        <div class="spec-label">Front Resolution</div>
+        <div class="spec-value">4K (3840×2160) @ 30fps</div>
+      </div>
+      <div class="spec">
+        <div class="spec-label">Rear Resolution</div>
+        <div class="spec-value">1080p (add-on ~$30)</div>
+      </div>
+      <div class="spec">
+        <div class="spec-label">Front FOV</div>
+        <div class="spec-value">150°</div>
+      </div>
+      <div class="spec">
+        <div class="spec-label">Display</div>
+        <div class="spec-value">3.0" LCD</div>
+      </div>
+      <div class="spec">
+        <div class="spec-label">Connectivity</div>
+        <div class="spec-value">Wi-Fi, Bluetooth, GPS</div>
+      </div>
+      <div class="spec">
+        <div class="spec-label">Power</div>
+        <div class="spec-value">Supercapacitor</div>
+      </div>
+      <div class="spec">
+        <div class="spec-label">Smart Features</div>
+        <div class="spec-value">ADAS, AI Motion Detection</div>
+      </div>
+      <div class="spec">
+        <div class="spec-label">Storage</div>
+        <div class="spec-value">microSD up to 256GB</div>
+      </div>
+    </div>
+
+    <div class="scores">
+      <div class="score-bar">
+        <span class="score-label">Ease of Install</span>
+        <div class="bar-track"><div class="bar-fill" style="width:82%"></div></div>
+        <span class="score-num">8.2</span>
+      </div>
+      <div class="score-bar">
+        <span class="score-label">Reliability</span>
+        <div class="bar-track"><div class="bar-fill" style="width:82%"></div></div>
+        <span class="score-num">8.2</span>
+      </div>
+      <div class="score-bar">
+        <span class="score-label">Video Quality</span>
+        <div class="bar-track"><div class="bar-fill" style="width:86%"></div></div>
+        <span class="score-num">8.6</span>
+      </div>
+      <div class="score-bar">
+        <span class="score-label">Value</span>
+        <div class="bar-track"><div class="bar-fill bar-fill-green" style="width:92%"></div></div>
+        <span class="score-num">9.2</span>
+      </div>
+    </div>
+
+    <div class="pros-cons">
+      <div class="pros">
+        <h4>Pros</h4>
+        <ul>
+          <li>True 4K front camera at a budget price</li>
+          <li>Supercapacitor for heat and cold durability</li>
+          <li>ADAS driver alerts (lane departure, collision)</li>
+          <li>Large 3" screen for easy on-device viewing</li>
+          <li>Good value with rear camera add-on</li>
+        </ul>
+      </div>
+      <div class="cons">
+        <h4>Cons</h4>
+        <ul>
+          <li>Rear camera only 1080p</li>
+          <li>Build quality feels a bit cheap (lightweight plastic)</li>
+          <li>No horizontal adjustment on mount</li>
+          <li>App can be buggy</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="buy-links">
+      <a class="buy-link buy-link-primary" href="https://www.amazon.com/70mai-Guardian-Detection-Time-Lapse-Recording/dp/B0C9TBZF8X" target="_blank" rel="noopener">Amazon</a>
+      <a class="buy-link" href="https://www.70mai.com/us/a810s/" target="_blank" rel="noopener">70mai Official (A810S)</a>
+    </div>
+  </div>
+
+  <!-- #5 Viofo A329 2CH -->
+  <div class="card">
+    <div class="card-rank rank-default">#5 Premium Pick</div>
+    <div class="card-header">
+      <h3>Viofo A329 2CH</h3>
+      <div class="card-price">~$300–$350</div>
+    </div>
+    <div class="badge-row">
+      <span class="badge badge-green">Front + Rear</span>
+      <span class="badge badge-blue">4K 60fps + 2K</span>
+      <span class="badge badge-blue">Dual STARVIS 2</span>
+      <span class="badge badge-blue">Wi-Fi 6</span>
+      <span class="badge badge-blue">SSD Support up to 4TB</span>
+    </div>
+    <p class="card-desc">The flagship Viofo dashcam and the first to shoot 4K at 60 frames per second. If you want the absolute best video quality and don't mind spending more, this is the one. Wi-Fi 6 makes transferring footage fast, and the SSD support means you can store weeks of footage. Ranked the "best all-rounder" by TechRadar.</p>
+
+    <div class="specs-grid">
+      <div class="spec">
+        <div class="spec-label">Front Resolution</div>
+        <div class="spec-value">4K (2160P) @ 60fps</div>
+      </div>
+      <div class="spec">
+        <div class="spec-label">Rear Resolution</div>
+        <div class="spec-value">2K (1440P) @ 30fps</div>
+      </div>
+      <div class="spec">
+        <div class="spec-label">Connectivity</div>
+        <div class="spec-value">Wi-Fi 6, GPS</div>
+      </div>
+      <div class="spec">
+        <div class="spec-label">Display</div>
+        <div class="spec-value">2.4" LCD</div>
+      </div>
+      <div class="spec">
+        <div class="spec-label">Storage</div>
+        <div class="spec-value">microSD 512GB + SSD 4TB</div>
+      </div>
+      <div class="spec">
+        <div class="spec-label">Power</div>
+        <div class="spec-value">Supercapacitor</div>
+      </div>
+      <div class="spec">
+        <div class="spec-label">Transfer Speed</div>
+        <div class="spec-value">Up to 30MB/s via Wi-Fi 6</div>
+      </div>
+      <div class="spec">
+        <div class="spec-label">Special</div>
+        <div class="spec-value">USB 3.0, Low-Power Parking</div>
+      </div>
+    </div>
+
+    <div class="scores">
+      <div class="score-bar">
+        <span class="score-label">Ease of Install</span>
+        <div class="bar-track"><div class="bar-fill" style="width:75%"></div></div>
+        <span class="score-num">7.5</span>
+      </div>
+      <div class="score-bar">
+        <span class="score-label">Reliability</span>
+        <div class="bar-track"><div class="bar-fill" style="width:88%"></div></div>
+        <span class="score-num">8.8</span>
+      </div>
+      <div class="score-bar">
+        <span class="score-label">Video Quality</span>
+        <div class="bar-track"><div class="bar-fill bar-fill-green" style="width:97%"></div></div>
+        <span class="score-num">9.7</span>
+      </div>
+      <div class="score-bar">
+        <span class="score-label">Value</span>
+        <div class="bar-track"><div class="bar-fill" style="width:78%"></div></div>
+        <span class="score-num">7.8</span>
+      </div>
+    </div>
+
+    <div class="pros-cons">
+      <div class="pros">
+        <h4>Pros</h4>
+        <ul>
+          <li>Best-in-class 4K 60fps front video</li>
+          <li>Wi-Fi 6 for fast footage transfers</li>
+          <li>SSD support for massive storage</li>
+          <li>Supercapacitor built to last</li>
+          <li>"Best all-rounder" — TechRadar</li>
+        </ul>
+      </div>
+      <div class="cons">
+        <h4>Cons</h4>
+        <ul>
+          <li>Higher price ($300+)</li>
+          <li>Slight over-sharpening in video processing</li>
+          <li>More complex setup with more features to configure</li>
+          <li>SD card and SSD sold separately</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="buy-links">
+      <a class="buy-link buy-link-primary" href="https://www.amazon.com/VIOFO-A329-4K-60FPS-Control/dp/B0DKDXY5HP" target="_blank" rel="noopener">Amazon</a>
+      <a class="buy-link" href="https://www.viofo.com/products/viofo-a329-2ch-first-4k-60fps-front-and-2k-rear-wi-fi-6-dash-cam-hdr-with-sony-starvis-2-sensors-support-ssd-storage" target="_blank" rel="noopener">Viofo Official</a>
+    </div>
+  </div>
+
+  <!-- #6 Garmin X310 -->
+  <div class="card">
+    <div class="card-rank rank-default">#6 Premium Garmin</div>
+    <div class="card-header">
+      <h3>Garmin Dash Cam X310</h3>
+      <div class="card-price">~$400</div>
+    </div>
+    <div class="badge-row">
+      <span class="badge badge-green">Garmin Quality</span>
+      <span class="badge badge-green">Magnetic Mount</span>
+      <span class="badge badge-blue">4K HDR</span>
+      <span class="badge badge-blue">Touchscreen</span>
+      <span class="badge badge-red">$10/mo for Cloud</span>
+    </div>
+    <p class="card-desc">Garmin's flagship 4K dashcam with a gorgeous touchscreen and magnetic mount that makes it easy to pop on and off. The build quality is outstanding and the Garmin Drive app is polished. The downside: it's $400, front-only, and the best features (cloud storage, parking alerts) require a $10/month subscription. Best for someone who values the Garmin ecosystem.</p>
+
+    <div class="specs-grid">
+      <div class="spec">
+        <div class="spec-label">Resolution</div>
+        <div class="spec-value">4K UHD @ 30fps HDR</div>
+      </div>
+      <div class="spec">
+        <div class="spec-label">Field of View</div>
+        <div class="spec-value">140°</div>
+      </div>
+      <div class="spec">
+        <div class="spec-label">Display</div>
+        <div class="spec-value">2.4" Touchscreen</div>
+      </div>
+      <div class="spec">
+        <div class="spec-label">Mount</div>
+        <div class="spec-value">Magnetic (easy swap)</div>
+      </div>
+      <div class="spec">
+        <div class="spec-label">Connectivity</div>
+        <div class="spec-value">Wi-Fi, Bluetooth, GPS</div>
+      </div>
+      <div class="spec">
+        <div class="spec-label">Power</div>
+        <div class="spec-value">Built-in Battery (20 min)</div>
+      </div>
+      <div class="spec">
+        <div class="spec-label">Storage</div>
+        <div class="spec-value">microSD up to 512GB</div>
+      </div>
+      <div class="spec">
+        <div class="spec-label">Weight</div>
+        <div class="spec-value">78 grams</div>
+      </div>
+    </div>
+
+    <div class="scores">
+      <div class="score-bar">
+        <span class="score-label">Ease of Install</span>
+        <div class="bar-track"><div class="bar-fill bar-fill-green" style="width:95%"></div></div>
+        <span class="score-num">9.5</span>
+      </div>
+      <div class="score-bar">
+        <span class="score-label">Reliability</span>
+        <div class="bar-track"><div class="bar-fill bar-fill-green" style="width:90%"></div></div>
+        <span class="score-num">9.0</span>
+      </div>
+      <div class="score-bar">
+        <span class="score-label">Video Quality</span>
+        <div class="bar-track"><div class="bar-fill bar-fill-green" style="width:92%"></div></div>
+        <span class="score-num">9.2</span>
+      </div>
+      <div class="score-bar">
+        <span class="score-label">Value</span>
+        <div class="bar-track"><div class="bar-fill" style="width:58%"></div></div>
+        <span class="score-num">5.8</span>
+      </div>
+    </div>
+
+    <div class="pros-cons">
+      <div class="pros">
+        <h4>Pros</h4>
+        <ul>
+          <li>Outstanding 4K HDR video with built-in polarizer</li>
+          <li>Compact with great touchscreen</li>
+          <li>Magnetic mount — pops on/off easily</li>
+          <li>Garmin brand, excellent build quality</li>
+          <li>5-star TechRadar review</li>
+        </ul>
+      </div>
+      <div class="cons">
+        <h4>Cons</h4>
+        <ul>
+          <li>$400 — most expensive on this list</li>
+          <li>$10/month subscription for cloud &amp; parking alerts</li>
+          <li>Front camera only</li>
+          <li>Battery (not supercapacitor) may degrade over time</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="buy-links">
+      <a class="buy-link buy-link-primary" href="https://www.amazon.com/Garmin-Touchscreen-140-degree-ClarityTM-Controlled/dp/B0DDM46B9R" target="_blank" rel="noopener">Amazon</a>
+      <a class="buy-link" href="https://www.garmin.com/en-US/p/1391409/" target="_blank" rel="noopener">Garmin Official</a>
+      <a class="buy-link" href="https://www.bestbuy.com/" target="_blank" rel="noopener">Best Buy</a>
+    </div>
+  </div>
+
+  <!-- #7 Vantrue S1 Pro Max -->
+  <div class="card">
+    <div class="card-rank rank-default">#7 Feature-Packed</div>
+    <div class="card-header">
+      <h3>Vantrue S1 Pro Max</h3>
+      <div class="card-price">~$250–$300</div>
+    </div>
+    <div class="badge-row">
+      <span class="badge badge-green">Front + Rear</span>
+      <span class="badge badge-blue">Dual 4K STARVIS 2</span>
+      <span class="badge badge-blue">AI Features (ADAS/BSD)</span>
+      <span class="badge badge-blue">PlatePix License Plate Tech</span>
+      <span class="badge badge-blue">Optional LTE</span>
+    </div>
+    <p class="card-desc">Loaded with cutting-edge features: dual 4K cameras, AI-powered driver alerts, PlatePix technology for license plate clarity, and an optional LTE module for remote monitoring. It's impressive on paper, but Vantrue is a newer player compared to Viofo and Garmin, and some reviewers note it runs hot. A good option if you want the most features possible.</p>
+
+    <div class="specs-grid">
+      <div class="spec">
+        <div class="spec-label">Front Resolution</div>
+        <div class="spec-value">4K (2160P) @ 30fps</div>
+      </div>
+      <div class="spec">
+        <div class="spec-label">Rear Resolution</div>
+        <div class="spec-value">4K (2160P) @ 30fps</div>
+      </div>
+      <div class="spec">
+        <div class="spec-label">Front FOV</div>
+        <div class="spec-value">155°</div>
+      </div>
+      <div class="spec">
+        <div class="spec-label">Rear FOV</div>
+        <div class="spec-value">160°</div>
+      </div>
+      <div class="spec">
+        <div class="spec-label">Smart Features</div>
+        <div class="spec-value">ADAS, BSD, AI Motion</div>
+      </div>
+      <div class="spec">
+        <div class="spec-label">Connectivity</div>
+        <div class="spec-value">5GHz Wi-Fi, GPS, LTE opt.</div>
+      </div>
+      <div class="spec">
+        <div class="spec-label">Storage</div>
+        <div class="spec-value">microSD up to 1TB</div>
+      </div>
+      <div class="spec">
+        <div class="spec-label">Parking Mode</div>
+        <div class="spec-value">Buffered 24H</div>
+      </div>
+    </div>
+
+    <div class="scores">
+      <div class="score-bar">
+        <span class="score-label">Ease of Install</span>
+        <div class="bar-track"><div class="bar-fill" style="width:72%"></div></div>
+        <span class="score-num">7.2</span>
+      </div>
+      <div class="score-bar">
+        <span class="score-label">Reliability</span>
+        <div class="bar-track"><div class="bar-fill" style="width:76%"></div></div>
+        <span class="score-num">7.6</span>
+      </div>
+      <div class="score-bar">
+        <span class="score-label">Video Quality</span>
+        <div class="bar-track"><div class="bar-fill bar-fill-green" style="width:93%"></div></div>
+        <span class="score-num">9.3</span>
+      </div>
+      <div class="score-bar">
+        <span class="score-label">Value</span>
+        <div class="bar-track"><div class="bar-fill" style="width:80%"></div></div>
+        <span class="score-num">8.0</span>
+      </div>
+    </div>
+
+    <div class="pros-cons">
+      <div class="pros">
+        <h4>Pros</h4>
+        <ul>
+          <li>True dual 4K — front AND rear</li>
+          <li>AI driver alerts (collision, lane departure, blind spot)</li>
+          <li>PlatePix for crisp license plate capture</li>
+          <li>Optional LTE for remote monitoring</li>
+          <li>Wide 155°/160° field of view</li>
+        </ul>
+      </div>
+      <div class="cons">
+        <h4>Cons</h4>
+        <ul>
+          <li>Reported to run hot — reliability concern long-term</li>
+          <li>Newer brand, less community track record</li>
+          <li>Rear cable routing required</li>
+          <li>More features = more complexity to set up</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="buy-links">
+      <a class="buy-link buy-link-primary" href="https://www.amazon.com/Vantrue-4K-STARVIS-PlatePix-Buffered/dp/B0F8BW5HTS" target="_blank" rel="noopener">Amazon (4K+4K)</a>
+      <a class="buy-link" href="https://www.amazon.com/Vantrue-S1-4K-PlatePix-Buffered/dp/B0FCDHPNVP" target="_blank" rel="noopener">Amazon (4K+2.5K)</a>
+      <a class="buy-link" href="https://www.vantrue.com/products/s1-pro-max" target="_blank" rel="noopener">Vantrue Official</a>
+    </div>
+  </div>
+
+  <!-- SD Card tip -->
+  <div class="note note-purple">
+    <h3>Don't Forget: You'll Need an SD Card</h3>
+    <p>Almost none of these cameras include a memory card. Grab a high-endurance microSD card — regular ones wear out fast with constant recording. Recommended options:</p>
+    <ul>
+      <li><strong>Samsung PRO Endurance</strong> (128GB or 256GB) — widely recommended, ~$15–$30</li>
+      <li><strong>SanDisk High Endurance</strong> (128GB or 256GB) — another solid choice, similar price</li>
+    </ul>
+    <p style="margin-top:8px;">128GB is plenty for most people. It stores roughly 12–20 hours of footage depending on resolution, and the camera automatically overwrites the oldest files.</p>
+  </div>
+
+  <!-- Methodology -->
+  <div class="methodology" id="methodology">
+    <h2>How We Ranked These</h2>
+
+    <p>These rankings were created specifically for someone who needs a simple, reliable dashcam that will last for years. The criteria and their weights reflect that priority:</p>
+
+    <div class="criteria-grid">
+      <div class="criteria-item">
+        <div class="criteria-weight">30%</div>
+        <div class="criteria-label">Reliability &amp; Longevity</div>
+      </div>
+      <div class="criteria-item">
+        <div class="criteria-weight">25%</div>
+        <div class="criteria-label">Ease of Install</div>
+      </div>
+      <div class="criteria-item">
+        <div class="criteria-weight">25%</div>
+        <div class="criteria-label">Video Quality</div>
+      </div>
+      <div class="criteria-item">
+        <div class="criteria-weight">20%</div>
+        <div class="criteria-label">Value for Money</div>
+      </div>
+    </div>
+
+    <h3>Reliability &amp; Longevity (30%)</h3>
+    <p>This is weighted the highest because the goal is a camera that works for 5+ years without issues. Key factors: supercapacitor vs. lithium battery (supercapacitors last dramatically longer in heat and don't degrade like batteries), operating temperature range, brand track record, and community reports of long-term use. Cameras using supercapacitors scored significantly higher here.</p>
+
+    <h3>Ease of Install (25%)</h3>
+    <p>Scored based on: can it be installed by just mounting to the windshield and plugging into a cigarette lighter? Front-only cameras scored higher since there's no rear cable to route. Other factors: mount quality, whether there's an on-device screen (vs. requiring an app), and how intuitive the initial setup is.</p>
+
+    <h3>Video Quality (25%)</h3>
+    <p>Based on resolution, sensor quality (Sony STARVIS 2 is the current gold standard), HDR capability, night vision performance, and field of view. We consulted hands-on reviews from TechRadar, PCWorld, DashCamTalk, Tom's Guide, and Vortex Radar, plus community feedback from r/Dashcam and RedditRecs (which aggregated 4,923 reviews from 1,077 discussions).</p>
+
+    <h3>Value for Money (20%)</h3>
+    <p>What you get relative to what you pay. A $100 camera with 2K video and a supercapacitor scores higher than a $400 camera with a subscription fee, even if the $400 camera has better specs. We also penalized cameras that require paid subscriptions for core features and those that don't include an SD card at premium price points.</p>
+
+    <h3>Sources Consulted</h3>
+    <p>This guide synthesized information from the following sources, accessed in February 2026:</p>
+    <ul>
+      <li><a href="https://dashcamtalk.com/best-dash-cams-of-2026/" target="_blank">DashCamTalk — Best Dash Cams of 2026</a></li>
+      <li><a href="https://dashcamtalk.com/forum/threads/dashcam-buyers-guide-january-2026-recommendations-in-depth-reviews.55825/" target="_blank">DashCamTalk — Buyer's Guide January 2026</a></li>
+      <li><a href="https://www.techradar.com/vehicle-tech/dash-cams/the-best-dash-cams" target="_blank">TechRadar — Best Dash Cams</a></li>
+      <li><a href="https://redditrecs.com/dash-cam/" target="_blank">RedditRecs — Dash Cams According to Reddit Data</a> (4,923 reviews, 1,077 discussions)</li>
+      <li><a href="https://redditrecs.com/lists/dash-cam/" target="_blank">RedditRecs — 25 Most Recommended Dash Cams</a></li>
+      <li><a href="https://www.consumerreports.org/cars/dash-cams/best-dash-cams-a8390744403/" target="_blank">Consumer Reports — 5 Best Dash Cams of 2026</a></li>
+      <li><a href="https://www.vortexradar.com/best-dashcams/" target="_blank">Vortex Radar — Best Dash Camera Reviews</a></li>
+      <li><a href="https://www.blackboxmycar.com/" target="_blank">BlackboxMyCar — In-Depth Reviews</a></li>
+      <li><a href="https://www.pcworld.com/article/1981452/viofo-a119-mini-2-dash-cam-review.html" target="_blank">PCWorld — Viofo A119 Mini 2 Review</a></li>
+      <li><a href="https://www.tomsguide.com/vehicle-tech/garmin-x310-dash-cam-review" target="_blank">Tom's Guide — Garmin X310 Review</a></li>
+      <li><a href="https://dashcameras.net/battery-vs-capacitor/" target="_blank">DashCameras.net — Battery vs. Capacitor</a></li>
+      <li><a href="https://www.blackboxmycar.com/pages/whats-the-difference-between-super-capacitors-and-lithium-ion-batteries-in-a-dash-camera" target="_blank">BlackboxMyCar — Supercapacitors vs. Lithium-Ion</a></li>
+    </ul>
+  </div>
+
+</div>
+
+<div class="footer-bar">
+  Made with care by Luke, Feb 2026. Prices are approximate and may vary.<br>
+  Always check the linked retailer for current pricing.
+</div>
+
+</body>
+</html>
