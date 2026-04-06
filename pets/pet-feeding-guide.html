@@ -1,0 +1,1224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pet Feeding Guide</title>
+<meta name="description" content="Feeding schedules, portions, meds, and care notes for Cali, Buddy, Odin, Maui, and Moki.">
+<meta property="og:title" content="Pet Feeding Guide">
+<meta property="og:description" content="Feeding schedules, portions, meds, and care notes for Cali, Buddy, Odin, Maui, and Moki.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://lukelabonte.github.io/documents/pets/pet-feeding-guide.html">
+<meta property="og:image" content="https://lukelabonte.github.io/documents/preview.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Pet Feeding Guide">
+<meta name="twitter:description" content="Feeding schedules, portions, meds, and care notes for Cali, Buddy, Odin, Maui, and Moki.">
+<meta name="twitter:image" content="https://lukelabonte.github.io/documents/preview.png">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  /* ─── Segmented Control ─────────────────────────────────────────────── */
+  .seg-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 28px;
+  }
+
+  .seg-control {
+    display: inline-flex;
+    background: var(--surface-alt);
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    padding: 4px;
+    gap: 4px;
+  }
+
+  .seg-btn {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 8px 28px;
+    border: none;
+    border-radius: 7px;
+    background: transparent;
+    color: var(--text-light);
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s, box-shadow 0.15s;
+    user-select: none;
+  }
+
+  .seg-btn:hover {
+    color: var(--text-muted);
+  }
+
+  .seg-btn.active {
+    background: var(--surface);
+    color: var(--accent);
+    box-shadow: var(--shadow-sm);
+  }
+
+  /* ─── Quick Reference Banner ───────────────────────────────────────── */
+  .quick-ref {
+    background: var(--accent-bg);
+    border: 1.5px solid var(--accent-light);
+    border-radius: var(--radius);
+    padding: 20px 24px;
+    margin-bottom: 28px;
+  }
+
+  .quick-ref-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.15rem;
+    color: var(--accent);
+    margin-bottom: 12px;
+  }
+
+  .quick-ref-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 12px;
+  }
+
+  .quick-ref-grid-2col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .dog-card-mini {
+    background: var(--surface);
+    border-radius: 8px;
+    padding: 14px;
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .dog-card-mini .name {
+    font-weight: 700;
+    font-size: 1rem;
+    margin-bottom: 2px;
+  }
+
+  .dog-card-mini .breed {
+    font-size: 0.75rem;
+    color: var(--text-light);
+    margin-bottom: 8px;
+  }
+
+  .dog-card-mini .amounts {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+
+  .dog-card-mini .amounts strong {
+    color: var(--text);
+  }
+
+  /* ─── Collapsible Sections ─────────────────────────────────────────── */
+  details {
+    background: var(--surface);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius);
+    margin-bottom: 16px;
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+    transition: box-shadow 0.2s;
+  }
+
+  details:hover { box-shadow: var(--shadow-md); }
+  details[open] { box-shadow: var(--shadow-md); }
+
+  summary {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 20px 24px;
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+    font-weight: 600;
+    font-size: 1.05rem;
+    color: var(--text);
+    transition: background 0.15s;
+  }
+
+  summary:hover { background: var(--surface-alt); }
+  summary::-webkit-details-marker { display: none; }
+
+  summary .icon {
+    font-size: 1.3rem;
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--surface-alt);
+    border-radius: 8px;
+  }
+
+  summary .chevron {
+    margin-left: auto;
+    transition: transform 0.2s;
+    color: var(--text-light);
+    font-size: 0.9rem;
+  }
+
+  details[open] summary .chevron { transform: rotate(180deg); }
+
+  .section-content {
+    padding: 20px 24px 24px;
+    border-top: 1px solid var(--border);
+  }
+
+  .section-content p {
+    margin-bottom: 14px;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+  }
+
+  .section-content p:last-child { margin-bottom: 0; }
+
+  .section-content h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.1rem;
+    font-weight: 400;
+    margin: 24px 0 12px;
+    color: var(--text);
+  }
+
+  .section-content h3:first-child { margin-top: 0; }
+
+  .section-content ul, .section-content ol {
+    padding-left: 20px;
+    margin: 12px 0;
+  }
+
+  .section-content li {
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+  }
+
+  .section-content li strong { color: var(--text); }
+
+  /* ─── Callouts ─────────────────────────────────────────────────────── */
+  .callout {
+    border-radius: 8px;
+    padding: 16px 18px;
+    margin: 16px 0;
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  .callout-tip     { background: var(--green-bg); border-left: 3px solid var(--green); }
+  .callout-info    { background: var(--blue-bg);  border-left: 3px solid var(--blue);  }
+  .callout-warning { background: var(--red-bg);   border-left: 3px solid var(--red);   }
+  .callout-gold    { background: var(--gold-bg);  border-left: 3px solid var(--gold);  }
+
+  .callout-label {
+    font-weight: 700;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 4px;
+  }
+
+  .callout-tip .callout-label     { color: var(--green); }
+  .callout-info .callout-label    { color: var(--blue);  }
+  .callout-warning .callout-label { color: var(--red);   }
+  .callout-gold .callout-label    { color: var(--gold);  }
+
+  /* ─── Steps ────────────────────────────────────────────────────────── */
+  .step {
+    display: flex;
+    gap: 16px;
+    margin: 18px 0;
+  }
+
+  .step-num {
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    background: var(--accent);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.85rem;
+    margin-top: 2px;
+  }
+
+  .step-body { flex: 1; }
+
+  .step-body h4 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+
+  .step-body p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+  }
+
+  /* ─── Tags ─────────────────────────────────────────────────────────── */
+  .tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 2px 10px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+
+  .tag-green  { background: var(--green-bg);  color: var(--green);  }
+  .tag-orange { background: var(--accent-bg); color: var(--accent); }
+  .tag-blue   { background: var(--blue-bg);   color: var(--blue);   }
+  .tag-gold   { background: var(--gold-bg);   color: var(--gold);   }
+  .tag-purple { background: var(--purple-bg); color: var(--purple); }
+
+  /* ─── Cost Summary Box ─────────────────────────────────────────────── */
+  .cost-box {
+    background: var(--surface-alt);
+    border-radius: var(--radius);
+    padding: 20px;
+    margin: 16px 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .cost-item { text-align: center; }
+
+  .cost-item .label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--text-light);
+    margin-bottom: 4px;
+  }
+
+  .cost-item .value {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.6rem;
+    color: var(--text);
+  }
+
+  .cost-item .value.savings { color: var(--green); }
+
+  /* ─── Placeholder text ─────────────────────────────────────────────── */
+  .placeholder {
+    background: var(--gold-bg);
+    border: 1px dashed var(--gold);
+    border-radius: 4px;
+    padding: 1px 6px;
+    font-size: 0.85em;
+    color: var(--gold);
+    font-style: italic;
+  }
+
+  /* ─── Contact Footer (card style, unique to this page) ─────────────── */
+  .footer {
+    margin-top: 40px;
+    padding: 24px;
+    background: var(--surface);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius);
+    text-align: center;
+  }
+
+  .footer h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+  }
+
+  .footer p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+  }
+
+  .footer a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  /* ─── Print ────────────────────────────────────────────────────────── */
+  @media print {
+    details { break-inside: avoid; }
+    details[open] summary .chevron { display: none; }
+    .seg-wrapper { display: none; }
+    #dogs-section, #cats-section { display: block !important; }
+  }
+
+  /* ─── Mobile ───────────────────────────────────────────────────────── */
+  @media (max-width: 600px) {
+    .quick-ref-grid { grid-template-columns: 1fr; }
+    .quick-ref-grid-2col { grid-template-columns: 1fr; }
+    .cost-box { grid-template-columns: 1fr 1fr; }
+    summary { padding: 16px 18px; font-size: 0.95rem; }
+    .section-content { padding: 16px 18px 18px; }
+    .seg-btn { padding: 8px 18px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <a href="../index.html" class="back-btn">All Documents</a>
+
+  <!-- Header -->
+  <div class="header">
+    <div class="header-icon">🐾</div>
+    <h1>Pet Feeding Guide</h1>
+    <div class="subtitle">Dogs &amp; Cats — Feeding, Meds &amp; Care</div>
+    <div class="updated">Last updated: April 6, 2026</div>
+  </div>
+
+  <!-- Segmented Control -->
+  <div class="seg-wrapper">
+    <div class="seg-control" role="tablist" aria-label="Pet type">
+      <button class="seg-btn active" role="tab" aria-selected="true" aria-controls="dogs-section" id="tab-dogs" onclick="switchTab('dogs')">🐶 Dogs</button>
+      <button class="seg-btn" role="tab" aria-selected="false" aria-controls="cats-section" id="tab-cats" onclick="switchTab('cats')">🐱 Cats</button>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════ -->
+  <!-- DOGS SECTION                                                        -->
+  <!-- ═══════════════════════════════════════════════════════════════════ -->
+  <div id="dogs-section" role="tabpanel" aria-labelledby="tab-dogs">
+
+    <!-- Quick Reference -->
+    <div class="quick-ref">
+      <div class="quick-ref-title">⚡ Quick Reference — Per Meal (twice daily)</div>
+      <div class="quick-ref-grid">
+        <div class="dog-card-mini">
+          <div class="name">Cali</div>
+          <div class="breed">Lab mix · 70–75 lbs</div>
+          <div class="amounts">
+            <strong>120g</strong> kibble<br>
+            <strong>170g</strong> topper<br>
+            <strong>1</strong> Cosequin (AM)
+          </div>
+        </div>
+        <div class="dog-card-mini">
+          <div class="name">Buddy</div>
+          <div class="breed">Lab mix · 65–70 lbs</div>
+          <div class="amounts">
+            <strong>120g</strong> kibble<br>
+            <strong>170g</strong> topper<br>
+            <strong>1</strong> Cosequin (AM)
+          </div>
+        </div>
+        <div class="dog-card-mini">
+          <div class="name">Odin</div>
+          <div class="breed">Great Dane mix · ~105 lbs</div>
+          <div class="amounts">
+            <strong>210g</strong> kibble<br>
+            <strong>270g</strong> topper<br>
+            <strong>2</strong> Cosequin (AM)
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION: How Meals Work -->
+    <details open>
+      <summary>
+        <span class="icon">🍽️</span>
+        How Meals Work
+        <span class="chevron">▼</span>
+      </summary>
+      <div class="section-content">
+        <p>Each dog eats <strong>twice per day</strong> — morning and evening. Every meal has two parts: Victor kibble weighed on the kitchen scale, plus a scoop of pre-made topper from the fridge. The topper is cooked white rice mixed with Kirkland organic mixed vegetables.</p>
+        <p><strong>Mix the kibble and topper together in the bowl</strong> so the picky ones can't just eat the rice and leave the kibble behind. A quick stir with a spoon is enough.</p>
+
+        <h3>Exact Weights Per Meal</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Dog</th>
+              <th>Kibble</th>
+              <th>Topper</th>
+              <th>Total Bowl</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Cali</strong></td>
+              <td>120g</td>
+              <td>170g</td>
+              <td>290g</td>
+            </tr>
+            <tr>
+              <td><strong>Buddy</strong></td>
+              <td>120g</td>
+              <td>170g</td>
+              <td>290g</td>
+            </tr>
+            <tr>
+              <td><strong>Odin</strong></td>
+              <td>210g</td>
+              <td>270g</td>
+              <td>480g</td>
+            </tr>
+            <tr class="highlight-row">
+              <td><strong>Daily Total</strong></td>
+              <td>900g</td>
+              <td>1,220g</td>
+              <td>2,120g</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="callout callout-info">
+          <div class="callout-label">Why is the bowl heavier than before?</div>
+          The total grams per bowl went up compared to straight kibble + wet food, but the calories are the same. The mixed veggies and rice have water in them, so they weigh more per calorie than dehydrated kibble. They're not eating more food — it just weighs more.
+        </div>
+
+        <h3>Supplements</h3>
+        <p>All three dogs get <strong>Cosequin</strong> (glucosamine/chondroitin joint supplement) with their <strong>morning meal</strong>. Cali and Buddy each get <strong>1 chew</strong>; Odin gets <strong>2 chews</strong>. Since we reduced the kibble by 25%, they're getting less of the built-in glucosamine from the Victor, so the Cosequin is even more important now.</p>
+      </div>
+    </details>
+
+    <!-- SECTION: Weekly Batch Cook -->
+    <details>
+      <summary>
+        <span class="icon">🍳</span>
+        Weekly Batch Cook — Step by Step
+        <span class="chevron">▼</span>
+      </summary>
+      <div class="section-content">
+        <p>Cook once a week. The whole batch takes about 30 minutes and makes 7 days of topper for all 3 dogs. Store in the fridge.</p>
+
+        <h3>What You're Making (7-Day Batch)</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Ingredient</th>
+              <th>Weekly Amount</th>
+              <th>What That Looks Like</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>White rice (dry)</strong></td>
+              <td>~1,980g (~4.4 lbs)</td>
+              <td>~10 cups dry → ~5,940g cooked</td>
+            </tr>
+            <tr>
+              <td><strong>Kirkland Organic Mixed Vegetables (frozen)</strong></td>
+              <td>~2,545g (~5.6 lbs)</td>
+              <td>~1.1 bags (5 lb bag)</td>
+            </tr>
+            <tr class="highlight-row">
+              <td><strong>Total cooked topper</strong></td>
+              <td colspan="2">~8,485g — enough for all 3 dogs for 7 days</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>Instructions</h3>
+
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <h4>Cook the rice</h4>
+            <p>Rinse ~10 cups of dry white rice. Cook in a rice cooker or large pot with the standard 1:2 ratio of rice to water. This will make about 5,940g of cooked rice. No salt, no butter, no seasoning.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <h4>Thaw the mixed vegetables</h4>
+            <p>Thaw ~5.6 lbs of Kirkland Organic Mixed Vegetables (carrots, corn, peas, green beans) — microwave or run under warm water. No cooking needed. You want about 2,545g thawed.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-body">
+            <h4>Mix it together</h4>
+            <p>In a large mixing bowl or pot, combine the cooked rice and thawed vegetables. The ratio is <strong>70% rice, 30% veggies by weight</strong> — roughly 5,940g rice to 2,545g veggies. Stir until evenly distributed.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-body">
+            <h4>Store it</h4>
+            <p>Transfer into 1–2 large airtight containers and refrigerate. This is the topper for the entire week. Just scoop from the container each meal, weigh it on the scale, and add it to the kibble bowl.</p>
+          </div>
+        </div>
+
+        <div class="callout callout-tip">
+          <div class="callout-label">Tip</div>
+          Let the rice cool to room temperature before mixing with the vegetables, then refrigerate. Don't put hot rice straight in the fridge — it'll create excess moisture and get mushy faster.
+        </div>
+      </div>
+    </details>
+
+    <!-- SECTION: Storage & Portioning -->
+    <details>
+      <summary>
+        <span class="icon">📦</span>
+        Storage &amp; Portioning Tips
+        <span class="chevron">▼</span>
+      </summary>
+      <div class="section-content">
+        <h3>How to Store the Topper</h3>
+        <p>Keep the full batch in <strong>1–2 large airtight containers</strong> in the fridge. Wide, shallow containers (like a large Rubbermaid or Pyrex) work better than deep ones — easier to scoop from and the food stays fresher because less air gets trapped.</p>
+        <p>The topper lasts <strong>5–6 days</strong> in the fridge comfortably. If you're worried about the tail end of the week, you can split the batch in half and freeze the second half, then move it to the fridge on day 3 or 4 to thaw overnight.</p>
+
+        <h3>Per-Meal Portioning</h3>
+        <p>No need to pre-portion into individual containers. Just use the kitchen scale at each meal:</p>
+        <ol>
+          <li>Place the bowl on the scale, tare to zero</li>
+          <li>Scoop in the correct kibble weight</li>
+          <li>Tare again</li>
+          <li>Scoop in the correct topper weight</li>
+          <li>Stir together with a spoon</li>
+        </ol>
+
+        <div class="callout callout-tip">
+          <div class="callout-label">For house sitters</div>
+          If you're prepping meals for someone else to feed, you can pre-portion into individual containers or ziplock bags labeled with each dog's name. That way the sitter just grabs a container per dog per meal — no scale needed.
+        </div>
+
+        <h3>Freezing</h3>
+        <p>The topper freezes well for up to 3 months. If you want to cook two batches at once every two weeks instead of weekly, that works. Freeze in daily or half-week portions and thaw in the fridge overnight.</p>
+      </div>
+    </details>
+
+    <!-- SECTION: Shopping List -->
+    <details>
+      <summary>
+        <span class="icon">🛒</span>
+        Shopping List &amp; Where to Buy
+        <span class="chevron">▼</span>
+      </summary>
+      <div class="section-content">
+
+        <h3>Monthly Quantities</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Item</th>
+              <th>Monthly Need</th>
+              <th>What to Buy</th>
+              <th>Cost</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Victor Elite Canine 40-lb bag</strong></td>
+              <td>~60 lbs</td>
+              <td>1.5 bags (buy 2, second lasts into next month)</td>
+              <td>~$103</td>
+            </tr>
+            <tr>
+              <td><strong>White rice (Supreme long grain 25 lb)</strong></td>
+              <td>~17.5 lbs</td>
+              <td>1 bag lasts just over 6 weeks</td>
+              <td>~$7</td>
+            </tr>
+            <tr>
+              <td><strong>Kirkland Organic Mixed Vegetables (5 lb bag)</strong></td>
+              <td>~24 lbs (~5 bags)</td>
+              <td>~5 bags</td>
+              <td>~$48</td>
+            </tr>
+            <tr class="highlight-row">
+              <td colspan="3"><strong>Monthly Total</strong></td>
+              <td><strong>~$158</strong></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>Shopping Frequency</h3>
+        <p><strong>Every 2 weeks at Costco:</strong> 1 bag of Victor kibble (~$69), 2–3 bags of mixed veggies (~$20–30), and restock rice as needed. The rice lasts about 6 weeks; the veggies (~5.6 lbs/week) need restocking more regularly.</p>
+        <p><strong>Chewy:</strong> You can also order the Victor through Chewy with autoship if that's easier. Compare the price — sometimes Chewy autoship is slightly cheaper per bag.</p>
+
+        <h3>What to Buy — Product Picks</h3>
+
+        <p><strong>Rice:</strong> Go with the <strong>Supreme Long Grain 25 lbs for $9.89</strong>. Avoid instant/minute rice — it turns to mush. Regular long grain holds its shape better in the fridge.</p>
+
+        <p><strong>Mixed Vegetables:</strong> <strong>Kirkland Signature Organic Mixed Vegetables, 5 lbs (~$9.97)</strong> from Costco. Frozen is nutritionally equivalent to fresh and way more convenient. You'll go through about 1–2 bags per week. Avoid canned — too much sodium.</p>
+      </div>
+    </details>
+
+    <!-- SECTION: Cost Breakdown -->
+    <details>
+      <summary>
+        <span class="icon">💰</span>
+        Cost Breakdown &amp; Savings
+        <span class="chevron">▼</span>
+      </summary>
+      <div class="section-content">
+        <div class="cost-box">
+          <div class="cost-item">
+            <div class="label">Old Plan (Kibble + Wet Food)</div>
+            <div class="value">$166/mo</div>
+          </div>
+          <div class="cost-item">
+            <div class="label">New Plan (Kibble + Topper)</div>
+            <div class="value savings">~$158/mo</div>
+          </div>
+          <div class="cost-item">
+            <div class="label">Monthly Savings</div>
+            <div class="value savings">~$8</div>
+          </div>
+          <div class="cost-item">
+            <div class="label">Annual Savings</div>
+            <div class="value savings">~$96</div>
+          </div>
+        </div>
+
+        <h3>Where the Money Goes (Monthly)</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Item</th>
+              <th>Old Plan</th>
+              <th>New Plan</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Victor dry kibble</td>
+              <td>$138</td>
+              <td>$103</td>
+            </tr>
+            <tr>
+              <td>Kirkland wet food</td>
+              <td>$28</td>
+              <td>$0 (eliminated)</td>
+            </tr>
+            <tr>
+              <td>Rice</td>
+              <td>—</td>
+              <td>$7</td>
+            </tr>
+            <tr>
+              <td>Eggs</td>
+              <td>—</td>
+              <td>$0</td>
+            </tr>
+            <tr>
+              <td>Kirkland Mixed Vegetables</td>
+              <td>—</td>
+              <td>~$48</td>
+            </tr>
+            <tr class="highlight-row">
+              <td><strong>Total</strong></td>
+              <td><strong>$166</strong></td>
+              <td><strong>~$158</strong></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="callout callout-info">
+          <div class="callout-label">Note</div>
+          Cosequin supplement cost is not included. Also not included: the time cost of cooking once a week (~30 min). The plan saves ~$8/month vs the old kibble + wet food plan, and the dogs actually eat this food enthusiastically instead of turning their noses up at it.
+        </div>
+      </div>
+    </details>
+
+    <!-- SECTION: For House Sitters -->
+    <details>
+      <summary>
+        <span class="icon">🏠</span>
+        For House Sitters
+        <span class="chevron">▼</span>
+      </summary>
+      <div class="section-content">
+        <p>Hey! Thanks for taking care of the dogs. Here's everything you need to know about feeding them.</p>
+
+        <h3>The Basics</h3>
+        <p>The dogs eat <strong>twice a day</strong> — morning and evening. Each meal has two parts: <strong>dry kibble</strong> (from the green Victor bag) and <strong>topper</strong> (pre-made in the fridge in a large container).</p>
+
+        <h3>What to Put in Each Bowl</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Dog</th>
+              <th>Kibble</th>
+              <th>Topper (from fridge)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Cali</strong> (bigger female Lab)</td>
+              <td>120g</td>
+              <td>170g</td>
+            </tr>
+            <tr>
+              <td><strong>Buddy</strong> (smaller male Lab)</td>
+              <td>120g</td>
+              <td>170g</td>
+            </tr>
+            <tr>
+              <td><strong>Odin</strong> (the giant one)</td>
+              <td>210g</td>
+              <td>270g</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p>Use the kitchen scale. Place the bowl on it, hit tare, add kibble, tare again, add topper. Stir everything together in the bowl before giving it to them.</p>
+
+        <h3>Supplements</h3>
+        <p>Each dog gets <strong>Cosequin</strong> chews with their <strong>morning meal only</strong>. It's a joint supplement — looks like a brown treat. Container is on the counter or in the pantry.</p>
+        <ul>
+          <li><strong>Cali</strong> — 1 chew</li>
+          <li><strong>Buddy</strong> — 1 chew</li>
+          <li><strong>Odin</strong> — 2 chews</li>
+        </ul>
+
+        <h3>Important Notes</h3>
+        <ul>
+          <li><strong>Buddy is picky.</strong> He might not finish his food right away. That's normal. Don't add extra topper to coax him — he'll usually come back to it.</li>
+          <li><strong>Odin is also picky</strong> but tends to eat when Cali eats. Feed them at the same time.</li>
+          <li><strong>Cali will eat anything.</strong> Don't let her steal from the other bowls.</li>
+          <li>Fresh water always available.</li>
+          <li>Dogs can be kenneled in the attached garage when needed.</li>
+        </ul>
+
+        <div class="callout callout-warning">
+          <div class="callout-label">In Case of Emergency</div>
+          <strong>Regular Vet:</strong> Berlin Veterinary Clinic — (920) 361-2101<br>
+          <strong>Emergency Vet:</strong> UW Veterinary Care, Madison — (608) 263-7600
+        </div>
+      </div>
+    </details>
+
+    <!-- SECTION: Transition Plan -->
+    <details>
+      <summary>
+        <span class="icon">🔄</span>
+        Transition Plan — First Two Weeks
+        <span class="chevron">▼</span>
+      </summary>
+      <div class="section-content">
+        <p>Don't go from full kibble + wet food to the new plan overnight. Transition over about 10 days to avoid upset stomachs.</p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Days</th>
+              <th>Kibble</th>
+              <th>Wet Food</th>
+              <th>Topper</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1–3</td>
+              <td>Full amount (current)</td>
+              <td>Half</td>
+              <td>Small scoop (~50g)</td>
+            </tr>
+            <tr>
+              <td>4–6</td>
+              <td>Reduce by ~10%</td>
+              <td>Quarter</td>
+              <td>~100g per dog</td>
+            </tr>
+            <tr>
+              <td>7–9</td>
+              <td>Down to 75% target</td>
+              <td>None</td>
+              <td>Full amount</td>
+            </tr>
+            <tr>
+              <td>10+</td>
+              <td>Final amount</td>
+              <td>None</td>
+              <td>Final amount</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="callout callout-tip">
+          <div class="callout-label">Watch for</div>
+          Loose stools or digestive upset during the transition. If you see it, slow down and stay at the current step for a few more days. Rice is actually easy on dog stomachs (vets recommend bland rice diets for upset stomachs), so this transition should be smoother than switching between kibble brands.
+        </div>
+      </div>
+    </details>
+
+    <!-- SECTION: Nutrition Notes -->
+    <details>
+      <summary>
+        <span class="icon">📊</span>
+        Nutrition Notes
+        <span class="chevron">▼</span>
+      </summary>
+      <div class="section-content">
+        <p>At the 75% kibble level, the Victor food still covers all essential vitamins and minerals. The topper adds calories, fiber, and digestible carbohydrates. Here's what each ingredient brings:</p>
+
+        <ul>
+          <li><strong>White rice (70%):</strong> Easy-to-digest carbohydrate energy. Dogs digest white rice better than brown. Gentle on stomachs.</li>
+          <li><strong>Mixed vegetables — carrots, corn, peas, green beans (30%):</strong> Fiber, beta-carotene, vitamin K, manganese, and some plant protein. The variety adds good micronutrient coverage.</li>
+        </ul>
+
+        <h3>Why Not a Supplement?</h3>
+        <p>At 75% kibble, you don't need a separate multivitamin. The Victor formula already has glucosamine, chondroitin, probiotics, omega fatty acids, taurine, and a full vitamin/mineral panel. At 75%, that's still enough to cover daily requirements. If you ever drop below 70% kibble, you'd want to add a dog multivitamin supplement like Balance IT.</p>
+
+        <h3>Calorie Match</h3>
+        <p>This plan delivers approximately the same daily calories each dog was getting on the old kibble + wet food plan. All three dogs are maintaining their weight well on the current amounts, so no adjustment should be needed. If any dog starts gaining or losing weight, adjust the topper amount up or down by 15–20g per meal.</p>
+
+        <div class="callout callout-info">
+          <div class="callout-label">Weight check</div>
+          Weigh the dogs monthly or do the rib test — you should be able to feel their ribs easily with light pressure but not see them. If you notice weight changes, adjust the topper portion first (it's the easiest variable to change).
+        </div>
+      </div>
+    </details>
+
+    <!-- SECTION: Optional Add-ins -->
+    <details>
+      <summary>
+        <span class="icon">✨</span>
+        Optional Add-ins &amp; Variations
+        <span class="chevron">▼</span>
+      </summary>
+      <div class="section-content">
+        <p>The base recipe (rice, eggs, peas) is your staple. But if you want to rotate things for variety, here are safe add-ins:</p>
+
+        <ul>
+          <li><strong>Eggs (hard-boiled or scrambled):</strong> If you want to add extra protein, a few hard-boiled or scrambled eggs per batch is an easy option. Chop them up and mix in. One of the most bioavailable protein sources for dogs.</li>
+          <li><strong>Frozen broccoli:</strong> Fine in small amounts. Costco has the Kirkland Organic 4×16oz for $9.99. You can swap some of the mixed veggies for broccoli if you want variety. Don't overdo it — too much broccoli can cause gas.</li>
+          <li><strong>Bone broth (no sodium/no onion):</strong> Mix a splash into the topper for extra flavor on days the dogs seem uninterested. Make sure it has zero onion and zero garlic — check the label carefully.</li>
+          <li><strong>Ground turkey:</strong> You can add it to a batch for extra protein. The Costco fresh ground turkey (93/7, 4×1.67lb for $25.99) works — cook it through, drain, and mix in. It's more expensive per calorie than eggs, so treat it as an occasional rotation, not a staple.</li>
+          <li><strong>Spinach:</strong> Small amounts are fine, raw or lightly steamed. Good source of iron. Don't make it a main ingredient — oxalates in large quantities aren't great for dogs.</li>
+          <li><strong>Plain pumpkin puree:</strong> Great for digestion. A spoonful mixed in can help with loose stools or picky eating.</li>
+        </ul>
+
+        <div class="callout callout-warning">
+          <div class="callout-label">Never Add</div>
+          Onions, garlic, grapes, raisins, chocolate, xylitol (sugar-free sweetener), macadamia nuts, or anything with added salt or seasoning.
+        </div>
+      </div>
+    </details>
+
+  </div><!-- /dogs-section -->
+
+
+  <!-- ═══════════════════════════════════════════════════════════════════ -->
+  <!-- CATS SECTION                                                        -->
+  <!-- ═══════════════════════════════════════════════════════════════════ -->
+  <div id="cats-section" role="tabpanel" aria-labelledby="tab-cats" style="display:none">
+
+    <!-- Quick Reference -->
+    <div class="quick-ref">
+      <div class="quick-ref-title">⚡ Quick Reference</div>
+      <div class="quick-ref-grid-2col">
+        <div class="dog-card-mini">
+          <div class="name">Maui</div>
+          <div class="breed">Domestic shorthair · female (spayed) · ~13 lbs</div>
+          <div class="amounts">
+            Fill dry feeder as needed<br>
+            <strong>~1 can</strong> wet food (AM + PM)<br>
+            No current meds
+          </div>
+        </div>
+        <div class="dog-card-mini">
+          <div class="name">Moki</div>
+          <div class="breed">Domestic shorthair · male (neutered) · ~8 lbs</div>
+          <div class="amounts">
+            Fill dry feeder as needed<br>
+            <strong>~1 can</strong> wet food (AM + PM)<br>
+            Methimazole 5mg — 1 tablet (AM + PM)
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION: How Meals Work -->
+    <details open>
+      <summary>
+        <span class="icon">🍽️</span>
+        How Meals Work
+        <span class="chevron">▼</span>
+      </summary>
+      <div class="section-content">
+        <p>Both cats eat <strong>twice a day</strong> — morning and evening. Each cat has their own <strong>microchip-activated feeder</strong> that only opens for them, so you don't need to worry about them stealing each other's dry food. The lid opens automatically when the right cat approaches.</p>
+
+        <h3>Dry Food — Feeders</h3>
+        <p>Each feeder holds dry kibble. Just <strong>top them off</strong> when they're running low — there's no strict per-meal amount for dry. The feeders control access, not quantity.</p>
+        <ul>
+          <li><strong>Maui's feeder:</strong> Hill's Science Diet Adult Sensitive Stomach &amp; Skin Grain-Free Salmon &amp; Yellow Pea</li>
+          <li><strong>Moki's feeder:</strong> Royal Canin Veterinary Gastrointestinal (the prescription bag — don't substitute)</li>
+        </ul>
+
+        <h3>Wet Food — Per Meal</h3>
+        <p>Each cat gets <strong>~1 can of wet food</strong> per meal (morning and evening). Open a can, put it in their bowl next to their feeder. Flavors are flexible — we keep several on hand.</p>
+        <ul>
+          <li><strong>Maui:</strong> Her current favorite is <strong>Fancy Feast Medleys Shredded White Meat Chicken Fare</strong>. She'll eat others too — Fancy Feast Medleys White Meat Chicken Primavera, Purina ONE Chicken, etc.</li>
+          <li><strong>Moki:</strong> Whatever he'll eat — see the pickiness note below. We keep Fancy Feast Medleys, Purina ONE Beef, and Purina ONE Chicken on hand. Try whichever he'll accept.</li>
+        </ul>
+
+        <div class="callout callout-gold">
+          <div class="callout-label">Moki is extremely picky</div>
+          Moki will sometimes decide he's done with a food he's eaten happily for weeks and completely refuse it. We continuously rotate his wet food to stay ahead of this. Check what's in the pantry — there should be a few different options. If he's refusing one, try another brand or flavor before assuming something is wrong.
+        </div>
+
+        <h3>Feeding Schedule</h3>
+        <p>Feed them <strong>around 8am and 8pm</strong> — same time as the dogs. The dry feeders handle themselves — you just need to put out wet food twice a day and give Moki his pill.</p>
+      </div>
+    </details>
+
+    <!-- SECTION: Moki's Medication -->
+    <details>
+      <summary>
+        <span class="icon">💊</span>
+        Moki's Medication
+        <span class="chevron">▼</span>
+      </summary>
+      <div class="section-content">
+        <p>Moki takes <strong>Methimazole</strong> for his thyroid. This is important — don't skip doses.</p>
+
+        <h3>Dosing</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Medication</th>
+              <th>Dose</th>
+              <th>Frequency</th>
+              <th>How to Give It</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Methimazole</strong></td>
+              <td>5mg (1 tablet)</td>
+              <td>Twice daily (with AM + PM meals)</td>
+              <td>Rub on the inner flap of his ear — alternate ears each dose. The pill bottle is from Costco Pharmacy. <em>Note: the label says ½ tablet but the vet updated the dose to 1 full tablet.</em></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="callout callout-info">
+          <div class="callout-label">About Methimazole</div>
+          Methimazole controls hyperthyroidism (overactive thyroid). Without it, Moki's heart rate goes up, he loses weight, and can get pretty miserable. It's a long-term medication, not something we're trying to wean him off of.
+        </div>
+
+        <div class="callout callout-warning">
+          <div class="callout-label">If he refuses to eat</div>
+          Because Moki is so picky, there will be times he just won't eat a meal. The medication is a transdermal gel rubbed on his ear — you can apply it regardless of whether he eats. If he's skipping meals, try a different wet food flavor, or add a splash of hot water to his wet food and stir it in — the warm smell often gets him interested. If he goes more than 24 hours without eating, let us know.
+        </div>
+      </div>
+    </details>
+
+    <!-- SECTION: Litter Box -->
+    <details>
+      <summary>
+        <span class="icon">🪣</span>
+        Litter Box
+        <span class="chevron">▼</span>
+      </summary>
+      <div class="section-content">
+        <p>Both cats use a <strong>Litter Robot</strong> in the laundry area (same room where they're fed). It's a self-cleaning automatic litter box — it handles the scooping itself.</p>
+
+        <h3>Your Only Job: Empty the Collection Tray</h3>
+        <ul>
+          <li>Pull out the waste drawer at the bottom and empty it into the trash every <strong>2–4 days</strong>, depending on how full it looks.</li>
+          <li>If the <strong>blue light is flashing</strong>, the drawer needs to be emptied.</li>
+          <li><strong>No scooping needed</strong> — the Litter Robot does that automatically after each use.</li>
+        </ul>
+
+        <h3>Litter Refill</h3>
+        <p>There's a litter hopper on top that automatically keeps the bowl filled. Just make sure there's <strong>Fresh Step clumping litter in the hopper</strong> — if it's getting low, top it off. You shouldn't need to worry about this much during a normal stay.</p>
+
+        <div class="callout callout-gold">
+          <div class="callout-label">Heads up — Moki's digestive issues</div>
+          Moki has significant digestive sensitivities. His poops are often extremely stinky — more than you'd expect from a small cat. This is completely normal for him, not a sign something's wrong. The Litter Robot handles it, but just be aware when emptying the drawer.
+        </div>
+      </div>
+    </details>
+
+    <!-- SECTION: Health Notes -->
+    <details>
+      <summary>
+        <span class="icon">🩺</span>
+        Health Notes
+        <span class="chevron">▼</span>
+      </summary>
+      <div class="section-content">
+
+        <h3>Maui <span class="tag tag-orange">13 lbs</span></h3>
+        <p>Maui was born in June 2009 — she's almost 17 and doing remarkably well for her age. A few things to know:</p>
+        <ul>
+          <li><strong>Allergies:</strong> She has environmental/food allergies — hence the Hill's Science Diet Sensitive Stomach &amp; Skin food. Don't switch her dry food.</li>
+          <li><strong>Overweight:</strong> She's on the chunky side. Don't give her extra food, treats, or let her eat Moki's food. We're trying to keep her weight stable, not actively diet her right now.</li>
+          <li><strong>Early-stage kidney disease:</strong> Currently minor and being monitored. She's not on a prescription kidney diet yet, but avoid high-phosphorus treats (no deli meat, no fish-heavy treats). Keep fresh water available at all times — cats with kidney issues need to stay hydrated.</li>
+        </ul>
+
+        <h3>Moki <span class="tag tag-blue">8 lbs</span></h3>
+        <p>Moki was born around June 2011. He's a small, wiry cat and has had a few health things going on for years:</p>
+        <ul>
+          <li><strong>Hyperthyroidism:</strong> Managed with Methimazole (see the medication section). When well-controlled, he's fine. Signs it's not controlled: weight loss, increased appetite, hyperactivity, vomiting.</li>
+          <li><strong>Early-stage kidney disease:</strong> Same as Maui — minor, being monitored. Fresh water is important.</li>
+          <li><strong>Digestive sensitivities:</strong> His gut is just sensitive. Stinky poops are normal for him. Loose stools occasionally happen too — if it's one-off, not a concern. If it's persistent or he's clearly uncomfortable, let us know.</li>
+          <li><strong>Extreme pickiness:</strong> He will sometimes completely stop eating a food he previously loved. This is not illness — it's just Moki being Moki. We keep several food options on hand. If he won't eat one thing, try another.</li>
+        </ul>
+
+        <div class="callout callout-info">
+          <div class="callout-label">Water</div>
+          Both cats have early-stage kidney disease, so keeping them hydrated matters. They share a pet fountain with the dogs in the kitchen area — just make sure it's running and topped off.
+        </div>
+      </div>
+    </details>
+
+    <!-- SECTION: For House Sitters -->
+    <details>
+      <summary>
+        <span class="icon">🏠</span>
+        For House Sitters
+        <span class="chevron">▼</span>
+      </summary>
+      <div class="section-content">
+        <p>Hey! Thanks for taking care of the cats. Here's the short version of everything you need to know.</p>
+
+        <h3>Daily Routine</h3>
+        <ol>
+          <li><strong>Feed both cats</strong> twice a day (morning and evening) — see amounts in the quick reference above.</li>
+          <li><strong>Give Moki his Methimazole</strong> with both meals — rub the gel on the inner flap of his ear (alternate ears). See the medication section for details.</li>
+          <li><strong>Empty the Litter Robot drawer</strong> every 2–4 days, or when the blue light flashes. No scooping needed — it cleans itself.</li>
+          <li><strong>Keep the kitchen fountain running</strong> — cats and dogs share it, and staying hydrated matters especially for the cats.</li>
+        </ol>
+
+        <h3>Key Things to Know</h3>
+        <ul>
+          <li><strong>Keep their bowls separate.</strong> Maui will eat Moki's food if you let her, and Moki needs to eat his own food for the medication to work.</li>
+          <li><strong>Moki may refuse a food.</strong> If he won't eat what's out, try a different flavor or brand from the options we left. You can also add a splash of hot water to his wet food and stir it in — the warm smell often gets him interested.</li>
+          <li><strong>Maui is friendly and low-maintenance.</strong> She'll probably want lap time. She may beg for food — don't give her extra.</li>
+          <li><strong>Moki is more skittish</strong> and may hide for a day or two while he adjusts to you being there. That's normal. He'll come out eventually.</li>
+        </ul>
+
+        <h3>What to Watch For</h3>
+        <ul>
+          <li>Moki refusing to eat for more than 24 hours</li>
+          <li>Moki vomiting repeatedly or seeming lethargic</li>
+          <li>Either cat avoiding the Litter Robot (may indicate a hardware issue)</li>
+          <li>Either cat clearly in distress</li>
+        </ul>
+
+        <div class="callout callout-warning">
+          <div class="callout-label">In Case of Emergency</div>
+          <strong>Regular Vet:</strong> Berlin Veterinary Clinic — (920) 361-2101<br>
+          <strong>Emergency Vet:</strong> UW Veterinary Care, Madison — (608) 263-7600
+        </div>
+      </div>
+    </details>
+
+    <!-- SECTION: Shopping List -->
+    <details>
+      <summary>
+        <span class="icon">🛒</span>
+        Shopping List
+        <span class="chevron">▼</span>
+      </summary>
+      <div class="section-content">
+
+        <h3>Regular Items</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Item</th>
+              <th>Brand / Product</th>
+              <th>Where to Buy</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Maui's dry food</strong></td>
+              <td>Hill's Science Diet Sensitive Stomach &amp; Skin Grain-Free Salmon &amp; Yellow Pea</td>
+              <td>Chewy (autoship)</td>
+            </tr>
+            <tr>
+              <td><strong>Maui's wet food</strong></td>
+              <td>Fancy Feast Medleys Shredded White Meat Chicken Fare (her current favorite), plus Fancy Feast Medleys White Meat Chicken Primavera, Purina ONE Chicken</td>
+              <td>Chewy (autoship)</td>
+            </tr>
+            <tr>
+              <td><strong>Moki's dry food</strong></td>
+              <td>Royal Canin Veterinary Gastrointestinal (8.8 lb bag) — prescription required</td>
+              <td>Chewy (autoship, Rx on file)</td>
+            </tr>
+            <tr>
+              <td><strong>Moki's wet food (rotation)</strong></td>
+              <td>Fancy Feast Medleys Shredded White Meat Chicken Fare, Fancy Feast Medleys White Meat Chicken Primavera, Purina ONE Beef, Purina ONE Chicken — keep a variety on hand</td>
+              <td>Chewy (autoship)</td>
+            </tr>
+            <tr>
+              <td><strong>Methimazole 5mg</strong></td>
+              <td>Costco Pharmacy (RX #6219052) — requires vet prescription</td>
+              <td>Costco Pharmacy</td>
+            </tr>
+            <tr>
+              <td><strong>Fresh Step litter</strong></td>
+              <td>Fresh Step Clumping</td>
+              <td>Chewy (autoship)</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="callout callout-tip">
+          <div class="callout-label">Running low?</div>
+          Everything comes from Chewy on autoship — you shouldn't run out during a normal stay. If something is getting low, just let us know and we'll get more shipped. Don't go buy it yourself.
+        </div>
+      </div>
+    </details>
+
+  </div><!-- /cats-section -->
+
+
+  <!-- Vet Footer — shared, always visible -->
+  <div class="footer">
+    <h3>🩺 Vet Contacts</h3>
+    <p><strong>Regular Vet:</strong> Berlin Veterinary Clinic · <a href="tel:9203612101">(920) 361-2101</a></p>
+    <p>W1915 County Road F, Berlin, WI 54923</p>
+    <div class="divider"></div>
+    <p><strong>Emergency Vet:</strong> UW Veterinary Care · <a href="tel:6082637600">(608) 263-7600</a></p>
+    <p>2015 Linden Dr, Madison, WI 53706</p>
+  </div>
+
+</div>
+
+<script>
+  function switchTab(tab) {
+    const dogsSection = document.getElementById('dogs-section');
+    const catsSection = document.getElementById('cats-section');
+    const dogsBtn = document.getElementById('tab-dogs');
+    const catsBtn = document.getElementById('tab-cats');
+
+    if (tab === 'dogs') {
+      dogsSection.style.display = '';
+      catsSection.style.display = 'none';
+      dogsBtn.classList.add('active');
+      dogsBtn.setAttribute('aria-selected', 'true');
+      catsBtn.classList.remove('active');
+      catsBtn.setAttribute('aria-selected', 'false');
+    } else {
+      dogsSection.style.display = 'none';
+      catsSection.style.display = '';
+      catsBtn.classList.add('active');
+      catsBtn.setAttribute('aria-selected', 'true');
+      dogsBtn.classList.remove('active');
+      dogsBtn.setAttribute('aria-selected', 'false');
+    }
+  }
+</script>
+
+</body>
+</html>
