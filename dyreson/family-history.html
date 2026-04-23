@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+<title>The Dyreson Line — From a Valdres Valley to a Wisconsin Coulee</title>
+<meta name="description" content="The Dyreson family history — Norwegian farmers from Valdres to the Driftless Area of Wisconsin, told in five generations of patronymic names.">
+<meta property="og:title" content="The Dyreson Line — From a Valdres Valley to a Wisconsin Coulee">
+<meta property="og:description" content="The Dyreson family history — Norwegian farmers from Valdres to the Driftless Area of Wisconsin, told in five generations of patronymic names.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://lukelabonte.github.io/public-documents/dyreson/family-history.html">
+<meta property="og:image" content="https://lukelabonte.github.io/public-documents/preview.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Dyreson Line — From a Valdres Valley to a Wisconsin Coulee">
+<meta name="twitter:description" content="The Dyreson family history — Norwegian farmers from Valdres to the Driftless Area of Wisconsin, told in five generations of patronymic names.">
+<meta name="twitter:image" content="https://lukelabonte.github.io/public-documents/preview.png">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+
+<style>
+/* Page-specific styles only — everything else uses the shared design system */
+
+/* Rosemaling-inspired emblem — header icon */
+.crest {
+  width: 90px;
+  height: auto;
+  margin: 0 auto 16px;
+  display: block;
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.1));
+}
+
+/* TOC */
+.toc {
+  background: var(--surface, #fff);
+  border: 1.5px solid var(--border, #e5dfd5);
+  border-radius: var(--radius, 12px);
+  padding: 20px 24px;
+  margin: 0 0 32px;
+}
+.toc-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.05rem;
+  margin: 0 0 12px;
+  color: var(--text, #2a2623);
+  letter-spacing: 0.02em;
+}
+.toc ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: toc;
+  columns: 2;
+  column-gap: 24px;
+}
+.toc li {
+  counter-increment: toc;
+  break-inside: avoid;
+  padding: 4px 0;
+  font-size: 0.92rem;
+}
+.toc li::before {
+  content: counter(toc) ".";
+  color: var(--accent, #B5632E);
+  font-weight: 600;
+  margin-right: 6px;
+  min-width: 1.5em;
+  display: inline-block;
+}
+.toc a {
+  color: var(--text-muted, #5a5048);
+  text-decoration: none;
+  border-bottom: 1px dotted transparent;
+}
+.toc a:hover {
+  color: var(--accent, #B5632E);
+  border-bottom-color: var(--accent, #B5632E);
+}
+@media (max-width: 560px) {
+  .toc ol { columns: 1; }
+}
+
+/* Pull quote */
+.pullquote {
+  margin: 28px 0;
+  padding: 20px 24px;
+  border-top: 1.5px solid var(--accent, #B5632E);
+  border-bottom: 1.5px solid var(--accent, #B5632E);
+  text-align: center;
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.2rem;
+  line-height: 1.45;
+  color: var(--text, #2a2623);
+  font-style: italic;
+}
+
+/* Timeline */
+.timeline {
+  margin: 16px 0 24px;
+  border-left: 2px solid var(--accent, #B5632E);
+  padding-left: 20px;
+}
+.tl-item {
+  position: relative;
+  padding: 6px 0 18px;
+}
+.tl-item::before {
+  content: "";
+  position: absolute;
+  left: -26px;
+  top: 12px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--bg, #FAF7F2);
+  border: 2px solid var(--accent, #B5632E);
+}
+.tl-year {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1rem;
+  color: var(--accent, #B5632E);
+  margin-bottom: 2px;
+}
+.tl-title {
+  font-weight: 600;
+  font-size: 0.98rem;
+  margin-bottom: 2px;
+}
+.tl-desc {
+  font-size: 0.92rem;
+  color: var(--text-muted, #5a5048);
+  line-height: 1.5;
+}
+
+/* Facts grid */
+.facts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px 24px;
+  margin: 16px 0 24px;
+}
+.fact-label {
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent, #B5632E);
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+.fact-value {
+  font-size: 0.95rem;
+  color: var(--text, #2a2623);
+  line-height: 1.45;
+}
+
+/* Patronymic ladder — shows the generational name evolution */
+.ladder {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+  margin: 16px 0 24px;
+  counter-reset: gen;
+}
+.rung {
+  position: relative;
+  background: var(--surface, #fff);
+  border: 1.5px solid var(--border, #e5dfd5);
+  border-radius: var(--radius, 12px);
+  padding: 16px 18px 14px;
+  counter-increment: gen;
+}
+.rung-num {
+  position: absolute;
+  top: -10px;
+  left: 14px;
+  background: var(--accent, #B5632E);
+  color: #fff;
+  font-family: 'DM Serif Display', serif;
+  font-size: 0.78rem;
+  padding: 2px 10px;
+  border-radius: 10px;
+  letter-spacing: 0.08em;
+}
+.rung-name {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.1rem;
+  color: var(--text, #2a2623);
+  margin: 4px 0 2px;
+}
+.rung-years {
+  font-size: 0.82rem;
+  color: var(--accent, #B5632E);
+  font-style: italic;
+  margin-bottom: 8px;
+}
+.rung-desc {
+  font-size: 0.88rem;
+  color: var(--text-muted, #5a5048);
+  line-height: 1.5;
+}
+
+/* Heritage places */
+.places-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+  margin: 16px 0 24px;
+}
+.place {
+  background: var(--surface, #fff);
+  border: 1.5px solid var(--border, #e5dfd5);
+  border-radius: var(--radius, 12px);
+  padding: 16px 18px;
+}
+.place-name {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.1rem;
+  margin-bottom: 2px;
+  color: var(--text, #2a2623);
+}
+.place-tag {
+  display: inline-block;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent, #B5632E);
+  background: rgba(181, 99, 46, 0.08);
+  padding: 2px 8px;
+  border-radius: 4px;
+  margin-bottom: 8px;
+}
+.place-desc {
+  font-size: 0.9rem;
+  color: var(--text-muted, #5a5048);
+  line-height: 1.5;
+}
+
+/* Known vs Lore table */
+.known-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 12px 0 24px;
+  font-size: 0.92rem;
+}
+.known-table th,
+.known-table td {
+  text-align: left;
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--border, #e5dfd5);
+  vertical-align: top;
+}
+.known-table th {
+  font-family: 'DM Serif Display', serif;
+  font-weight: 400;
+  font-size: 0.82rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent, #B5632E);
+  background: rgba(181, 99, 46, 0.04);
+}
+.known-table tr:last-child td { border-bottom: none; }
+@media (max-width: 560px) {
+  .known-table, .known-table tbody, .known-table tr, .known-table td, .known-table th {
+    display: block;
+    width: 100%;
+  }
+  .known-table thead { display: none; }
+  .known-table td {
+    padding: 8px 0;
+    border-bottom: none;
+  }
+  .known-table tr {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border, #e5dfd5);
+  }
+  .known-table tr:last-child { border-bottom: none; }
+  .known-table td:first-child {
+    font-weight: 600;
+    color: var(--text, #2a2623);
+  }
+}
+
+/* Emblem callout */
+.blazon {
+  margin: 20px 0;
+  padding: 16px 20px;
+  background: rgba(181, 99, 46, 0.06);
+  border-left: 3px solid var(--accent, #B5632E);
+  border-radius: 6px;
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+.blazon-label {
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent, #B5632E);
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+/* Simple list spacing in prose */
+.prose ul, .prose ol { margin: 8px 0 16px 20px; }
+.prose li { margin-bottom: 6px; line-height: 1.55; }
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+<a href="../index.html" class="back-btn">← All Documents</a>
+
+  <div class="header">
+    <!-- Rosemaling-inspired medallion with heart (for Dýri = "the dear one") -->
+    <svg class="crest" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-label="A rosemaling medallion with a red heart at center — the Dyreson emblem">
+      <!-- Outer circular border -->
+      <circle cx="50" cy="50" r="46" fill="#fff5ee" stroke="#6b4423" stroke-width="1.2"/>
+      <circle cx="50" cy="50" r="43" fill="none" stroke="#b91c1c" stroke-width="0.4" opacity="0.4"/>
+
+```
+  <!-- Telemark-style C-scrolls around the border -->
+  <g fill="none" stroke="#2a4d7f" stroke-width="1.2" stroke-linecap="round">
+    <!-- Top scroll -->
+    <path d="M 35 18 Q 40 12 50 14 Q 60 12 65 18"/>
+    <path d="M 40 20 Q 45 16 50 18 Q 55 16 60 20"/>
+    <!-- Bottom scroll -->
+    <path d="M 35 82 Q 40 88 50 86 Q 60 88 65 82"/>
+    <path d="M 40 80 Q 45 84 50 82 Q 55 84 60 80"/>
+    <!-- Left scroll -->
+    <path d="M 18 35 Q 12 40 14 50 Q 12 60 18 65"/>
+    <!-- Right scroll -->
+    <path d="M 82 35 Q 88 40 86 50 Q 88 60 82 65"/>
+  </g>
+
+  <!-- Decorative leaves/tulips in corners, Telemark style -->
+  <g fill="#2a4d7f" opacity="0.85">
+    <path d="M 25 25 Q 22 28 23 32 Q 26 30 27 27 Z"/>
+    <path d="M 75 25 Q 78 28 77 32 Q 74 30 73 27 Z"/>
+    <path d="M 25 75 Q 22 72 23 68 Q 26 70 27 73 Z"/>
+    <path d="M 75 75 Q 78 72 77 68 Q 74 70 73 73 Z"/>
+  </g>
+
+  <!-- Small red accent drops -->
+  <g fill="#b91c1c">
+    <circle cx="28" cy="22" r="1.2"/>
+    <circle cx="72" cy="22" r="1.2"/>
+    <circle cx="28" cy="78" r="1.2"/>
+    <circle cx="72" cy="78" r="1.2"/>
+    <circle cx="22" cy="50" r="1.2"/>
+    <circle cx="78" cy="50" r="1.2"/>
+  </g>
+
+  <!-- Central heart — for Dýri, "the dear/precious one" -->
+  <path d="M 50 65 C 50 62, 44 56, 40 52 C 36 48, 36 42, 40 40 C 44 38, 48 40, 50 44 C 52 40, 56 38, 60 40 C 64 42, 64 48, 60 52 C 56 56, 50 62, 50 65 Z"
+        fill="#b91c1c" stroke="#7a1212" stroke-width="0.6"/>
+
+  <!-- Heart highlight -->
+  <ellipse cx="44" cy="46" rx="2" ry="3" fill="#e85a52" opacity="0.55"/>
+
+  <!-- Small gold five-petal flower at top center -->
+  <g transform="translate(50 30)">
+    <circle cx="0" cy="0" r="1.6" fill="#d4a340"/>
+    <circle cx="-3" cy="0" r="1.4" fill="#fff5ee" stroke="#d4a340" stroke-width="0.3"/>
+    <circle cx="3" cy="0" r="1.4" fill="#fff5ee" stroke="#d4a340" stroke-width="0.3"/>
+    <circle cx="0" cy="-3" r="1.4" fill="#fff5ee" stroke="#d4a340" stroke-width="0.3"/>
+    <circle cx="-2" cy="2.4" r="1.3" fill="#fff5ee" stroke="#d4a340" stroke-width="0.3"/>
+    <circle cx="2" cy="2.4" r="1.3" fill="#fff5ee" stroke="#d4a340" stroke-width="0.3"/>
+    <circle cx="0" cy="0" r="0.8" fill="#d4a340"/>
+  </g>
+</svg>
+<h1>The Dyreson Line</h1>
+<p class="subtitle">From a Valdres valley to a Wisconsin coulee &mdash; a Norwegian farming family history</p>
+<div class="updated">Kari's paternal line &middot; Prepared April 2026</div>
+```
+
+  </div>
+
+  <!-- ================= AT A GLANCE ================= -->
+
+  <h2 class="section-heading">At a glance</h2>
+  <div class="facts">
+    <div>
+      <div class="fact-label">The Name</div>
+      <div class="fact-value"><strong>Dyreson</strong> &mdash; from Old Norse <em>Dýri</em>, "the dear one" or "the precious one."</div>
+    </div>
+    <div>
+      <div class="fact-label">Origin</div>
+      <div class="fact-value">Almost certainly <strong>Valdres</strong> &mdash; an inland valley in eastern Norway. Departed through Christiania (today's Oslo).</div>
+    </div>
+    <div>
+      <div class="fact-label">The Crosser</div>
+      <div class="fact-value"><strong>Anders Dyresen</strong> (1828&ndash;1880), a younger son in the great wave of 1866&ndash;1873.</div>
+    </div>
+    <div>
+      <div class="fact-label">The Migration</div>
+      <div class="fact-value">Part of <strong>900,000 Norwegians</strong> who left between 1825 and 1930 &mdash; one-third of Norway's population.</div>
+    </div>
+    <div>
+      <div class="fact-label">The Settlement</div>
+      <div class="fact-value">The <strong>Driftless Area</strong> of southwestern Wisconsin &mdash; ridges and coulees that looked like home.</div>
+    </div>
+    <div>
+      <div class="fact-label">The Class</div>
+      <div class="fact-value">Not nobles. Not Vikings. <strong>Bønder</strong> &mdash; Norwegian freeholder farmers.</div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ================= TOC ================= -->
+
+  <div class="toc">
+    <div class="toc-title">Contents</div>
+    <ol>
+      <li><a href="#story">The Story in Brief</a></li>
+      <li><a href="#patronymics">A Pedigree Written in Patronymics</a></li>
+      <li><a href="#dyhre">What "Dyhre" Actually Means</a></li>
+      <li><a href="#valdres">The Oslo Question, Honestly Answered</a></li>
+      <li><a href="#odel">Why a Younger Son Crossed an Ocean</a></li>
+      <li><a href="#driftless">The Driftless Area</a></li>
+      <li><a href="#hendricks">About "Bessie Hendricks"</a></li>
+      <li><a href="#culture">The Culture That Came With Them</a></li>
+      <li><a href="#emblem">On the Emblem</a></li>
+      <li><a href="#timeline">Timeline</a></li>
+      <li><a href="#documented">Known vs. Lore</a></li>
+      <li><a href="#next">Next Steps</a></li>
+    </ol>
+  </div>
+
+  <!-- ================= STORY IN BRIEF ================= -->
+
+  <div class="prose">
+
+  <h2 id="story" class="section-heading">The story in brief</h2>
+
+  <p>The Dyreson line is a pristine Norwegian farming pedigree whose very names tell the story of emigration. <strong>Five generations of patronymic naming &mdash; Simensen, then Dyresen, then Dyreson &mdash; capture the full arc from rural Norway to the Driftless Area of Wisconsin in three surname changes.</strong></p>
+
+  <p>Family memory points to "the Oslo area," but the evidence in the names themselves points inland and upcountry, almost certainly to <strong>Valdres</strong>, one of the great eastern valleys whose emigrants crowded into the same corner of southwest Wisconsin where Kari's great-great-grandfather Anders settled. The family were never Vikings and never nobles. They were <strong>bønder</strong> &mdash; freeholder farmers &mdash; part of the largest per-capita emigration in Europe outside Ireland, and they brought their Lutheran faith, their rosemaling, their lefse, and their iron-hard work ethic to a landscape of ridges and coulees that looked uncannily like home.</p>
+
+  <p>This page honors that story honestly. It traces a rare Old Norse given name meaning "the dear one," corrects a small but important surname misread (Hendricks was almost certainly <em>Hendrickson</em>), and offers a heritage emblem drawn not from fake heraldry but from the real visual vocabulary of Norwegian farmers &mdash; the rosemaling rose, the heart for "the dear one," the stabbur on a hillside.</p>
+
+  <div class="pullquote">
+    Not Vikings. Not nobles. <em>Bønder</em> &mdash; Norwegian freeholder farmers &mdash; carrying a rare Old Norse name meaning "the dear one" from an inland valley to a coulee half a world away, without ever making a fuss about it.
+  </div>
+
+  <!-- ================= PATRONYMICS ================= -->
+
+  <h2 id="patronymics" class="section-heading">A pedigree written in patronymics</h2>
+
+  <p>The Norwegian naming system before the 1923 Name Law was not a system of surnames at all. A person had a given name, a patronymic (father's given name plus <strong>-sen</strong> for a son, <strong>-datter</strong> for a daughter), and often a farm name as locator. <strong>The patronymic shifted with every generation</strong> &mdash; it was not inherited. Kari's documented line reads that system like a clock:</p>
+
+  </div><!-- /prose -->
+
+  <div class="ladder">
+    <div class="rung">
+      <div class="rung-num">Gen 1</div>
+      <div class="rung-name">Dyhre Simensen</div>
+      <div class="rung-years">b. 1794</div>
+      <div class="rung-desc">"Dyhre, son of Simen." The <em>h</em> is an older Dano-Norwegian spelling convention &mdash; silent. Likely born on a Valdres farm.</div>
+    </div>
+    <div class="rung">
+      <div class="rung-num">Gen 2</div>
+      <div class="rung-name">Anders Dyresen</div>
+      <div class="rung-years">1828&ndash;1880</div>
+      <div class="rung-desc">"Anders, son of Dyhre." The Atlantic crosser. His patronymic is what got caught mid-air and crystallized into a family surname.</div>
+    </div>
+    <div class="rung">
+      <div class="rung-num">Gen 3</div>
+      <div class="rung-name">Gilbert Dyreson</div>
+      <div class="rung-years">1872&ndash;1948</div>
+      <div class="rung-desc">Born in America. In Norway he would have been <em>Gilbert Anderssen</em>. Because Anders was the crosser, <em>Dyresen</em> stuck &mdash; now anglicized to <em>Dyreson</em>.</div>
+    </div>
+    <div class="rung">
+      <div class="rung-num">Gen 4</div>
+      <div class="rung-name">Russell E. Dyreson</div>
+      <div class="rung-years">1912&ndash;1970</div>
+      <div class="rung-desc">A fixed American surname by now. The patronymic pattern is a linguistic fossil inside the name &mdash; most bearers no longer notice it.</div>
+    </div>
+  </div>
+
+  <div class="prose">
+
+  <p>The women in the line carry the same pattern in mirror image. Anders's wife was <strong>Olava Marie Larsdatter</strong> ("daughter of Lars"). His mother was <strong>Rangdi Olsdatter</strong> ("daughter of Ole"). Norwegian women kept the <em>-datter</em> form throughout life, even after marriage &mdash; Olava remained <em>Larsdatter</em>, not <em>Dyresen</em>, through every Norwegian parish record of her lifetime.</p>
+
+  <p>That the family is <strong>Dyreson</strong> today rather than <em>Anderson</em> is a small accident of immigration timing: Anders was the one who crossed the Atlantic, so it was his patronymic that got caught mid-crossing and became hereditary. Had his father Dyhre been the emigrant instead, we might be looking at a family named <em>Simonson</em> today. The whole pedigree is a textbook of the old system.</p>
+
+  <!-- ================= DYHRE ================= -->
+
+  <h2 id="dyhre" class="section-heading">What "Dyhre" actually means</h2>
+
+  <p>The given name <strong>Dyre</strong> (spelled <em>Dyhre</em> in the Dano-Norwegian orthography of the 1700s and 1800s &mdash; that silent <em>h</em> is simply an older convention) derives from <strong>Old Norse <em>Dýri</em></strong>. Scholars accept two closely related roots, and both carry beautifully.</p>
+
+  <p>The dominant reading traces it to the Old Norse adjective <strong><em>dýrr</em></strong> &mdash; <strong>"dear, precious, valuable, beloved, held in high esteem"</strong> &mdash; cognate with English <em>dear</em> and German <em>teuer</em>. The phrase still lives in modern Norwegian: <em>gode råd er dyre</em>, "good advice is precious," and the patriotic hymn <em>Gud signe vårt dyre fedreland</em>, "God bless our precious homeland." A secondary reading connects it to the Old Norse noun <strong><em>dýr</em></strong>, "animal" or specifically "deer" &mdash; the two words were near-homophones, and the name carried a faint echo of the noble stag as well.</p>
+
+  <h3>A name with old roots</h3>
+
+  <p>The name is old enough to appear on Viking-Age runestones (Old Norse <strong>DiúRi</strong>), and it turns up in the historical record attached to semi-legendary Rus' figures: the 9th-century Varangian ruler of Kiev, <strong>Dir</strong> (Old Norse <em>Dyri</em>), killed with his co-ruler Askold by Oleg of Novgorod in 882 and called by the Arab geographer al-Masʿūdī "the first among the kings of the Slavs." In medieval Norway the name surfaces in property records &mdash; <strong>Dyre Gjestsson</strong>, a sworn juror on Ringerike, witnessed land transactions between 1444 and 1461. It was never a king's name or a famous saga-hero's name; <strong>it was a respected, uncommon name among freeholder farmers</strong>, which is exactly the class the Dyresons came from.</p>
+
+  <p>The most famous modern bearer is <strong>Dyre Vaa (1903&ndash;1980)</strong>, the Telemark sculptor whose monumental fairy-tale figures at Ankerbrua in Oslo &mdash; Peer Gynt, Kvitebjørn Kong Valemon, Kari Trestakk &mdash; are among the most beloved pieces of Norwegian public art. He came from "real old farming family" in the best of Norwegian peasant culture &mdash; architectural art, rose painting, fiddle music, folk songs. He is a perfect cultural touchstone for a rural-Norwegian family honoring the same rare name: an artist who made the name famous without ever pretending his roots were anything other than <em>bondestand</em>, the farmer class.</p>
+
+  <p>The name is extremely rare today. <strong>Statistics Norway records only about 37 Norwegian men who bear Dyre as a first name.</strong> Its historical cluster is in <strong>inland eastern Norway &mdash; especially Hedmark, Gudbrandsdalen, and Telemark</strong>. It was never a Bergen-or-Oslo metropolitan name. Every piece of linguistic evidence points away from the coasts and toward a rural valley.</p>
+
+  <!-- ================= VALDRES ================= -->
+
+  <h2 id="valdres" class="section-heading">The Oslo question, honestly answered</h2>
+
+  <p>Family lore says "Oslo area." That is a useful starting point to correct, not to discard.</p>
+
+  <p><strong>Christiania &mdash; renamed Oslo in 1925 &mdash; was the principal port of departure for emigrants from all of eastern Norway.</strong> Families from the great inland valleys walked, rode, or took steamers down to the capital to board ships bound for Hull, Liverpool, or directly to Quebec and New York. For a family that departed from Christiania in the 1860s or 1870s, "we came from the Oslo area" is a story that remembers the last footprint in Norway &mdash; the docks &mdash; and quietly forgets the valley two or three hundred kilometers inland where the family actually lived for generations.</p>
+
+  <p>The pedigree itself points very specifically <strong>to Valdres</strong>. Here's why:</p>
+
+  <h3>"Rangdi" is a strong regional marker</h3>
+
+  <p><strong>"Rangdi"</strong> is a contracted dialectal form of <strong>Ragndi</strong>, itself a shortening of <strong>Ragnhild</strong> (Old Norse <em>Ragnhildr</em>, "counsel" + "battle"). That contracted form, <em>Rangdi/Ragndi</em>, is documented almost exclusively in the interior valleys of eastern Norway &mdash; especially Valdres, with some scatter into Hallingdal and Hedmark.</p>
+
+  <p>Multiple historical Rangdis are recorded in Valdres parishes: <strong>Rangdi Olsdatter Røn</strong> of Vestre Slidre, born around 1799 on the Røn farm; <strong>Ragndi Persdatter Kvåle</strong> of Vang, born 1698; <strong>Rangdi K. Nordsveen</strong> of Vang, photographed by the Maihaugen museum. A Rangdi in Telemark or Rogaland or Nordland would be startling; a Rangdi in Valdres is expected.</p>
+
+  <h3>The Wisconsin landing zone is Valdres-dominated</h3>
+
+  <p>The Norwegian settlement in the Driftless Area where the family ultimately settled &mdash; the <strong>Blue Mounds Settlement</strong>, with its anchor communities at Daleyville, Perry, Primrose, Mount Horeb, and Ridgeway &mdash; was, per academic historical studies of the region, <strong>"majority from Valdres in south central Norway."</strong> A replaced gravestone at the Hauge Log Church in Daleyville simply reads <strong>"Valdres Norway."</strong> The <strong>Valdres Samband</strong> &mdash; the oldest of all Norwegian-American bygdelag (district societies) &mdash; was founded in 1899 by emigrants from this exact network.</p>
+
+  <p>Where Anders Dyresen and Olava Marie ended up in the Driftless Area is not random; it is the terminal node of a chain migration stretching straight back to a specific cluster of parishes in Valdres &mdash; most likely <strong>Østre Slidre, Vestre Slidre, or Nord-Aurdal</strong>, in what is today <strong>Innlandet county</strong> (formerly Oppland).</p>
+
+  <div class="note note-orange">
+    <strong>The honest summary.</strong> The family almost certainly came from a Valdres farm in the interior mountain-and-valley country of eastern Norway, traveled down to Christiania to board their emigrant ship, and carried the memory of that final Norwegian city with them &mdash; which two or three generations later became "the Oslo area" in family lore. The real home farm is in a valley most Americans have never heard of, but whose landscape is the reason the Driftless Area felt, to Anders and Olava, like a place they could stay.
+  </div>
+
+  <!-- ================= ODEL ================= -->
+
+  <h2 id="odel" class="section-heading">Why a younger son crossed an ocean</h2>
+
+  <p>Anders was born in 1828 and died in 1880. Gilbert, his son, was born in Wisconsin in 1872. That tight window puts the family's crossing squarely in <strong>the first mass wave of Norwegian emigration, 1866&ndash;1873</strong> &mdash; the largest surge to that point in history, roughly 110,000 people in seven years, peaking at about 12,000 souls a year. Anders was in his late thirties or early forties, a prime age for a man who had spent his youth as the second or third son on a farm he would never inherit.</p>
+
+  <h3>The odel law</h3>
+
+  <p>The engine driving this wave was <strong>odelsrett</strong>, the ancient Norwegian allodial law codified in the Gulating laws around 950 CE and still on the books today. Under odel, <strong>the eldest son inherited the family farm intact</strong>; younger children got little more than a dowry or a tenant's cottage. In a country where only about 3% of the land is arable and the population had doubled over the 19th century, the younger-son problem was structural and merciless.</p>
+
+  <p>Younger sons became <strong>husmenn</strong> &mdash; cotters, with lifetime tenancy on a patch of someone else's land and no security &mdash; or wage laborers, or sailors, or, after 1862, they read the <strong>America letters</strong> that circulated hand-to-hand through the valleys and caught <strong>Amerikafeber</strong>, "America fever."</p>
+
+  <h3>The pull</h3>
+
+  <p>The <strong>Homestead Act of 1862</strong> promised any head of household 160 acres of free federal land for five years of cultivation. The letters home from cousins already in Illinois and Wisconsin described land of a kind a younger son in Valdres could only dream about. Ole Rynning's 1838 <em>True Account of America</em> had already become the bible of the prospective emigrant, and by the late 1860s every <em>bygd</em> had its own returning traveler or its own sheaf of letters.</p>
+
+  <p><strong>Between 1825 and 1930, approximately 900,000 Norwegians left for the United States &mdash; roughly one-third of the country's population, a proportion exceeded in Europe only by Ireland's.</strong> Anders was one of them. Whether he sailed from Christiania to Hull and crossed to Quebec by Allan Line steamer, or went New-York-bound direct, he was one participant in what is simply one of the largest demographic events in Norwegian history.</p>
+
+  <!-- ================= DRIFTLESS ================= -->
+
+  <h2 id="driftless" class="section-heading">The Driftless Area</h2>
+
+  <p>The <strong>Driftless Area</strong> &mdash; the unglaciated wedge of southwest Wisconsin, northeast Iowa, and southeast Minnesota &mdash; was the place Norwegian emigrants turned into a homeland.</p>
+
+  <p>Its <strong>steep ridges, deep V-shaped coulees, karst springs, and pasture-suited hillsides</strong> matched the topography of the Norwegian interior so closely that the countryside around Westby became known as <strong>America's Little Gudbrandsdal</strong>. Iowa County &mdash; where Anders and Olava ultimately settled &mdash; is at the southern end of this landscape, and its Norwegian history is specific and layered.</p>
+
+  <h3>Cornish first, Norwegians second</h3>
+
+  <p>The first Europeans in the county were not Norwegians but <strong>Cornish lead miners</strong> &mdash; the "Cousin Jacks" who came from Cornwall in the 1830s and 1840s chasing the galena booms at Mineral Point. By 1845 half of Mineral Point was Cornish; their limestone cottages still stand at the Pendarvis Historic Site. The Cornish brought the pasty &mdash; the meat-and-potato turnover still sold at the county's Cornish Festival every September &mdash; and the nickname "Badgers," from miners who wintered in hillside dugouts. When lead collapsed in the late 1840s, many Cornish left for California gold; many of those who stayed turned to zinc or farming.</p>
+
+  <p><strong>Norwegians began arriving in the same rural townships around 1848</strong>, as the vast Blue Mounds Settlement spread west from Dane County. The 1860 census of the area showed town centers still overwhelmingly English-Cornish-Welsh; <strong>the Norwegians were on the ridges and in the coulees</strong>, farming wheat initially and then, as the national wheat economy collapsed in the 1880s and William Dempster Hoard's dairy crusade swept the state, converting to dairy. The transition matched exactly Gilbert Dyreson's coming of age in the 1890s.</p>
+
+  <p>Norwegian immigrants &mdash; familiar with dairying and cheesemaking on steep slopes from home &mdash; became dominant in Wisconsin's emerging cow-country, a success that is the reason Wisconsin is still known as <strong>America's Dairyland</strong>.</p>
+
+  <h3>The first Norwegian Lutheran church west of Madison</h3>
+
+  <p>The churches anchored the settlement. <strong>Hauge Log Church</strong> at Daleyville, built in 1852, was <strong>the first Norwegian Lutheran church west of Madison</strong> &mdash; a small log building where state-church Lutherans and pietist Haugeans worshipped together until the state-churchers split off in 1858 to form <strong>Perry Lutheran Church</strong>. Both congregations still stand.</p>
+
+  <p>Other Norwegian congregations in the district &mdash; East Blue Mounds, West Blue Mounds, Primrose, Pleasant Ridge, Moscow, Barneveld &mdash; formed a network of at least eight churches by the 1880s. Later generations of Dyresons are documented in their records.</p>
+
+  <h3>A name on the Wisconsin map</h3>
+
+  <p>One more confirmation of the Dyresons' place in this community survives in the physical landscape: <strong>Dyreson Road</strong> in eastern Dane County, with its historic <strong>Dyreson Bridge</strong> over the Yahara River, designated Wisconsin Rustic Road 20, preserves the name of a related (though probably distinct) branch of Norwegian Dyresons who settled in the Koshkonong zone. The name is rare enough &mdash; only 129 bearers in the entire 2010 U.S. census &mdash; that its presence on the Wisconsin map is essentially a Norwegian-American phenomenon.</p>
+
+  <!-- ================= HENDRICKS ================= -->
+
+  <h2 id="hendricks" class="section-heading">About "Bessie Hendricks"</h2>
+
+  <p>The family tree lists Gilbert Dyreson's wife as <strong>Bessie Hendricks (1877&ndash;1950)</strong>. Contemporary obituaries of the couple's daughters &mdash; Anna Mae Gilmore and Eunice Maughan &mdash; tell a slightly different story. Both name her consistently as <strong>Bessie Hendrickson</strong>.</p>
+
+  <p>The <strong>-son</strong> ending was intact in the primary-source records of her lifetime; it seems to have been clipped informally somewhere in later family memory. This small correction matters because it reveals another Norwegian patronymic hiding in plain sight: <strong>Hendrickson is the standard American anglicization of Norwegian Henriksen</strong>, "son of Henrik."</p>
+
+  <p>Dutch <em>Hendricks</em> and German <em>Heinrichs</em> are possible in theory but vanishingly unlikely in the Iowa County Norwegian-Lutheran farming milieu where Bessie lived and raised her children. <strong>Christian Hendrickson</strong> is recorded by George Flom's 1909 <em>History of Norwegian Immigration</em> as one of the earliest Norwegian settlers in adjacent Primrose Township, arriving in 1846. Bessie's family was almost certainly another Valdres-or-Hallingdal-origin farming family whose patronymic <em>Henriksen</em> crystallized into <em>Hendrickson</em> at the moment of American arrival &mdash; the same linguistic event that turned Anders Dyresen into the progenitor of the Dyresons.</p>
+
+  <div class="pullquote">
+    Kari's pedigree isn't half-Norwegian on one side. It is Norwegian on <em>both</em> paternal grandparents' sides &mdash; with both surnames being frozen patronymics from the old country.
+  </div>
+
+  <!-- ================= CULTURE ================= -->
+
+  <h2 id="culture" class="section-heading">The culture that came with them</h2>
+
+  <p>A family that settled in the Driftless Area in the 1870s and worshipped at Perry Lutheran inherited a full repertoire of Norwegian cultural practices that persisted, in thick form, for three generations and in dilute form to this day.</p>
+
+  <h3>Haugean pietism</h3>
+
+  <p>The religious inheritance was <strong>Haugean pietism</strong> &mdash; the movement founded by <strong>Hans Nielsen Hauge (1771&ndash;1824)</strong>, a Norwegian lay preacher who had a conversion experience while plowing his father's field in April 1796 and then walked the length of Norway preaching "the living faith." Hauge empowered lay preaching (including by women), started mills and paper works, was imprisoned fourteen times under Norway's Conventicle Act, and became the single most influential religious figure in the lives of emigrating Norwegians.</p>
+
+  <p>Haugeanism emphasized <strong>personal diligence, enterprise, frugality, lay ministry, and the priesthood of all believers</strong> &mdash; a worldview that married unusually well to Wisconsin farm life. The Hauge Log Church's existence three miles from the Dyreson farmstead is not incidental. It is the direct descendant of this movement.</p>
+
+  <h3>The food</h3>
+
+  <p>The food traveled intact. <strong>Lefse</strong> &mdash; thin potato flatbread rolled with butter and sugar &mdash; was (and is) made in quantities only a Norwegian grandmother understands. <strong>Lutefisk</strong> &mdash; lye-cured dried cod, reconstituted and steamed with butter, potatoes, and peas &mdash; became the Christmas and church-supper centerpiece across the whole Norwegian Wisconsin belt.</p>
+
+  <ul>
+    <li><strong>Rømmegrøt</strong> &mdash; the rich sour-cream porridge dusted with cinnamon</li>
+    <li><strong>Krumkake</strong> &mdash; cardamom-scented cone cookies pressed on hot irons</li>
+    <li><strong>Rosettes, fattigmann, sandbakkels</strong> &mdash; deep-fried and shortbread holiday cookies</li>
+    <li><strong>Kringla</strong> &mdash; the figure-8 soft pretzel</li>
+    <li><strong>Gjetost</strong> &mdash; the caramel-brown whey cheese</li>
+    <li><strong>Fish balls, meatballs, pickled herring</strong></li>
+  </ul>
+
+  <p>The vocabulary is specific and the Dyreson kitchen almost certainly knew most of it.</p>
+
+  <h3>The civic calendar</h3>
+
+  <p>The civic calendar centered on <strong>Syttende Mai</strong>, the Norwegian Constitution Day of May 17, 1814 &mdash; the day the Eidsvoll Constitution created one of the most democratic governments in Europe. <strong>Stoughton, Wisconsin</strong> hosts the largest Syttende Mai celebration in North America, continuously since 1952; Westby and Mount Horeb run their own.</p>
+
+  <p>At peak, up to 75% of Stoughton residents spoke Norwegian at home. In the rural parishes, Norwegian was commonly the language of the dinner table into the 1940s and 1950s &mdash; a fact that puts Gilbert Dyreson (d. 1948) in the last generation for whom the old language was ordinary household speech.</p>
+
+  <h3>Rosemaling, Hardanger fiddle, trolls</h3>
+
+  <p>The visual arts were dominated by <strong>rosemaling</strong>, the distinctive Norwegian decorative floral painting that emerged in the early 1700s when baroque and rococo motifs filtered from urban churches into rural folk culture. Each Norwegian region developed its own style &mdash; Telemark's asymmetric flowing scrollwork is widely regarded as the national style; Hallingdal is bold and symmetrical; Rogaland works on dark backgrounds; <strong>Valdres is the most realistic, with recognizable tulips and potted flowers</strong>.</p>
+
+  <p>Music was carried by the <strong>Hardanger fiddle</strong>, Norway's national instrument &mdash; eight or nine strings with sympathetic strings humming beneath the fingerboard, the body black-inked with rosing decoration and mother-of-pearl inlay.</p>
+
+  <p>And then there are the <strong>trolls</strong>. <strong>Mount Horeb</strong> &mdash; a short drive from the old Dyreson farmstead &mdash; is the self-proclaimed <strong>Troll Capital of the World</strong>, with thirty-plus hand-carved wooden trolls lining the "Trollway" of Main Street, a tradition begun in the 1970s. The trolls are a small civic folk-ceremony that the Dyreson family drives through territory their great-grandparents walked as fully functioning Norwegian peasants.</p>
+
+  <!-- ================= EMBLEM ================= -->
+
+  <h2 id="emblem" class="section-heading">On the emblem</h2>
+
+  <p>The family's surname line is pure patronymic: <strong>Simensen &rarr; Dyresen &rarr; Dyreson</strong>. That linguistic pattern says with absolute clarity that the family were <strong>bondestand</strong> &mdash; the freeholder-farmer class &mdash; not nobility.</p>
+
+  <p>Medieval Norway had a small native nobility that largely died out in the male line by the 1500s and was absorbed into Danish aristocracy; the <strong>Norwegian Constitution of 1814 forbade the creation of new nobility</strong>, and the 1821 Nobility Act formally abolished noble status. Today perhaps ten to fifteen families remain from the old Norwegian nobility &mdash; Anker, Wedel-Jarlsberg, Løvenskiold, Huitfeldt, Treschow &mdash; and not one of them is named Dyreson.</p>
+
+  <div class="note note-orange">
+    <strong>There is no authentic Dyreson coat of arms</strong>, and commercial "family crest" websites that sell one by surname are selling a fiction. But Norwegian farming families did carry a different, more honest kind of heraldry: the <strong>bumerke</strong>, or farm mark &mdash; a simple linear symbol used since the late Middle Ages by farmers, craftsmen, and miners to mark livestock, boundary stones, timber, and documents. For a Norwegian farming family, a bumerke or a rosemaling medallion is a far more honest emblem than any invented shield.
+  </div>
+
+  <h3>What the emblem at the top of this page shows</h3>
+
+  <p>The emblem is a <strong>Telemark-style rosemaling medallion</strong> with a bright red heart at its center. The heart is for <em>Dýri</em> &mdash; "the dear one," the precious one &mdash; the literal meaning of the name this family has carried since before surnames existed in Norway. The blue C-scrolls and small tulip-buds are classic Telemark rosemaling vocabulary, a style that became the defining Norwegian-American folk art of the Driftless Area. The small gold five-petal flower at the top is a nod to the rosing decoration on a Hardanger fiddle.</p>
+
+  </div><!-- /prose -->
+
+  <div class="blazon">
+    <div class="blazon-label">What the emblem shows</div>
+    <p style="margin: 0 0 8px;">A circular rosemaling medallion in the Telemark style &mdash; flowing blue C-scrolls and four cornering tulip-buds around a bright red heart. Small gold-and-white five-petal flower at top, Polish-small red accent dots at the cardinal points of the outer circle.</p>
+    <p style="margin: 0;">An honest heritage device: <strong>the heart for <em>Dýri</em>, "the dear one"</strong>; the rosemaling for the Norwegian peasant folk-art tradition; the circle for the bumerke, the farmer's mark. Chosen, not claimed &mdash; appropriate for a family of freeholder farmers, not invented nobility.</p>
+  </div>
+
+  <!-- ================= TIMELINE ================= -->
+
+  <h2 id="timeline" class="section-heading">Timeline</h2>
+  <p class="lead"><em>From a Valdres farm to a Wisconsin coulee.</em></p>
+
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-year">c. 950</div>
+      <div class="tl-title">Odel law codified</div>
+      <div class="tl-desc">The Gulating laws encode the principle of eldest-son inheritance. A thousand years later, it will help push Anders Dyresen across an ocean.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">1796</div>
+      <div class="tl-title">Hans Nielsen Hauge's conversion</div>
+      <div class="tl-desc">A Norwegian farmer has a conversion experience while plowing his father's field. His lay preaching movement will reshape rural Norwegian religious life for generations.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">1794</div>
+      <div class="tl-title">Dyhre Simensen is born</div>
+      <div class="tl-desc">Almost certainly on a farm in Valdres, in the interior valleys of eastern Norway. His name means "the dear one, son of Simen."</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">1814</div>
+      <div class="tl-title">The Eidsvoll Constitution</div>
+      <div class="tl-desc">Signed May 17 &mdash; one of the most democratic constitutions in Europe. The date becomes Syttende Mai, the Norwegian national day, still celebrated in Wisconsin today.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">1825</div>
+      <div class="tl-title">The Restauration sails</div>
+      <div class="tl-desc">The "Norwegian Mayflower" carries 52 Quakers and Haugeans from Stavanger to New York &mdash; the symbolic start of Norwegian emigration to America.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">1828</div>
+      <div class="tl-title">Anders Dyresen is born</div>
+      <div class="tl-desc">Son of Dyhre. A younger son in a land where the eldest inherits.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">1848</div>
+      <div class="tl-title">Norwegians arrive in Iowa County</div>
+      <div class="tl-desc">The Blue Mounds Settlement spreads west from Dane County into what will become Perry, Primrose, and Moscow townships.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">1852</div>
+      <div class="tl-title">Hauge Log Church built</div>
+      <div class="tl-desc">At Daleyville &mdash; the first Norwegian Lutheran church west of Madison. Still stands.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">1862</div>
+      <div class="tl-title">The Homestead Act</div>
+      <div class="tl-desc">160 acres of free federal land for any head of household willing to cultivate it for five years. The single greatest pull factor in Norwegian emigration.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">1866&ndash;1873</div>
+      <div class="tl-title">The first mass wave</div>
+      <div class="tl-desc">Roughly 110,000 Norwegians leave for America in seven years. Anders Dyresen is almost certainly among them.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">1872</div>
+      <div class="tl-title">Gilbert Dyreson is born</div>
+      <div class="tl-desc">In America. First Dyreson born on this side of the Atlantic. The patronymic has now frozen into a family surname.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">1880</div>
+      <div class="tl-title">Anders Dyresen dies</div>
+      <div class="tl-desc">In Wisconsin. The crosser. His resting place is likely Perry Lutheran or Hauge Log Church cemetery.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">1897</div>
+      <div class="tl-title">Olava Marie Larsdatter dies</div>
+      <div class="tl-desc">Having outlived her husband by seventeen years. Kept her patronymic name throughout, as was Norwegian custom.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">1923</div>
+      <div class="tl-title">The Norwegian Name Law</div>
+      <div class="tl-desc">Norway finally requires fixed family surnames. The patronymic tradition that made the Dyresons Dyresons ends in the homeland &mdash; but in Wisconsin it has already frozen two generations earlier.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">1948</div>
+      <div class="tl-title">Gilbert Dyreson dies</div>
+      <div class="tl-desc">The last generation for whom Norwegian was ordinary household speech.</div>
+    </div>
+  </div>
+
+  <!-- ================= DOCUMENTED VS LORE ================= -->
+
+  <h2 id="documented" class="section-heading">Known facts vs. family lore</h2>
+  <p class="lead"><em>What the records suggest, and what is still family memory.</em></p>
+
+  <table class="known-table">
+    <thead>
+      <tr>
+        <th>Claim or Tradition</th>
+        <th>Assessment</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Family is Norwegian</td>
+        <td><strong>Fully documented.</strong> Five generations of classic Norwegian patronymics &mdash; Simensen, Dyresen, Dyreson &mdash; combined with wife-names ending in <em>-datter</em>. There is no ambiguity.</td>
+      </tr>
+      <tr>
+        <td>From the Oslo area</td>
+        <td><strong>Partly correct &mdash; but probably not the home farm.</strong> Christiania (Oslo) was almost certainly the port of departure. The actual home farm was almost certainly inland, in <strong>Valdres</strong>.</td>
+      </tr>
+      <tr>
+        <td>Descended from Vikings</td>
+        <td><strong>In the sense that all ethnic Norwegians are.</strong> Not in any specific or documented sense. The Dyresons were farmers, not raiders.</td>
+      </tr>
+      <tr>
+        <td>Norwegian nobility somewhere in the line</td>
+        <td><strong>No.</strong> The patronymic surname pattern is the mark of the bondestand &mdash; freeholder-farmer class. Norway's old nobility was small, largely extinct in the male line by 1500, and abolished by the 1814 Constitution.</td>
+      </tr>
+      <tr>
+        <td>"Dyhre" means "deer"</td>
+        <td><strong>Partly.</strong> Secondary meaning. Primary meaning is <em>"dear, precious, beloved"</em> &mdash; from Old Norse <em>dýrr</em>, cognate with English "dear."</td>
+      </tr>
+      <tr>
+        <td>Anders crossed around 1866&ndash;1873</td>
+        <td><strong>Highly likely.</strong> Gilbert's 1872 Wisconsin birth puts the crossing in exactly this window &mdash; the peak of the first mass wave.</td>
+      </tr>
+      <tr>
+        <td>"Bessie Hendricks" was German or Dutch</td>
+        <td><strong>Almost certainly not.</strong> Obituaries of her daughters record her as <em>Hendrickson</em> &mdash; the standard American anglicization of Norwegian <em>Henriksen</em>. Bessie was almost certainly Norwegian too.</td>
+      </tr>
+      <tr>
+        <td>Family is "boring compared to..."</td>
+        <td><strong>Absolutely not.</strong> The Dyresons are a near-perfect specimen of one of the largest per-capita emigrations in European history &mdash; 900,000 Norwegians, one-third of a nation. A pedigree written in patronymics is a gift, not a gap.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- ================= NEXT STEPS ================= -->
+
+  <div class="prose">
+
+  <h2 id="next" class="section-heading">Next steps for research</h2>
+  <p class="lead"><em>How to turn the Valdres hypothesis into a named home farm.</em></p>
+
+  <p>The evidence for a Valdres origin is strong but circumstantial. <strong>The specific home farm and parish are still unknown.</strong> Three concrete steps would likely close the gap:</p>
+
+  <ol>
+    <li><strong>Search the Norwegian digital archives.</strong> The <strong>Norwegian National Archives' digital collection</strong> at <em>digitalarkivet.no</em> is free and fully searchable. A query of the 1801, 1865, and 1875 Norwegian censuses and the parish books of <strong>Østre Slidre, Vestre Slidre, Nord-Aurdal, and Vang</strong> for a <em>Dyhre Simensen born circa 1794</em> &mdash; and a <em>Rangdi Olsdatter born 1797</em> &mdash; would almost certainly either confirm the Valdres hypothesis or redirect it to another valley.</li>
+
+```
+<li><strong>Consult the Naeseth Library in Madison.</strong> The <strong>Norwegian American Genealogical Center &amp; Naeseth Library</strong> holds Gerhard Naeseth's multi-volume <em>Norwegian Immigrants to the United States 1825&ndash;1850</em> and the full run of Valdres <em>bygdebøker</em> &mdash; astonishingly detailed Norwegian farm-history books that trace every farm's occupants back centuries.</li>
+
+<li><strong>Check the church and cemetery records.</strong> The burial and parish records of <strong>Perry Lutheran, Hauge Lutheran in Daleyville, and the East Side Cemetery</strong> would establish the exact American landing point and often preserve the Norwegian home-parish name in the church register. These are most likely resting places for Anders (d. 1880) and Olava (d. 1897).</li>
+
+<li><strong>Consider a DNA test.</strong> Norwegian populations are well-represented in cousin-matching databases, and regional-Norwegian DNA breakdowns (Valdres, Hallingdal, Telemark) are now detailed enough to triangulate a home valley.</li>
+
+<li><strong>Join the Valdres Samband.</strong> The oldest Norwegian-American bygdelag, founded in 1899 specifically for descendants of Valdres emigrants. If the family is from Valdres, this is the organization that would help most.</li>
+
+<li><strong>Vesterheim Norwegian-American Museum</strong> in Decorah, Iowa &mdash; the premier institution of Norwegian-American history, with a research library that holds emigrant manifests, church records, and bygdelag archives.</li>
+```
+
+  </ol>
+
+  </div><!-- /prose -->
+
+  <div class="divider"></div>
+
+  <div class="footer-bar">
+    <em>"The dear one" &mdash; a name carried by Norwegian farmers for a thousand years, crossed from a Valdres valley to a Wisconsin coulee, and still quietly carried today.</em>
+  </div>
+
+</div><!-- /container -->
+
+</body>
+</html>
