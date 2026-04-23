@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+<title>The Gieck Line — From the Neckar to Honey Creek</title>
+<meta name="description" content="The Gieck family history — Swabian farmers from the Kingdom of Württemberg to the Honey Creek valley of Wisconsin's Driftless Area.">
+<meta property="og:title" content="The Gieck Line — From the Neckar to Honey Creek">
+<meta property="og:description" content="The Gieck family history — Swabian farmers from the Kingdom of Württemberg to the Honey Creek valley of Wisconsin's Driftless Area.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://lukelabonte.github.io/public-documents/gieck/family-history.html">
+<meta property="og:image" content="https://lukelabonte.github.io/public-documents/preview.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Gieck Line — From the Neckar to Honey Creek">
+<meta name="twitter:description" content="The Gieck family history — Swabian farmers from the Kingdom of Württemberg to the Honey Creek valley of Wisconsin's Driftless Area.">
+<meta name="twitter:image" content="https://lukelabonte.github.io/public-documents/preview.png">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+
+<style>
+/* Page-specific styles only — everything else uses the shared design system */
+
+/* Wheat-and-vine emblem — header icon */
+.crest {
+  width: 90px;
+  height: auto;
+  margin: 0 auto 16px;
+  display: block;
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.1));
+}
+
+/* TOC */
+.toc {
+  background: var(--surface, #fff);
+  border: 1.5px solid var(--border, #e5dfd5);
+  border-radius: var(--radius, 12px);
+  padding: 20px 24px;
+  margin: 0 0 32px;
+}
+.toc-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.05rem;
+  margin: 0 0 12px;
+  color: var(--text, #2a2623);
+  letter-spacing: 0.02em;
+}
+.toc ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: toc;
+  columns: 2;
+  column-gap: 24px;
+}
+.toc li {
+  counter-increment: toc;
+  break-inside: avoid;
+  padding: 4px 0;
+  font-size: 0.92rem;
+}
+.toc li::before {
+  content: counter(toc) ".";
+  color: var(--accent, #B5632E);
+  font-weight: 600;
+  margin-right: 6px;
+  min-width: 1.5em;
+  display: inline-block;
+}
+.toc a {
+  color: var(--text-muted, #5a5048);
+  text-decoration: none;
+  border-bottom: 1px dotted transparent;
+}
+.toc a:hover {
+  color: var(--accent, #B5632E);
+  border-bottom-color: var(--accent, #B5632E);
+}
+@media (max-width: 560px) {
+  .toc ol { columns: 1; }
+}
+
+/* Pull quote */
+.pullquote {
+  margin: 28px 0;
+  padding: 20px 24px;
+  border-top: 1.5px solid var(--accent, #B5632E);
+  border-bottom: 1.5px solid var(--accent, #B5632E);
+  text-align: center;
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.2rem;
+  line-height: 1.45;
+  color: var(--text, #2a2623);
+  font-style: italic;
+}
+
+/* Timeline */
+.timeline {
+  margin: 16px 0 24px;
+  border-left: 2px solid var(--accent, #B5632E);
+  padding-left: 20px;
+}
+.tl-item {
+  position: relative;
+  padding: 6px 0 18px;
+}
+.tl-item::before {
+  content: "";
+  position: absolute;
+  left: -26px;
+  top: 12px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--bg, #FAF7F2);
+  border: 2px solid var(--accent, #B5632E);
+}
+.tl-year {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1rem;
+  color: var(--accent, #B5632E);
+  margin-bottom: 2px;
+}
+.tl-title {
+  font-weight: 600;
+  font-size: 0.98rem;
+  margin-bottom: 2px;
+}
+.tl-desc {
+  font-size: 0.92rem;
+  color: var(--text-muted, #5a5048);
+  line-height: 1.5;
+}
+
+/* Facts grid */
+.facts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px 24px;
+  margin: 16px 0 24px;
+}
+.fact-label {
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent, #B5632E);
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+.fact-value {
+  font-size: 0.95rem;
+  color: var(--text, #2a2623);
+  line-height: 1.45;
+}
+
+/* Surname evidence cards */
+.surnames {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+  margin: 16px 0 24px;
+}
+.surname {
+  background: var(--surface, #fff);
+  border: 1.5px solid var(--border, #e5dfd5);
+  border-radius: var(--radius, 12px);
+  padding: 16px 18px;
+}
+.surname-name {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.15rem;
+  margin-bottom: 2px;
+  color: var(--text, #2a2623);
+}
+.surname-region {
+  display: inline-block;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent, #B5632E);
+  background: rgba(181, 99, 46, 0.08);
+  padding: 2px 8px;
+  border-radius: 4px;
+  margin-bottom: 8px;
+}
+.surname-desc {
+  font-size: 0.9rem;
+  color: var(--text-muted, #5a5048);
+  line-height: 1.5;
+}
+
+/* Forces cards */
+.forces-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 14px;
+  margin: 16px 0 24px;
+}
+.force {
+  background: var(--surface, #fff);
+  border: 1.5px solid var(--border, #e5dfd5);
+  border-radius: var(--radius, 12px);
+  padding: 16px 18px;
+}
+.force-name {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.1rem;
+  margin-bottom: 6px;
+  color: var(--text, #2a2623);
+}
+.force-desc {
+  font-size: 0.9rem;
+  color: var(--text-muted, #5a5048);
+  line-height: 1.5;
+}
+
+/* Known vs Lore table */
+.known-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 12px 0 24px;
+  font-size: 0.92rem;
+}
+.known-table th,
+.known-table td {
+  text-align: left;
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--border, #e5dfd5);
+  vertical-align: top;
+}
+.known-table th {
+  font-family: 'DM Serif Display', serif;
+  font-weight: 400;
+  font-size: 0.82rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent, #B5632E);
+  background: rgba(181, 99, 46, 0.04);
+}
+.known-table tr:last-child td { border-bottom: none; }
+@media (max-width: 560px) {
+  .known-table, .known-table tbody, .known-table tr, .known-table td, .known-table th {
+    display: block;
+    width: 100%;
+  }
+  .known-table thead { display: none; }
+  .known-table td {
+    padding: 8px 0;
+    border-bottom: none;
+  }
+  .known-table tr {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border, #e5dfd5);
+  }
+  .known-table tr:last-child { border-bottom: none; }
+  .known-table td:first-child {
+    font-weight: 600;
+    color: var(--text, #2a2623);
+  }
+}
+
+/* Emblem callout */
+.blazon {
+  margin: 20px 0;
+  padding: 16px 20px;
+  background: rgba(181, 99, 46, 0.06);
+  border-left: 3px solid var(--accent, #B5632E);
+  border-radius: 6px;
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+.blazon-label {
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent, #B5632E);
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+/* Simple list spacing in prose */
+.prose ul, .prose ol { margin: 8px 0 16px 20px; }
+.prose li { margin-bottom: 6px; line-height: 1.55; }
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+<a href="../index.html" class="back-btn">← All Documents</a>
+
+  <div class="header">
+    <!-- Württemberg-inspired wheat & vine emblem with three stag antlers -->
+    <svg class="crest" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-label="A Württemberg-inspired emblem — three black stag antlers above a wheat sheaf and grapevine">
+      <!-- Outer golden shield -->
+      <path d="M 15 18 L 85 18 L 85 55 Q 85 80 50 92 Q 15 80 15 55 Z"
+            fill="#e8c75a" stroke="#6b4423" stroke-width="1.2" stroke-linejoin="round"/>
+
+```
+  <!-- Top band with three stag antlers (Württemberg state arms reference) -->
+  <rect x="15" y="18" width="70" height="22" fill="#faf0c8" stroke="#6b4423" stroke-width="0.6"/>
+
+  <!-- Three stylized stag antlers (simplified) -->
+  <g fill="#2a2623" stroke="#1a1613" stroke-width="0.3">
+    <!-- Left antler -->
+    <g transform="translate(28 29)">
+      <path d="M 0 0 L -6 -5 L -4 -5 L -2 -8 L 0 -8 L 0 -6 L 2 -8 L 4 -8 L 6 -5 L 0 0 Z"/>
+    </g>
+    <!-- Middle antler -->
+    <g transform="translate(50 29)">
+      <path d="M 0 0 L -6 -5 L -4 -5 L -2 -8 L 0 -8 L 0 -6 L 2 -8 L 4 -8 L 6 -5 L 0 0 Z"/>
+    </g>
+    <!-- Right antler -->
+    <g transform="translate(72 29)">
+      <path d="M 0 0 L -6 -5 L -4 -5 L -2 -8 L 0 -8 L 0 -6 L 2 -8 L 4 -8 L 6 -5 L 0 0 Z"/>
+    </g>
+  </g>
+
+  <!-- Divider line -->
+  <line x1="15" y1="40" x2="85" y2="40" stroke="#6b4423" stroke-width="0.6"/>
+
+  <!-- Lower field with wheat sheaf and grapevine -->
+  <!-- Wheat sheaf (left, golden on green field) -->
+  <g transform="translate(35 65)">
+    <!-- Stalks -->
+    <line x1="-6" y1="15" x2="-6" y2="-5" stroke="#8a6a2a" stroke-width="0.6"/>
+    <line x1="-3" y1="15" x2="-3" y2="-6" stroke="#8a6a2a" stroke-width="0.6"/>
+    <line x1="0" y1="15" x2="0" y2="-7" stroke="#8a6a2a" stroke-width="0.6"/>
+    <line x1="3" y1="15" x2="3" y2="-6" stroke="#8a6a2a" stroke-width="0.6"/>
+    <line x1="6" y1="15" x2="6" y2="-5" stroke="#8a6a2a" stroke-width="0.6"/>
+
+    <!-- Wheat heads (teardrops with detail) -->
+    <g fill="#d4a340" stroke="#8a6a2a" stroke-width="0.3">
+      <ellipse cx="-6" cy="-4" rx="1.4" ry="3"/>
+      <ellipse cx="-3" cy="-5" rx="1.4" ry="3.2"/>
+      <ellipse cx="0" cy="-6" rx="1.4" ry="3.5"/>
+      <ellipse cx="3" cy="-5" rx="1.4" ry="3.2"/>
+      <ellipse cx="6" cy="-4" rx="1.4" ry="3"/>
+    </g>
+
+    <!-- Binding ribbon -->
+    <rect x="-7" y="6" width="14" height="2.5" fill="#B5632E" stroke="#6b4423" stroke-width="0.3"/>
+  </g>
+
+  <!-- Grapevine cluster (right) -->
+  <g transform="translate(65 60)">
+    <!-- Vine stem -->
+    <path d="M 0 -8 Q -2 -4 0 0 Q 2 4 0 10" stroke="#6b4423" stroke-width="0.8" fill="none"/>
+
+    <!-- Grape leaf -->
+    <path d="M -4 -7 Q -8 -8 -7 -4 Q -6 -1 -3 -3 Q 0 -5 -4 -7 Z"
+          fill="#5a7a3e" stroke="#3e5529" stroke-width="0.4"/>
+
+    <!-- Grape cluster (red for Trollinger / Württemberg) -->
+    <g fill="#7a1d2e" stroke="#4a0f1a" stroke-width="0.3">
+      <circle cx="-1" cy="2" r="1.5"/>
+      <circle cx="2" cy="2" r="1.5"/>
+      <circle cx="-2" cy="4.5" r="1.5"/>
+      <circle cx="1" cy="4.5" r="1.5"/>
+      <circle cx="3.5" cy="4.5" r="1.5"/>
+      <circle cx="-1" cy="7" r="1.5"/>
+      <circle cx="2" cy="7" r="1.5"/>
+      <circle cx="0.5" cy="9.5" r="1.5"/>
+    </g>
+
+    <!-- Highlights on grapes -->
+    <g fill="#c44a5f" opacity="0.5">
+      <ellipse cx="-1.5" cy="1.4" rx="0.5" ry="0.7"/>
+      <ellipse cx="1.5" cy="1.4" rx="0.5" ry="0.7"/>
+      <ellipse cx="-0.5" cy="6.4" rx="0.5" ry="0.7"/>
+    </g>
+  </g>
+
+  <!-- Small cross at bottom (for Pietist Lutheran heritage) -->
+  <g transform="translate(50 83)" fill="#6b4423">
+    <rect x="-0.6" y="-3" width="1.2" height="6"/>
+    <rect x="-2.5" y="-1" width="5" height="1.2"/>
+  </g>
+</svg>
+<h1>The Gieck Line</h1>
+<p class="subtitle">From the Neckar to Honey Creek &mdash; a Swabian family's journey to Wisconsin</p>
+<div class="updated">Kari's maternal line &middot; Prepared April 2026</div>
+```
+
+  </div>
+
+  <!-- ================= AT A GLANCE ================= -->
+
+  <h2 class="section-heading">At a glance</h2>
+  <div class="facts">
+    <div>
+      <div class="fact-label">The Name</div>
+      <div class="fact-value"><strong>Gieck</strong> &mdash; rare, southern, and almost exclusively found in <strong>Baden-Württemberg</strong> today. Older form: <em>Giek</em>.</div>
+    </div>
+    <div>
+      <div class="fact-label">Origin</div>
+      <div class="fact-value">Almost certainly <strong>the Kingdom of Württemberg</strong> &mdash; most plausibly the <strong>Neckar basin</strong> or a tributary valley.</div>
+    </div>
+    <div>
+      <div class="fact-label">People</div>
+      <div class="fact-value">Swabians &mdash; the Alemannic-speaking people of southwestern Germany, centered on Stuttgart.</div>
+    </div>
+    <div>
+      <div class="fact-label">Faith</div>
+      <div class="fact-value"><strong>Pietist Lutheran</strong> tradition &mdash; heart-religion carried across the Atlantic through the Evangelical United Brethren.</div>
+    </div>
+    <div>
+      <div class="fact-label">Wisconsin Home</div>
+      <div class="fact-value">The <strong>Honey Creek valley</strong> of Sauk County &mdash; across the Wisconsin River from the Driftless Area.</div>
+    </div>
+    <div>
+      <div class="fact-label">The Ethos</div>
+      <div class="fact-value"><em>Schaffe, schaffe, Häusle baue</em> &mdash; "work, work, build a little house." The Swabian ideal of thrift and labor.</div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ================= TOC ================= -->
+
+  <div class="toc">
+    <div class="toc-title">Contents</div>
+    <ol>
+      <li><a href="#story">The Story in Brief</a></li>
+      <li><a href="#surname">The Shape of a Surname</a></li>
+      <li><a href="#evidence">Three Names, One River Valley</a></li>
+      <li><a href="#kingdom">The Kingdom They Left</a></li>
+      <li><a href="#forces">Why They Crossed</a></li>
+      <li><a href="#faith">Faith in the Württemberg Grain</a></li>
+      <li><a href="#honey-creek">The Honey Creek Valley</a></li>
+      <li><a href="#swabian">What It Felt Like to Be Swabian</a></li>
+      <li><a href="#emblem">On the Emblem</a></li>
+      <li><a href="#timeline">Timeline</a></li>
+      <li><a href="#documented">Known vs. Lore</a></li>
+      <li><a href="#next">Next Steps</a></li>
+    </ol>
+  </div>
+
+  <!-- ================= STORY IN BRIEF ================= -->
+
+  <div class="prose">
+
+  <h2 id="story" class="section-heading">The story in brief</h2>
+
+  <p>Kari's maternal line &mdash; the Giecks, Remmeles, Fahrions, Zicks, Bruckerts, and Müllers &mdash; came out of the <strong>Kingdom of Württemberg</strong> in southwestern Germany and put down roots as Swabian farmers in the <strong>Honey Creek valley of Sauk County, Wisconsin</strong>.</p>
+
+  <p>The surname evidence is unusually clean: three of the family's older names (Gieck, Remmele, Fahrion) concentrate overwhelmingly in modern Baden-Württemberg, and one &mdash; Remmele &mdash; carries the Swabian <em>-le</em> diminutive that is the single clearest linguistic fingerprint of that region. The family's religious home &mdash; <strong>Zion Evangelical United Brethren</strong>, later Denzer United Methodist &mdash; sits in a direct line of descent from <strong>Württemberg Pietism</strong>, the heart-religion that made the Stuttgart uplands one of the most spiritually distinctive corners of 19th-century Germany.</p>
+
+  <p>What follows is the story of how that world produced this family, and how it traveled across the Atlantic to a river valley on the edge of Wisconsin's Driftless Area.</p>
+
+  <div class="pullquote">
+    Not every immigrant story is a dramatic one. Some are quieter and, in the shape of ordinary American immigration, more typical &mdash; a family of Swabian peasants who crossed an ocean, farmed for a century, and stayed.
+  </div>
+
+  <!-- ================= SURNAME ================= -->
+
+  <h2 id="surname" class="section-heading">The shape of a surname</h2>
+
+  <p>The name <strong>Gieck</strong> is rare, southern, and linguistically unflattering. The standard scholarly etymology, given in Hanks's <em>Dictionary of American Family Names</em>, traces it to the Middle High German word <em>giege</em>, meaning <strong>a fool, simpleton, or bewitched person</strong> &mdash; a nickname attached to some medieval ancestor the way <em>Narr</em> (fool) or <em>Schelm</em> (rogue) attached to others.</p>
+
+  <p>These <em>Übernamen</em> were not compliments; they fossilized whatever impression a village had of one remembered neighbor, then passed down with bewildering dignity through forty generations.</p>
+
+  <h3>Giek and Gieck</h3>
+
+  <p>The cognate spelling <strong>Giek</strong> &mdash; the older form, which appears in Kari's fourth-great-grandfather <strong>Joh. C Giek</strong> &mdash; survives in roughly 230 bearers in Germany today, and <strong>79% of them live in Baden-Württemberg</strong>. The modernized spelling <strong>Gieck</strong> accounts for another 220 or so in Germany.</p>
+
+  <p>The shift from <em>Giek</em> to <em>Gieck</em> is not, as one might suspect, an American clerk's invention; it reflects the German orthographic tightening of the 18th and 19th centuries, when Konrad Duden and his predecessors were regularizing the <em>-ck</em> convention after short vowels. Both spellings exist natively in Germany, but <strong>the change almost certainly happened on German soil before the family ever boarded a ship</strong>.</p>
+
+  <div class="note note-orange">
+    <strong>No coat of arms.</strong> Gieck has no noble branch, appears in no medieval armorial such as Siebmacher's <em>Wappenbuch</em>, and carries no <em>von</em> prefix. Commercial "family crest" sites that claim otherwise are selling decorative fiction. The name is exactly what most German surnames are: <strong>a peasant name, a working name, stubborn and regional</strong>. That rarity is a blessing for genealogy &mdash; nearly every German Gieck alive today is a distant cousin of every other.</strong>
+  </div>
+
+  <!-- ================= EVIDENCE ================= -->
+
+  <h2 id="evidence" class="section-heading">Three names, one river valley</h2>
+
+  <p>Surnames rarely align by accident. When three of the older names in a pedigree all cluster in one small region of Germany, the case for origin becomes quantitative rather than sentimental.</p>
+
+  </div><!-- /prose -->
+
+  <div class="surnames">
+    <div class="surname">
+      <div class="surname-name">Fahrion</div>
+      <div class="surname-region">88% Baden-Württemberg</div>
+      <div class="surname-desc">The surname of 4th-great-grandmother <strong>Elisabethe Fahrion</strong>. One of the most geographically concentrated German surnames on record &mdash; 88% of its roughly 471 German bearers live in Baden-Württemberg. A distribution so lopsided it functions as a village postmark.</div>
+    </div>
+    <div class="surname">
+      <div class="surname-name">Remmele</div>
+      <div class="surname-region">Swabian <em>-le</em> suffix</div>
+      <div class="surname-desc">The surname of 3rd-great-grandmother <strong>Fredericke Remmele</strong>. A Swabian diminutive of <em>Remmel</em>, short for the old Germanic names <em>Rembold</em> or <em>Reimbert</em>. 45% in Baden-Württemberg, 34% in Bavaria &mdash; exactly the historical Duchy of Swabia.</div>
+    </div>
+    <div class="surname">
+      <div class="surname-name">Gieck / Giek</div>
+      <div class="surname-region">79% Baden-Württemberg</div>
+      <div class="surname-desc">The family surname. Rare, stubborn, southern. Of the roughly 230 German bearers of the older <em>Giek</em> spelling, 79% still live in Baden-Württemberg &mdash; nearly two centuries after Kari's branch left.</div>
+    </div>
+    <div class="surname">
+      <div class="surname-name">Bruckert</div>
+      <div class="surname-region">Palatinate &amp; Rhineland</div>
+      <div class="surname-desc">The surname of Kari's grandmother <strong>Erna Marie Bruckert</strong>. Derived from Middle High German <em>brücke</em> (bridge); clusters most densely in Alsace-Lorraine and the Rhine-Palatinate &mdash; still unmistakably southwestern German.</div>
+    </div>
+    <div class="surname">
+      <div class="surname-name">Zick</div>
+      <div class="surname-region">Mixed origin</div>
+      <div class="surname-desc">The surname of great-grandmother <strong>Edna Zick</strong>. Center of gravity in Brandenburg, though a notable southern branch produced the 18th-century Swabian fresco painters Johann and Januarius Zick. By the 1890s the Zicks were buried alongside Giecks in the same Honey Creek cemetery.</div>
+    </div>
+    <div class="surname">
+      <div class="surname-name">Müller</div>
+      <div class="surname-region">Not a regional clue</div>
+      <div class="surname-desc">The surname of 2nd-great-grandmother <strong>Karoline Müller</strong>. The most common surname in Germany &mdash; borne by roughly one in eighty-five Germans. Every village had a miller. Useless as a regional pointer.</div>
+    </div>
+  </div>
+
+  <div class="prose">
+
+  <div class="pullquote">
+    The trunk of the family grew out of the Kingdom of Württemberg &mdash; most plausibly the Neckar basin or its tributary valleys &mdash; with a probable secondary thread reaching into the Palatinate or northern Baden.
+  </div>
+
+  <!-- ================= KINGDOM ================= -->
+
+  <h2 id="kingdom" class="section-heading">The kingdom they left</h2>
+
+  <p>Württemberg in the early 1800s was a small, hilly, overpopulated place with an unusually vivid interior life. It had been an imperial duchy since 1495; in January 1806, after Duke Friedrich II's convenient alliance with Napoleon, it was elevated to a <strong>kingdom</strong> with Stuttgart as its capital, roughly 21,000 square kilometers of territory, and a population heading toward 1.3 million.</p>
+
+  <p>Sixteen thousand Württemberger soldiers were sent to Moscow in 1812; a few hundred came home. King Wilhelm I granted a constitution in 1819. The kingdom joined the Zollverein in 1834, chose the wrong side in 1866, and ceded its sovereignty into the German Empire on January 1, 1871 &mdash; though its army, post, and railways remained separate until the 1918 revolution.</p>
+
+  <!-- ================= FORCES ================= -->
+
+  <h2 id="forces" class="section-heading">Why they crossed</h2>
+
+  <p>Beneath the high politics, the texture of rural life was shaped by three forces that would eventually push the Giecks across the Atlantic.</p>
+
+  </div><!-- /prose -->
+
+  <div class="forces-grid">
+    <div class="force">
+      <div class="force-name">Realteilung</div>
+      <div class="force-desc"><strong>Partible inheritance.</strong> Every peasant holding was divided equally among all heirs at each generation, producing by 1800 a landscape of absurdly tiny strips scattered across a village's <em>Markung</em>. A family might hold sixty plots totaling five acres &mdash; none of them contiguous.</div>
+    </div>
+    <div class="force">
+      <div class="force-name">Marriage restriction</div>
+      <div class="force-desc"><strong>The poor could not legally wed.</strong> Württemberg law required proof of sufficient income to feed a household before granting a marriage permit. Younger children with no land and no trade faced a life without a legal family.</div>
+    </div>
+    <div class="force">
+      <div class="force-name">The Year Without a Summer</div>
+      <div class="force-desc"><strong>1816.</strong> The eruption of Mount Tambora darkened northern-hemisphere summers. Snow fell on the Swabian Alb in July. Harvests collapsed, grain prices multiplied fivefold, and <strong>20,000 Württembergers left in that one year alone</strong>. Further famines in 1846&ndash;47 and political failure after 1848 kept the outflow moving.</div>
+    </div>
+  </div>
+
+  <div class="prose">
+
+  <h3>The emigration path</h3>
+
+  <p>The standard route from the Neckar country ran down the Rhine to the North Sea &mdash; to <strong>Le Havre</strong> for much of the first half of the 19th century, then to <strong>Bremen and Hamburg</strong> after the 1850s &mdash; followed by six to eight weeks in the steerage deck of a sailing ship, or by the 1880s about seventeen days in a HAPAG or Norddeutscher Lloyd steamer.</p>
+
+  <p>An emigrant needed official permission from the <em>Oberamt</em>, had to sell property at public auction, had to settle debts, and typically paid a <strong>10% <em>Nachsteuer</em></strong> to be released from Württemberg citizenship. The paperwork that survived this process &mdash; digitized in the <strong>Württemberg Emigration Index</strong> and the <strong>Stuttgart passport applications</strong> &mdash; is the likeliest place a specific Giek or Remmele name will eventually surface.</p>
+
+  <!-- ================= FAITH ================= -->
+
+  <h2 id="faith" class="section-heading">Faith in the Württemberg grain</h2>
+
+  <p>The most important cultural inheritance the Giecks brought west was not food or language but a particular way of being Protestant. Württemberg was <strong>the German heartland of Pietism</strong>, a renewal movement inside the Lutheran state church that prized inward conversion, daily Bible reading, small-group devotion, and a lay spirituality of the heart.</p>
+
+  <p>The state itself legalized Pietist house-meetings &mdash; <strong><em>Stunden</em></strong>, literally "hours" &mdash; by royal edict in 1743, a concession no other German state made. The movement's intellectual spine ran through the <strong>Tübinger Stift</strong>, the theological seminary founded by Duke Ulrich in 1536 where almost every Württemberg pastor was formed, and through figures like <strong>Johann Albrecht Bengel</strong> (1687&ndash;1752), whose biblical commentary shaped rural piety, and <strong>Friedrich Christoph Oetinger</strong> (1702&ndash;1782), who fused Bengel's biblicism with mysticism and early natural science.</p>
+
+  <h3>From Stundenhäuser to Evangelical United Brethren</h3>
+
+  <p>The radicals who broke from the state church sometimes left the country entirely &mdash; George Rapp's Harmonist emigration to Pennsylvania in 1804, the chiliastic Swabians who set off for the Caucasus in 1817 expecting Christ's return, the settlers who founded Bessarabia's German colonies. Most Württemberger Pietists, however, stayed inside the <em>Landeskirche</em> and carried their quiet, home-centered piety across the Atlantic with them.</p>
+
+  <p>In Wisconsin, that temperament found its natural home not in the strict confessional Lutheranism of the Missouri Synod but in the <strong>Evangelical Association</strong> and later <strong>Evangelical United Brethren</strong> &mdash; a German-American pietist denomination that grew from the revivals of Jacob Albright in early 1800s Pennsylvania and eventually merged, in 1968, into the United Methodist Church.</p>
+
+  <p>When Kari's ancestors took their place at <strong>Zion Evangelical United Brethren</strong> in Honey Creek &mdash; the congregation that later became Denzer United Methodist &mdash; they were joining the American continuation of the same devotional stream that had carried their great-grandparents through the <em>Stundenhäuser</em> of the Neckar valley.</p>
+
+  <!-- ================= HONEY CREEK ================= -->
+
+  <h2 id="honey-creek" class="section-heading">The Honey Creek valley</h2>
+
+  <p>The family's Wisconsin home is firmly documented. Kari's great-grandfather <strong>Christian W. Gieck</strong> (1889&ndash;1982) &mdash; "Christ" on the Social Security rolls &mdash; lived in <strong>North Freedom, Sauk County</strong>, for most of his life, farming and raising his family in the <strong>Town of Honey Creek</strong>.</p>
+
+  <p>His son Harvey, Kari's great-uncle, was <em>"born March 2, 1921 on a farm in Honey Creek to Christian and Edna (Zick) Gieck"</em> &mdash; a line lifted verbatim from a 2009 funeral home obituary. Harvey, Christian W., Edna, and a generation of Gieck cousins are buried in <strong>Denzer Cemetery</strong>, the graveyard of the former Zion Evangelical United Brethren Church, about eight miles west of the Baraboo-area Highway 12 on County Road C.</p>
+
+  <p>Kari's grandfather <strong>Orville Forrest Gieck</strong> (1923&ndash;2013) grew up on that same Honey Creek farm. The Bruckert family &mdash; Erna Marie's people &mdash; was intertwined with the Giecks for generations before her marriage; a second and third Gieck-Bruckert marriage is documented in the Honey Creek records.</p>
+
+  <h3>The Driftless neighborhood</h3>
+
+  <p>Sauk County is not, in the strict geographic sense, part of Iowa County or the Dodgeville district where Kari's <a href="../dyreson/family-history.html">Dyreson forebears</a> settled. But the <strong>Wisconsin River</strong> is the only thing separating them: Honey Creek Township sits directly across the river from Iowa County's northern edge, and the wider <strong>Driftless Area</strong> &mdash; the unglaciated region of bluffs, coulees, and spring-fed streams that covers southwestern Wisconsin &mdash; runs continuously through both.</p>
+
+  <p>The Giecks, like the Dyresons, farmed ground that retained the rumpled, unflattened character of a landscape the last ice sheet had missed. <strong>The terrain resembled, more than a little, the Neckar tributary valleys the family had left behind.</strong></p>
+
+  <h3>Swabians among Pomeranians and Swiss</h3>
+
+  <p>Sauk County received its first Yankee and New England settlers in the 1830s and 40s. <strong>German immigration surged from the late 1850s through the 1890s</strong>, with a strong Pomeranian presence in the northern townships and a distinctly southern-German and Swiss element in <strong>Honey Creek, Troy, and Sumpter</strong> &mdash; precisely the townships where Württembergers, Bavarians, and Swiss Graubündner chose ground whose hills and springs reminded them of home.</p>
+
+  <p>No single Swabian colony in Wisconsin acquired the visibility of Freistadt (Pomeranian) or New Glarus (Swiss); Württembergers arrived dispersed into the broader first wave, and Honey Creek was one of the quieter places where they concentrated. The <strong>Salem Honey Creek Cemetery</strong>, locally known as the "Stone Church" or "German Methodist" cemetery, records German and Swiss burials side by side from the 1840s onward.</p>
+
+  <h3>When the crossing happened</h3>
+
+  <p>When in the family's story the Atlantic was actually crossed remains the most important open question. <strong>Christian Gieck (1819&ndash;1897)</strong> and <strong>Fredericke Remmele (1818&ndash;1893)</strong> both died in the 1890s, almost certainly in Sauk County. Their son <strong>William Gieck</strong> was born in 1863 &mdash; a year on the cusp.</p>
+
+  <ul>
+    <li>If Christian emigrated as a young married man in the <strong>1840s or 50s</strong>, William would have been born in Wisconsin.</li>
+    <li>If the family emigrated later, say in the <strong>1866&ndash;1873 wave</strong> that followed Württemberg's defeat by Prussia, William would have crossed as a child.</li>
+  </ul>
+
+  <p>Either pattern would fit the surname geography and the Honey Creek destination. Resolving it will require the emigration-permission records in Stuttgart, the Hamburg passenger lists after 1850, and the pre-1907 Sauk County vital records held by the Wisconsin Historical Society.</p>
+
+  <!-- ================= SWABIAN ================= -->
+
+  <h2 id="swabian" class="section-heading">What it felt like to be Swabian</h2>
+
+  <p>The Swabians are, in the German imagination, the thrifty ones. The saying <strong><em>Schaffe, schaffe, Häusle baue, und net nach de Mädle schaue</em></strong> &mdash; "work, work, build a little house, and don't look at the girls" &mdash; distills the Pietist-infused cultural ideal of hard labor, saving, modest pleasure, and the <em>Häusle</em>, the small owned house, as the summit of a life.</p>
+
+  <p>Combine that ethos with the hillside-farm economy of the Neckar valley and you get the Swabian reputation for industriousness, cleanliness (the infamous <strong><em>Kehrwoche</em></strong>, the rotating sweeping duty codified in Stuttgart as early as 1492), and an instinct to distrust the state bureaucracy even while obeying it.</p>
+
+  <h3>The dialect</h3>
+
+  <p>Swabian is an Alemannic cousin of Swiss German, not easily intelligible to speakers of standard High German. It softens <em>ich</em> to <em>i</em>, turns <em>s</em> into <em>sch</em> before <em>t</em> and <em>p</em> (<em>bischt</em>, <em>hascht</em>, <em>Feschd</em>), and loves the <em>-le</em> suffix past the point of grammatical necessity: <em>Häusle</em> for house, <em>Mädle</em> for girl, <em>Viertele</em> for a quarter-liter glass of wine.</p>
+
+  <p>The archetypal greeting is <strong>Grüß Gott</strong>; farewells go <em>Ade</em> or <em>Pfiat di</em>. Swabian Germans voted, in 2009, for <strong><em>Muggeseggele</em></strong> &mdash; a vanishingly small unit of measurement, literally "a housefly's genitals" &mdash; as the most beautiful word in their dialect. That single fact tells you most of what you need to know about Swabian humor.</p>
+
+  <h3>The food</h3>
+
+  <p>The cuisine is rustic, broth-heavy, and built around three things:</p>
+
+  <ul>
+    <li><strong>Spätzle</strong> &mdash; fresh egg noodles scraped from a board into boiling water, served as <em>Kässpätzle</em> with fried onions and melted cheese, or as the base under a lentil stew with Vienna sausages.</li>
+    <li><strong>Maultaschen</strong> &mdash; hand-sized ravioli stuffed with meat and spinach, born according to legend at Maulbronn Abbey when Cistercian monks wanted to hide meat from God during Lent. The nickname <em>Herrgottsbscheißerle</em>, <strong>"little God-cheaters,"</strong> is part of the dish's name.</li>
+    <li><strong>Trollinger, Lemberger, and Schillerwein</strong> &mdash; the wines of the Neckar and its tributaries. Württemberg is Germany's second-largest red-wine region. The <em>Viertelesschlotzer</em>, the quarter-liter-glass-sipper hunched over his Trollinger at the end of a workday, is a stock figure of Swabian life as iconic as the <em>Häusle</em> itself.</li>
+  </ul>
+
+  <p>None of that traveled across the Atlantic intact. But the ethos did. <strong>A German-American dairy farm in Honey Creek Township, with its careful barns, its cooperative creameries, its quiet Evangelical piety, and its century-long family continuity on the same ground, is a perfectly legible descendant of the Swabian idea</strong> that you work hard, you save, you build something small and lasting, and you stay.</p>
+
+  <!-- ================= EMBLEM ================= -->
+
+  <h2 id="emblem" class="section-heading">On the emblem</h2>
+
+  <p>Since there is no authentic Gieck coat of arms, and since the name was given by a Swabian village to someone who apparently struck his neighbors as a bit eccentric, any emblem for this family has to be <strong>chosen, not claimed</strong>.</p>
+
+  <p>What does exist, and what does honestly represent this family, are the regional symbols of the place they came from and the place they chose. The emblem at the top of this page combines three:</p>
+
+  <ul>
+    <li><strong>Three black stag antlers on gold</strong> &mdash; the arms of the Kingdom of Württemberg. Legitimate, public, and unmistakably Swabian.</li>
+    <li><strong>A wheat sheaf and a grapevine</strong> &mdash; the mixed agriculture of the Neckar country (wheat on the uplands, Trollinger and Riesling on the slopes) and a quiet echo of the dairy-and-field continuity of Honey Creek.</li>
+    <li><strong>A small cross at the base</strong> &mdash; the Pietist Lutheran and Evangelical United Brethren faith that threads the whole story together, from the <em>Stundenhäuser</em> of the Neckar valley to Zion Church in Honey Creek.</li>
+  </ul>
+
+  </div><!-- /prose -->
+
+  <div class="blazon">
+    <div class="blazon-label">What the emblem shows</div>
+    <p style="margin: 0 0 8px;">A golden shield divided into two fields. The upper field bears <strong>three black stag antlers</strong> &mdash; the historical arms of Württemberg. The lower field bears a <strong>golden wheat sheaf</strong> (for the grain farms of the Neckar uplands and the Honey Creek valley) and a <strong>red grape cluster on a vine</strong> (for Württemberg's signature Trollinger wine). A small cross at the base honors the family's Pietist Lutheran and Evangelical United Brethren heritage.</p>
+    <p style="margin: 0;">An honest heritage device: regional and confessional, not noble. The Swabian answer to the question of what a good life looks like &mdash; grain, wine, worship, and work.</p>
+  </div>
+
+  <!-- ================= TIMELINE ================= -->
+
+  <h2 id="timeline" class="section-heading">Timeline</h2>
+  <p class="lead"><em>From the Neckar valley to a Sauk County farm.</em></p>
+
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-year">1495</div>
+      <div class="tl-title">The Duchy of Württemberg</div>
+      <div class="tl-desc">The territory is elevated from a county to an imperial duchy. Stuttgart becomes its seat.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">1536</div>
+      <div class="tl-title">The Tübinger Stift</div>
+      <div class="tl-desc">Duke Ulrich founds the theological seminary that will train nearly every Württemberg pastor for the next four centuries &mdash; and shape the Pietist tradition the Giecks will eventually carry west.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">1743</div>
+      <div class="tl-title">Pietism legalized</div>
+      <div class="tl-desc">Württemberg becomes the only German state to legalize Pietist house-meetings, the <em>Stunden</em>. The heart-religion of the Neckar valley takes permanent root.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">1806</div>
+      <div class="tl-title">The Kingdom of Württemberg</div>
+      <div class="tl-desc">Duke Friedrich II allies with Napoleon and is rewarded with a crown. The duchy becomes a kingdom with 1.3 million subjects.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">1816</div>
+      <div class="tl-title">The year without a summer</div>
+      <div class="tl-desc">Mount Tambora's 1815 eruption darkens the northern hemisphere. Snow falls on the Swabian Alb in July. Grain prices multiply fivefold. 20,000 Württembergers emigrate in one year.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">1818</div>
+      <div class="tl-title">Fredericke Remmele is born</div>
+      <div class="tl-desc">Kari's 3rd-great-grandmother. The <em>-le</em> at the end of her surname is a linguistic fingerprint of the Swabian dialect &mdash; diagnostic of southwestern-German origin.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">1819</div>
+      <div class="tl-title">Christian Gieck is born</div>
+      <div class="tl-desc">Kari's 3rd-great-grandfather. Named in the Pietist tradition &mdash; a name the family will repeat across three generations.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">1846&ndash;47</div>
+      <div class="tl-title">Famine again</div>
+      <div class="tl-desc">Potato blight and crop failure strike Württemberg. Another wave of emigration begins.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">1848</div>
+      <div class="tl-title">Revolution fails</div>
+      <div class="tl-desc">The liberal revolutions across the German states collapse. Political refugees and economic emigrants flow toward America together.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">1863</div>
+      <div class="tl-title">William Gieck is born</div>
+      <div class="tl-desc">The hinge year. If the family had already crossed the Atlantic, William was born in Wisconsin. If not, he crossed as a child in the next wave.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">1866&ndash;73</div>
+      <div class="tl-title">Defeat and a second wave</div>
+      <div class="tl-desc">Württemberg chooses the wrong side in the Austro-Prussian War. Compulsory Prussian-style military service follows. Another emigration surge.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">1871</div>
+      <div class="tl-title">The kingdom joins Germany</div>
+      <div class="tl-desc">Württemberg cedes its sovereignty into the German Empire on January 1. Its army, post, and railways remain separate until 1918.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">1889</div>
+      <div class="tl-title">Christian W. Gieck is born</div>
+      <div class="tl-desc">In Wisconsin. The first Gieck of this line born indisputably in America. He will live to 1982 and farm the Honey Creek ground his entire life.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">1893</div>
+      <div class="tl-title">Fredericke Remmele Gieck dies</div>
+      <div class="tl-desc">Almost certainly in Sauk County. Likely buried at Denzer Cemetery or Salem Honey Creek.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">1897</div>
+      <div class="tl-title">Christian Gieck dies</div>
+      <div class="tl-desc">The patriarch. The crossing generation. Closes out the 19th century with the family firmly rooted in Wisconsin.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">1921</div>
+      <div class="tl-title">Born on a farm in Honey Creek</div>
+      <div class="tl-desc">Harvey Christian Gieck, son of Christian W. and Edna (Zick) Gieck. The obituary phrase &mdash; <em>"born on a farm in Honey Creek"</em> &mdash; anchors the family unambiguously to the valley.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">1923</div>
+      <div class="tl-title">Orville Forrest Gieck is born</div>
+      <div class="tl-desc">Kari's grandfather. Will grow up on the same Honey Creek farm and live to 2013.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">1968</div>
+      <div class="tl-title">EUB merges into the United Methodist Church</div>
+      <div class="tl-desc">The Evangelical United Brethren &mdash; the American descendant of Württemberg Pietism &mdash; merges with the Methodist Church. Zion EUB in Honey Creek becomes Denzer United Methodist. The faith tradition continues under a new name.</div>
+    </div>
+  </div>
+
+  <!-- ================= DOCUMENTED VS LORE ================= -->
+
+  <h2 id="documented" class="section-heading">Known facts vs. family lore</h2>
+  <p class="lead"><em>What the records suggest, and what is still family memory.</em></p>
+
+  <table class="known-table">
+    <thead>
+      <tr>
+        <th>Claim or Tradition</th>
+        <th>Assessment</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Family came from Germany</td>
+        <td><strong>Fully supported.</strong> Every surname in the older generations is unambiguously German. Not a hint of any other ethnicity.</td>
+      </tr>
+      <tr>
+        <td>From a specific part of Germany</td>
+        <td><strong>Almost certainly Württemberg / Baden-Württemberg.</strong> Three independent surnames (Gieck, Remmele, Fahrion) all concentrate there. The Remmele <em>-le</em> is a Swabian linguistic fingerprint.</td>
+      </tr>
+      <tr>
+        <td>Noble / aristocratic ancestors</td>
+        <td><strong>No.</strong> No <em>von</em> prefix anywhere. No documented arms. Gieck itself is a medieval nickname name &mdash; the opposite of aristocratic.</td>
+      </tr>
+      <tr>
+        <td>Spelling changed at Ellis Island</td>
+        <td><strong>No.</strong> Giek → Gieck is a German orthographic change, not an American one. It happened on German soil as part of broader 18th/19th-century spelling standardization.</td>
+      </tr>
+      <tr>
+        <td>Lutheran heritage</td>
+        <td><strong>Yes &mdash; specifically Pietist Lutheran</strong>, continued in America through the Evangelical United Brethren. Zion EUB in Honey Creek (now Denzer UMC) was the family's home congregation.</td>
+      </tr>
+      <tr>
+        <td>Farmers in Wisconsin</td>
+        <td><strong>Fully documented.</strong> Christian W. Gieck farmed Honey Creek his entire life. So did his son Orville. Three or four unbroken generations of dairy-and-grain farming.</td>
+      </tr>
+      <tr>
+        <td>Specific Württemberg village of origin</td>
+        <td><strong>Not yet known.</strong> The Württemberg Emigration Index and Stuttgart passport applications are the most likely source. Rare combined names (Giek + Remmele marriage in 1840s) make this tractable.</td>
+      </tr>
+      <tr>
+        <td>Exact date of Atlantic crossing</td>
+        <td><strong>Not yet known.</strong> William's 1863 birth is on the cusp &mdash; he could be Wisconsin- or Germany-born. Hamburg passenger lists (post-1850) and Sauk County pre-1907 vital records will likely resolve this.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- ================= NEXT STEPS ================= -->
+
+  <div class="prose">
+
+  <h2 id="next" class="section-heading">Next steps for research</h2>
+  <p class="lead"><em>How to turn the Swabian hypothesis into a specific village and a dated crossing.</em></p>
+
+  <ol>
+    <li><strong>The Württemberg Emigration Index.</strong> Schenk and Froelke's eight-volume compilation of roughly 60,000 emigration applications is the standard starting point. A search on the combined <em>Giek + Remmele</em> marriage in 1840s Württemberg, narrowed by Fredericke's 1818 birth year, would be unusually tractable because both surnames are rare.</li>
+
+```
+<li><strong>Stuttgart passport applications.</strong> The Hauptstaatsarchiv Stuttgart holds emigration permission files from 1845 onward, including applications, property-auction records, and the 10% <em>Nachsteuer</em> payments.</li>
+
+<li><strong>Hamburg passenger lists.</strong> Preserved continuously from 1850 onward (the Bremen lists were mostly destroyed in 1875). Digitized and searchable through Ancestry.com.</li>
+
+<li><strong>Sauk County pre-1907 vital records.</strong> Held by the Wisconsin Historical Society. Should contain the 1893 death of Fredericke Remmele Gieck and the 1897 death of Christian Gieck, including likely notation of German birthplace.</li>
+
+<li><strong>The Pionier Presse of Sauk City.</strong> The German-language newspaper ran until 1929 and is partially digitized through the George Culver Community Library. Likely contains obituaries of the patriarch and matriarch.</li>
+
+<li><strong>Denzer Cemetery and Salem Honey Creek Cemetery records.</strong> Both have published transcriptions. The headstones of Christian, Fredericke, William, Christian W., Edna, and Harvey Gieck are indexed at Interment.net and Find A Grave.</li>
+
+<li><strong>German Lutheran and Evangelical Association parish records.</strong> The Evangelical Association's 19th-century records (now held by United Methodist archives) should document the family's church life from arrival onward.</li>
+```
+
+  </ol>
+
+  <h2 class="section-heading">The quiet inheritance</h2>
+
+  <p>What the Giecks, Remmeles, Fahrions, Müllers, Zicks, and Bruckerts passed down is not a dramatic story. There is no castle in the pedigree, no famous ancestor, no documented royal connection, and no ship manifest lit up in pop history.</p>
+
+  <p>The story is smaller and, in the shape of ordinary American immigration, more typical: <strong>a family of Swabian peasants, plausibly from the Neckar basin, pushed out by partible inheritance and recurrent famine, pulled to Wisconsin by the promise of farmland</strong>, the network of earlier emigrants, and the active recruitment of a young state. They settled in a Driftless-Area valley that looked enough like home. They joined a Pietist church in the Evangelical tradition. They dairyed and farmed for a century. And they married into the neighboring Bruckert, Zick, and Müller families until by the mid-20th century the whole Honey Creek axis was essentially one extended kinship network.</p>
+
+  <p>That is the inheritance. It is not flashy. It is the <em>Häusle</em> ethic made visible across four generations of Wisconsin farm life &mdash; the Swabian answer to the question of what a good life looks like when you have very little and do the work anyway.</p>
+
+  </div><!-- /prose -->
+
+  <div class="divider"></div>
+
+  <div class="footer-bar">
+    <em>Schaffe, schaffe, Häusle baue</em> &mdash; work, work, build a little house. The Swabian inheritance, carried from the Neckar to Honey Creek and tended there for four generations.
+  </div>
+
+</div><!-- /container -->
+
+</body>
+</html>
