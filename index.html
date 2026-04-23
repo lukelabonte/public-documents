@@ -1,137 +1,143 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Luke's Documents</title>
-<meta name="description" content="Guides and references — pet care, dashcam picks, and more.">
+<meta name="description" content="Guides and references — pet care, dashcam picks, family history, and more.">
 <meta property="og:title" content="Luke's Documents">
-<meta property="og:description" content="Guides and references — pet care, dashcam picks, and more.">
+<meta property="og:description" content="Guides and references — pet care, dashcam picks, family history, and more.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://lukelabonte.github.io/documents/">
-<meta property="og:image" content="https://lukelabonte.github.io/documents/preview.png">
+<meta property="og:url" content="https://lukelabonte.github.io/public-documents/">
+<meta property="og:image" content="https://lukelabonte.github.io/public-documents/preview.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Luke's Documents">
-<meta name="twitter:description" content="Guides and references — pet care, dashcam picks, and more.">
-<meta name="twitter:image" content="https://lukelabonte.github.io/documents/preview.png">
+<meta name="twitter:description" content="Guides and references — pet care, dashcam picks, family history, and more.">
+<meta name="twitter:image" content="https://lukelabonte.github.io/public-documents/preview.png">
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <style>
-  /* Index page: bump header bottom margin slightly */
-  .header { margin-bottom: 40px; }
+/* Index page: bump header bottom margin slightly */
+.header { margin-bottom: 40px; }
 
-  /* ─── Section ──────────────────────────────────────────────────────── */
-  .section { margin-bottom: 40px; }
+/* ─── Section ──────────────────────────────────────────────────────── */
+.section { margin-bottom: 40px; }
+.section-title {
+font-family: ‘DM Serif Display’, serif;
+font-size: 1.35rem;
+font-weight: 400;
+color: var(–text);
+margin-bottom: 16px;
+padding-bottom: 10px;
+border-bottom: 1.5px solid var(–border);
+}
 
-  .section-title {
-    font-family: 'DM Serif Display', serif;
-    font-size: 1.35rem;
-    font-weight: 400;
-    color: var(--text);
-    margin-bottom: 16px;
-    padding-bottom: 10px;
-    border-bottom: 1.5px solid var(--border);
-  }
+/* ─── Document Card ────────────────────────────────────────────────── */
+.doc-card {
+display: flex;
+align-items: center;
+gap: 16px;
+background: var(–surface);
+border: 1.5px solid var(–border);
+border-radius: var(–radius);
+padding: 18px 20px;
+margin-bottom: 12px;
+text-decoration: none;
+color: inherit;
+box-shadow: var(–shadow-sm);
+transition: border-color 0.15s, box-shadow 0.15s, transform 0.1s;
+}
+.doc-card:hover {
+border-color: var(–accent-light);
+box-shadow: var(–shadow-md);
+transform: translateY(-1px);
+}
+.doc-icon {
+font-size: 28px;
+flex-shrink: 0;
+}
+.doc-info {
+flex: 1;
+min-width: 0;
+}
+.doc-title {
+font-weight: 600;
+font-size: 1rem;
+color: var(–text);
+margin-bottom: 3px;
+}
+.doc-description {
+font-size: 0.875rem;
+color: var(–text-muted);
+}
+.doc-arrow {
+color: var(–accent-light);
+font-size: 1.1rem;
+flex-shrink: 0;
+}
 
-  /* ─── Document Card ────────────────────────────────────────────────── */
-  .doc-card {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    background: var(--surface);
-    border: 1.5px solid var(--border);
-    border-radius: var(--radius);
-    padding: 18px 20px;
-    margin-bottom: 12px;
-    text-decoration: none;
-    color: inherit;
-    box-shadow: var(--shadow-sm);
-    transition: border-color 0.15s, box-shadow 0.15s, transform 0.1s;
-  }
-
-  .doc-card:hover {
-    border-color: var(--accent-light);
-    box-shadow: var(--shadow-md);
-    transform: translateY(-1px);
-  }
-
-  .doc-icon {
-    font-size: 28px;
-    flex-shrink: 0;
-  }
-
-  .doc-info {
-    flex: 1;
-    min-width: 0;
-  }
-
-  .doc-title {
-    font-weight: 600;
-    font-size: 1rem;
-    color: var(--text);
-    margin-bottom: 3px;
-  }
-
-  .doc-description {
-    font-size: 0.875rem;
-    color: var(--text-muted);
-  }
-
-  .doc-arrow {
-    color: var(--accent-light);
-    font-size: 1.1rem;
-    flex-shrink: 0;
-  }
-
-  /* ─── Footer ───────────────────────────────────────────────────────── */
-  .footer {
-    text-align: center;
-    padding-top: 32px;
-    border-top: 1.5px solid var(--border);
-    color: var(--text-light);
-    font-size: 0.825rem;
-  }
+/* ─── Footer ───────────────────────────────────────────────────────── */
+.footer {
+text-align: center;
+padding-top: 32px;
+border-top: 1.5px solid var(–border);
+color: var(–text-light);
+font-size: 0.825rem;
+}
 </style>
+
 </head>
 <body>
-<div class="container">
+  <div class="container">
+    <div class="header">
+      <div class="header-icon">📄</div>
+      <h1>Luke's Documents</h1>
+      <p class="subtitle">Guides and references shared publicly</p>
+    </div>
 
-  <div class="header">
-    <div class="header-icon">📄</div>
-    <h1>Luke's Documents</h1>
-    <p class="subtitle">Guides and references shared publicly</p>
-  </div>
-
-  <div class="section">
-    <div class="section-title">Pets</div>
-
-    <a href="pets/pet-feeding-guide.html" class="doc-card">
-      <div class="doc-icon">🐾</div>
-      <div class="doc-info">
-        <div class="doc-title">Pet Feeding Guide</div>
-        <div class="doc-description">Feeding schedules, portions, meds, and care notes for dogs and cats</div>
-      </div>
-      <div class="doc-arrow">→</div>
-    </a>
-  </div>
-
-  <div class="section">
-    <div class="section-title">Nicole</div>
-
-    <a href="nicole/dashcam-guide.html" class="doc-card">
-      <div class="doc-icon">📷</div>
-      <div class="doc-info">
-        <div class="doc-title">Dashcam Buyer's Guide</div>
-        <div class="doc-description">Researched picks ranked by ease of install, reliability, and value</div>
-      </div>
-      <div class="doc-arrow">→</div>
-    </a>
-  </div>
-
-  <div class="footer">
-    Hosted on GitHub Pages
-  </div>
-
+```
+<div class="section">
+  <div class="section-title">Family</div>
+  <a href="labonte/family-history.html" class="doc-card">
+    <div class="doc-icon">⚜️</div>
+    <div class="doc-info">
+      <div class="doc-title">The LaBonte Family — From Aunis to the New World</div>
+      <div class="doc-description">Three centuries of family history, traced from 17th-century France through New France to today</div>
+    </div>
+    <div class="doc-arrow">→</div>
+  </a>
 </div>
+
+<div class="section">
+  <div class="section-title">Pets</div>
+  <a href="pets/pet-feeding-guide.html" class="doc-card">
+    <div class="doc-icon">🐾</div>
+    <div class="doc-info">
+      <div class="doc-title">Pet Feeding Guide</div>
+      <div class="doc-description">Feeding schedules, portions, meds, and care notes for dogs and cats</div>
+    </div>
+    <div class="doc-arrow">→</div>
+  </a>
+</div>
+
+<div class="section">
+  <div class="section-title">Nicole</div>
+  <a href="nicole/dashcam-guide.html" class="doc-card">
+    <div class="doc-icon">📷</div>
+    <div class="doc-info">
+      <div class="doc-title">Dashcam Buyer's Guide</div>
+      <div class="doc-description">Researched picks ranked by ease of install, reliability, and value</div>
+    </div>
+    <div class="doc-arrow">→</div>
+  </a>
+</div>
+
+<div class="footer">
+  Hosted on GitHub Pages
+</div>
+```
+
+  </div>
 </body>
 </html>
