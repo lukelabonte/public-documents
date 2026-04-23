@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+<title>The Wisneski Family — From a Cherry-Tree Village to Wisconsin</title>
+<meta name="description" content="The maternal family history of the Wisneskis and Links — Polish and German-Catholic roots, from a partitioned Poland to the Wisconsin South Side.">
+<meta property="og:title" content="The Wisneski Family — From a Cherry-Tree Village to Wisconsin">
+<meta property="og:description" content="The maternal family history of the Wisneskis and Links — Polish and German-Catholic roots, from a partitioned Poland to the Wisconsin South Side.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://lukelabonte.github.io/public-documents/wisneski/family-history.html">
+<meta property="og:image" content="https://lukelabonte.github.io/public-documents/preview.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Wisneski Family — From a Cherry-Tree Village to Wisconsin">
+<meta name="twitter:description" content="The maternal family history of the Wisneskis and Links — Polish and German-Catholic roots, from a partitioned Poland to the Wisconsin South Side.">
+<meta name="twitter:image" content="https://lukelabonte.github.io/public-documents/preview.png">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+
+<style>
+/* Page-specific styles only — everything else uses the shared design system */
+
+/* Cherry branch emblem — header icon */
+.crest {
+  width: 80px;
+  height: auto;
+  margin: 0 auto 16px;
+  display: block;
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.1));
+}
+
+/* TOC */
+.toc {
+  background: var(--surface, #fff);
+  border: 1.5px solid var(--border, #e5dfd5);
+  border-radius: var(--radius, 12px);
+  padding: 20px 24px;
+  margin: 0 0 32px;
+}
+.toc-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.05rem;
+  margin: 0 0 12px;
+  color: var(--text, #2a2623);
+  letter-spacing: 0.02em;
+}
+.toc ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: toc;
+  columns: 2;
+  column-gap: 24px;
+}
+.toc li {
+  counter-increment: toc;
+  break-inside: avoid;
+  padding: 4px 0;
+  font-size: 0.92rem;
+}
+.toc li::before {
+  content: counter(toc) ".";
+  color: var(--accent, #B5632E);
+  font-weight: 600;
+  margin-right: 6px;
+  min-width: 1.5em;
+  display: inline-block;
+}
+.toc a {
+  color: var(--text-muted, #5a5048);
+  text-decoration: none;
+  border-bottom: 1px dotted transparent;
+}
+.toc a:hover {
+  color: var(--accent, #B5632E);
+  border-bottom-color: var(--accent, #B5632E);
+}
+@media (max-width: 560px) {
+  .toc ol { columns: 1; }
+}
+
+/* Pull quote */
+.pullquote {
+  margin: 28px 0;
+  padding: 20px 24px;
+  border-top: 1.5px solid var(--accent, #B5632E);
+  border-bottom: 1.5px solid var(--accent, #B5632E);
+  text-align: center;
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.2rem;
+  line-height: 1.45;
+  color: var(--text, #2a2623);
+  font-style: italic;
+}
+
+/* Timeline */
+.timeline {
+  margin: 16px 0 24px;
+  border-left: 2px solid var(--accent, #B5632E);
+  padding-left: 20px;
+}
+.tl-item {
+  position: relative;
+  padding: 6px 0 18px;
+}
+.tl-item::before {
+  content: "";
+  position: absolute;
+  left: -26px;
+  top: 12px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--bg, #FAF7F2);
+  border: 2px solid var(--accent, #B5632E);
+}
+.tl-year {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1rem;
+  color: var(--accent, #B5632E);
+  margin-bottom: 2px;
+}
+.tl-title {
+  font-weight: 600;
+  font-size: 0.98rem;
+  margin-bottom: 2px;
+}
+.tl-desc {
+  font-size: 0.92rem;
+  color: var(--text-muted, #5a5048);
+  line-height: 1.5;
+}
+
+/* Facts grid */
+.facts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px 24px;
+  margin: 16px 0 24px;
+}
+.fact-label {
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent, #B5632E);
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+.fact-value {
+  font-size: 0.95rem;
+  color: var(--text, #2a2623);
+  line-height: 1.45;
+}
+
+/* Partition cards */
+.partition-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 14px;
+  margin: 16px 0 24px;
+}
+.partition {
+  background: var(--surface, #fff);
+  border: 1.5px solid var(--border, #e5dfd5);
+  border-radius: var(--radius, 12px);
+  padding: 16px 18px;
+}
+.partition-name {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.1rem;
+  margin-bottom: 2px;
+  color: var(--text, #2a2623);
+}
+.partition-ruler {
+  font-size: 0.82rem;
+  color: var(--accent, #B5632E);
+  font-style: italic;
+  margin-bottom: 8px;
+}
+.partition-desc {
+  font-size: 0.9rem;
+  color: var(--text-muted, #5a5048);
+  line-height: 1.5;
+}
+
+/* Heritage places */
+.places-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+  margin: 16px 0 24px;
+}
+.place {
+  background: var(--surface, #fff);
+  border: 1.5px solid var(--border, #e5dfd5);
+  border-radius: var(--radius, 12px);
+  padding: 16px 18px;
+}
+.place-name {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.1rem;
+  margin-bottom: 2px;
+  color: var(--text, #2a2623);
+}
+.place-tag {
+  display: inline-block;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent, #B5632E);
+  background: rgba(181, 99, 46, 0.08);
+  padding: 2px 8px;
+  border-radius: 4px;
+  margin-bottom: 8px;
+}
+.place-desc {
+  font-size: 0.9rem;
+  color: var(--text-muted, #5a5048);
+  line-height: 1.5;
+}
+
+/* Known vs Lore table */
+.known-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 12px 0 24px;
+  font-size: 0.92rem;
+}
+.known-table th,
+.known-table td {
+  text-align: left;
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--border, #e5dfd5);
+  vertical-align: top;
+}
+.known-table th {
+  font-family: 'DM Serif Display', serif;
+  font-weight: 400;
+  font-size: 0.82rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent, #B5632E);
+  background: rgba(181, 99, 46, 0.04);
+}
+.known-table tr:last-child td { border-bottom: none; }
+@media (max-width: 560px) {
+  .known-table, .known-table tbody, .known-table tr, .known-table td, .known-table th {
+    display: block;
+    width: 100%;
+  }
+  .known-table thead { display: none; }
+  .known-table td {
+    padding: 8px 0;
+    border-bottom: none;
+  }
+  .known-table tr {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border, #e5dfd5);
+  }
+  .known-table tr:last-child { border-bottom: none; }
+  .known-table td:first-child {
+    font-weight: 600;
+    color: var(--text, #2a2623);
+  }
+}
+
+/* Emblem callout */
+.blazon {
+  margin: 20px 0;
+  padding: 16px 20px;
+  background: rgba(181, 99, 46, 0.06);
+  border-left: 3px solid var(--accent, #B5632E);
+  border-radius: 6px;
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+.blazon-label {
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent, #B5632E);
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+/* Simple list spacing in prose */
+.prose ul, .prose ol { margin: 8px 0 16px 20px; }
+.prose li { margin-bottom: 6px; line-height: 1.55; }
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+<a href="../index.html" class="back-btn">← All Documents</a>
+
+  <div class="header">
+    <!-- Cherry branch emblem — the Wiśniewski name comes from wiśnia, "sour cherry" -->
+    <svg class="crest" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-label="A sour-cherry branch with red fruit and white blossoms — the root meaning of the Wiśniewski name">
+      <!-- Branch -->
+      <path d="M 20 85 Q 35 70 50 55 Q 60 45 70 30" stroke="#6b4423" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      <path d="M 45 60 Q 52 52 55 42" stroke="#6b4423" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+      <path d="M 58 48 Q 65 40 72 38" stroke="#6b4423" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+
+```
+  <!-- Leaves (Polish-green) -->
+  <path d="M 50 55 Q 42 48 40 52 Q 44 58 50 55 Z" fill="#5a7a3e" stroke="#3e5529" stroke-width="0.4"/>
+  <path d="M 55 42 Q 62 38 62 44 Q 58 46 55 42 Z" fill="#5a7a3e" stroke="#3e5529" stroke-width="0.4"/>
+  <path d="M 35 75 Q 28 70 27 76 Q 31 80 35 75 Z" fill="#5a7a3e" stroke="#3e5529" stroke-width="0.4"/>
+
+  <!-- White cherry blossoms with gold centers -->
+  <g>
+    <circle cx="30" cy="80" r="2.5" fill="#fff5ee"/>
+    <circle cx="34" cy="78" r="2.5" fill="#fff5ee"/>
+    <circle cx="34" cy="83" r="2.5" fill="#fff5ee"/>
+    <circle cx="28" cy="84" r="2.5" fill="#fff5ee"/>
+    <circle cx="27" cy="79" r="2.5" fill="#fff5ee"/>
+    <circle cx="31" cy="81" r="1.2" fill="#d4a340"/>
+
+    <circle cx="65" cy="33" r="2.5" fill="#fff5ee"/>
+    <circle cx="69" cy="31" r="2.5" fill="#fff5ee"/>
+    <circle cx="69" cy="36" r="2.5" fill="#fff5ee"/>
+    <circle cx="63" cy="37" r="2.5" fill="#fff5ee"/>
+    <circle cx="62" cy="32" r="2.5" fill="#fff5ee"/>
+    <circle cx="66" cy="34" r="1.2" fill="#d4a340"/>
+  </g>
+
+  <!-- Red cherries hanging in pairs (Polish-red) -->
+  <g>
+    <path d="M 48 62 Q 48 68 48 70" stroke="#6b4423" stroke-width="0.6" fill="none"/>
+    <path d="M 52 62 Q 52 70 52 73" stroke="#6b4423" stroke-width="0.6" fill="none"/>
+    <circle cx="48" cy="73" r="4" fill="#b91c1c" stroke="#7a1212" stroke-width="0.4"/>
+    <circle cx="52" cy="76" r="4" fill="#b91c1c" stroke="#7a1212" stroke-width="0.4"/>
+    <ellipse cx="46.5" cy="71.5" rx="1" ry="1.5" fill="#e85a52" opacity="0.6"/>
+    <ellipse cx="50.5" cy="74.5" rx="1" ry="1.5" fill="#e85a52" opacity="0.6"/>
+  </g>
+
+  <g>
+    <path d="M 72 40 Q 72 46 72 48" stroke="#6b4423" stroke-width="0.6" fill="none"/>
+    <path d="M 76 40 Q 76 48 76 51" stroke="#6b4423" stroke-width="0.6" fill="none"/>
+    <circle cx="72" cy="51" r="3.5" fill="#b91c1c" stroke="#7a1212" stroke-width="0.4"/>
+    <circle cx="76" cy="54" r="3.5" fill="#b91c1c" stroke="#7a1212" stroke-width="0.4"/>
+    <ellipse cx="70.8" cy="49.8" rx="0.9" ry="1.3" fill="#e85a52" opacity="0.6"/>
+    <ellipse cx="74.8" cy="52.8" rx="0.9" ry="1.3" fill="#e85a52" opacity="0.6"/>
+  </g>
+</svg>
+<h1>The Wisneski Family</h1>
+<p class="subtitle">From a cherry-tree village to Wisconsin &mdash; a Polish-American family history</p>
+<div class="updated">Maternal line &middot; Prepared April 2026</div>
+```
+
+  </div>
+
+  <!-- ================= AT A GLANCE ================= -->
+
+  <h2 class="section-heading">At a glance</h2>
+  <div class="facts">
+    <div>
+      <div class="fact-label">The Name</div>
+      <div class="fact-value"><strong>Wisneski</strong> &mdash; Americanized from Polish <em>Wiśniewski</em>, "from the place of cherries."</div>
+    </div>
+    <div>
+      <div class="fact-label">Origin</div>
+      <div class="fact-value">Most likely the <strong>Prussian partition of Poland</strong> &mdash; Posen, Pomerania, or West Prussia.</div>
+    </div>
+    <div>
+      <div class="fact-label">Surname Rank</div>
+      <div class="fact-value">The <strong>3rd most common surname in Poland</strong> &mdash; about 107,000 bearers today.</div>
+    </div>
+    <div>
+      <div class="fact-label">The Migration</div>
+      <div class="fact-value">Part of the wave of <strong>2 million Poles</strong> who came to America between 1880 and 1924.</div>
+    </div>
+    <div>
+      <div class="fact-label">Valerian</div>
+      <div class="fact-value">Polish <em>Walerian</em>, from Latin <em>valere</em>, "to be strong." Shortened in America to <strong>Val</strong>.</div>
+    </div>
+    <div>
+      <div class="fact-label">Link</div>
+      <div class="fact-value">Almost certainly a <strong>German</strong> surname (from <em>linc</em>, "left") &mdash; Irish ancestry likely enters via a maternal line.</div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ================= TOC ================= -->
+
+  <div class="toc">
+    <div class="toc-title">Contents</div>
+    <ol>
+      <li><a href="#story">The Story in Brief</a></li>
+      <li><a href="#name">The Name That Came from a Cherry Tree</a></li>
+      <li><a href="#nobility">About Those Noble Coats of Arms</a></li>
+      <li><a href="#anglicization">From Wiśniewski to Wisneski</a></li>
+      <li><a href="#lost-nation">The Lost Nation Behind the Passport</a></li>
+      <li><a href="#wisconsin">Why Wisconsin</a></li>
+      <li><a href="#valerian">Valerian &mdash; Saint and Man</a></li>
+      <li><a href="#link">The Link Surname Examined</a></li>
+      <li><a href="#crossroads">Wisconsin's Catholic Crossroads</a></li>
+      <li><a href="#life">The Texture of Polish-American Life</a></li>
+      <li><a href="#emblem">On the Emblem</a></li>
+      <li><a href="#timeline">Timeline</a></li>
+      <li><a href="#documented">Known vs. Lore</a></li>
+      <li><a href="#next">Next Steps</a></li>
+    </ol>
+  </div>
+
+  <!-- ================= STORY IN BRIEF ================= -->
+
+  <div class="prose">
+
+  <h2 id="story" class="section-heading">The story in brief</h2>
+
+  <p>The Wisneski name is almost certainly an Americanized spelling of <strong>Wiśniewski</strong>, Poland's third most common surname &mdash; a name rooted in the sour-cherry orchards of a medieval village somewhere in the lost homeland. The -ski ending marks it as <em>"from"</em> a place; the root <em>wiśnia</em> means <em>"sour cherry."</em> Somewhere, in a village once called Wiśniewo or Wiśniew or Wiśniowa, a family took the name of the cherries growing around their church.</p>
+
+  <p>The family's journey to Wisconsin was part of one of the great American immigrant stories: roughly <strong>two million Poles</strong> left a nation that did not legally exist &mdash; Poland had been carved up by Russia, Prussia, and Austria in 1795 and would not be restored as an independent state until 1918. A Wisneski ancestor emigrating in the 1870s or 1880s would have arrived on a <strong>German passport</strong>, from the Prussian partition, and would often be recorded as "German" on American census forms even as Polish was spoken at the kitchen table.</p>
+
+  <p><strong>Valerian "Val" Wisneski</strong> carried one of the oldest Polish Catholic baptismal names &mdash; from Latin <em>valere</em>, "to be strong" &mdash; tied to a 3rd-century martyr whose feast falls in April, when cherry blossoms open across the Polish countryside. <strong>Elizabeth "Betty" Link</strong> carried a name that is almost entirely German in origin, though the family tradition of "some Irish" on the Link side is very likely true &mdash; just probably not through the Link surname itself. By the second and third generations in Wisconsin, intermarriage among the state's Catholic immigrant communities had become routine rather than exceptional. The Link&ndash;Wisneski marriage is itself a tidy emblem of that pattern.</p>
+
+  <p>Behind all of this stands Wisconsin itself &mdash; <strong>first in the nation in Polish ancestry per capita</strong>, home to 112 historically Polish Catholic parishes, three of the largest rural Polish settlements in America, and the Polish-Grand-Avenue of Milwaukee's South Side. This is that history, told honestly &mdash; what the documents show, what family memory suggests, and where the two still wait to meet.</p>
+
+  <div class="pullquote">
+    A family that came from a cherry-tree village, arrived with a German passport and a Polish prayer book, and built a life in a land where the name rustled like its own leaves.
+  </div>
+
+  <!-- ================= THE NAME ================= -->
+
+  <h2 id="name" class="section-heading">The name that came from a cherry tree</h2>
+
+  <p><strong>Wiśniewski</strong> &mdash; pronounced roughly <em>vish-NYEF-skee</em> in Polish &mdash; is a <strong>toponymic surname</strong>, meaning it belonged originally to someone "from Wiśniewo" or "from Wiśniew" or "from Wiśniowa." Those place names all share one Polish root: <strong>wiśnia</strong>, the sour cherry tree (<em>Prunus cerasus</em>, distinct from sweet <em>czereśnia</em>). Somewhere in medieval Poland, a village was named for its cherry orchards; centuries later, a family that had come from that village took its name as their own. The literal meaning is <em>"of the cherry-tree place."</em> It is a name that rustles like leaves.</p>
+
+  <h3>The -ski suffix</h3>
+
+  <p>In the 14th through 16th centuries, a <strong>-ski</strong> ending was genuinely aristocratic &mdash; the Polish equivalent of French <em>de</em> or German <em>von</em>, used by landowning nobility to mark their estate: "Jan z Wiśniewa" ("Jan of Wiśniew") became "Jan Wiśniewski." But by the 17th and 18th centuries, peasants and townsfolk began taking -ski names from the villages where they worked. By the 19th century, when Poles under foreign rule were compelled to adopt fixed surnames, <strong>-ski had become the most productive surname ending in the entire Polish language</strong>. A -ski name today tells you almost nothing about class origin.</p>
+
+  <h3>One of Poland's most common names</h3>
+
+  <p>Wiśniewski is <strong>the third most common surname in Poland</strong>, after Nowak and Kowalski. The Polish interior ministry counted 111,174 bearers in 2009 and roughly 107,000 today. The highest concentrations are in <strong>Kuyavia-Pomerania, Warmia-Masuria, Mazovia, and Pomerania</strong> &mdash; northern and central Poland, overlapping with the old Prussian partition that sent most Polish immigrants to Wisconsin. Milwaukee is one of the top ten cities in the world for the Wisniewski spelling.</p>
+
+  <!-- ================= NOBILITY ================= -->
+
+  <h2 id="nobility" class="section-heading">About those noble coats of arms</h2>
+
+  <p>Because the Wiśniewski name was adopted independently by <strong>many unrelated families from many different villages</strong>, Polish armorials list it under at least a dozen distinct noble clans (<em>herby</em>): Prus I, II, and III; Prawdzic; Leliwa; Radwan; Jastrzębiec; Trzaska; Korwin; Trzywdar; and others. The princely <strong>House of Wiśniowiecki</strong>, which produced King Michał Korybut Wiśniowiecki (1669&ndash;1673), is a related but genealogically distinct Ruthenian-Lithuanian line.</p>
+
+  <div class="note note-orange">
+    <strong>An honest note.</strong> The overwhelming majority of Wiśniewski families are of peasant or petty-gentry origin, not noble. With over a hundred thousand bearers, the arithmetic alone rules out clan descent for most. Polish heraldry worked differently from Western heraldry &mdash; a single coat of arms belonged to an entire clan of <em>dozens or hundreds of unrelated families with different surnames</em>, and a claim to any specific <em>herb</em> requires documentary proof through armorials like Niesiecki's <em>Herbarz Polski</em> or Boniecki's. Commercial "family crest" websites sell invented arms.
+  </div>
+
+  <p>For a Wiśniewski family page, the most truthful and evocative emblem is <strong>the sour-cherry branch itself</strong> &mdash; white blossoms in May, red fruit in July, echoing the red and white of the Polish flag without overclaiming a nobility the documents have not yet produced.</p>
+
+  <!-- ================= ANGLICIZATION ================= -->
+
+  <h2 id="anglicization" class="section-heading">From Wiśniewski to Wisneski</h2>
+
+  <p>The transformation <strong>Wiśniewski &rarr; Wisneski</strong> happened gradually in America, and not, despite persistent legend, at Ellis Island. Historians at the National Archives, the Smithsonian, and the New York Public Library have thoroughly debunked the myth that immigration inspectors rewrote names on arrival: they worked from ship manifests prepared at European ports of departure and employed translators fluent in Polish and other Slavic languages.</p>
+
+  <p>Name change happened <strong>afterward</strong>, in the everyday collisions of a Polish surname with an English-speaking country &mdash; teachers, employers, census-takers, and Irish parish priests transcribing by ear; immigrants simplifying for schools, paychecks, and the telephone book. The typical progression:</p>
+
+  <ol>
+    <li><strong>Wiśniewski</strong> (full Polish, with the soft <em>ś</em> diacritic)</li>
+    <li><strong>Wisniewski</strong> (diacritic dropped)</li>
+    <li><strong>Wisnewski</strong> (one letter dropped)</li>
+    <li><strong>Wisneski</strong> (another letter dropped)</li>
+  </ol>
+
+  <p>Each step shed a fraction of strangeness; each step also shed a fraction of the old country.</p>
+
+  <!-- ================= LOST NATION ================= -->
+
+  <h2 id="lost-nation" class="section-heading">The lost nation behind the passport</h2>
+
+  <p>To understand why a Wisneski ancestor might appear on early American records as <strong>"German," "Prussian," or "Russian"</strong> rather than Polish, one must understand that <strong>Poland did not exist as a country from 1795 to 1918</strong> &mdash; 123 years, longer than the United States has been independent.</p>
+
+  <p>In three partitions (1772, 1793, 1795) Russia, Prussia, and Austria devoured the old Polish-Lithuanian Commonwealth. The Congress of Vienna in 1815 redrew the three pieces, and there they remained until Versailles restored Polish sovereignty on <strong>November 11, 1918</strong>. A Pole emigrating in the 1870s carried a Prussian (later German) passport; a Pole from Warsaw in the 1890s carried a Russian one; one from Kraków or Lwów an Austrian one. Ship manifests, naturalization papers, and census takers recorded the issuing empire &mdash; not the ethnicity.</p>
+
+  <h3>The three partitions treated Poles differently</h3>
+
+  </div><!-- /prose -->
+
+  <div class="partition-grid">
+    <div class="partition">
+      <div class="partition-name">Prussian Partition</div>
+      <div class="partition-ruler">Posen, Pomerania, West Prussia</div>
+      <div class="partition-desc"><strong>Most Wisconsin Polish immigrants came from here.</strong> Bismarck's <em>Kulturkampf</em> after 1871: Polish priests imprisoned, Polish banned from public schools in 1873, 185 clergy jailed, the Primate exiled. In 1885, roughly 35,000&ndash;48,000 Poles were forcibly deported. Children were beaten for praying in Polish at school.</div>
+    </div>
+    <div class="partition">
+      <div class="partition-name">Russian Partition</div>
+      <div class="partition-ruler">Congress Poland, later "Vistula Land"</div>
+      <div class="partition-desc">After the failed January Uprising of 1863, full-scale <em>Russification</em>: some 80,000 Poles deported to Siberia, Polish banned from schools and courts, Congress Poland rebranded the humiliating <em>Privislinsky Krai</em>. Emigrants from this zone came later, mostly 1880&ndash;1914.</div>
+    </div>
+    <div class="partition">
+      <div class="partition-name">Austrian Partition</div>
+      <div class="partition-ruler">Galicia &mdash; Kraków, Lwów</div>
+      <div class="partition-desc">Politically the most tolerant but economically the most desperate &mdash; "the poorest province in Europe." An 1888 study estimated 50,000 deaths a year from hunger. Galicians joked that their province was really <em>Golicja i Głodomeria</em> &mdash; "Nakedia and Hungrymeria."</div>
+    </div>
+  </div>
+
+  <div class="prose">
+
+  <p>Out of this pressure came the great Polish emigration. Roughly <strong>2 million Poles</strong> arrived in the United States between 1880 and 1924, in three waves:</p>
+
+  <ul>
+    <li><strong>1850s&ndash;1870s:</strong> First wave, overwhelmingly from the Prussian partition &mdash; the <em>za chlebem</em> ("for bread") migration.</li>
+    <li><strong>1880&ndash;1914:</strong> Peak wave from Russian and Austrian Poland.</li>
+    <li><strong>Post-WWII:</strong> Displaced persons, Anders' Army veterans, and Solidarity-era émigrés.</li>
+  </ul>
+
+  <p>The 1924 Immigration Act effectively shut the door.</p>
+
+  <!-- ================= WHY WISCONSIN ================= -->
+
+  <h2 id="wisconsin" class="section-heading">Why Wisconsin</h2>
+
+  <p>Wisconsin pulled the first wave disproportionately. <strong>Eighty percent of Polish immigrants in Wisconsin as of 1900 had come from German-ruled Poland</strong> &mdash; compared with just 39 percent nationally. The reasons compound: cheap or free farmland under the Homestead Act; a climate and pine-forested soil uncannily like Pomerania and Poznania; a Catholic hierarchy that welcomed Polish-language parishes (in contrast to the Kulturkampf at home); the industrial pull of Milwaukee's breweries and tanneries; and above all <strong>chain migration</strong> &mdash; letters home from a pioneer drew entire villages across the Atlantic in parish-to-parish clusters.</p>
+
+  <p>Today Wisconsin ranks <strong>first nationally in Polish ancestry as a percentage of state population</strong>, roughly 8&ndash;9 percent (about 460,000&ndash;500,000 residents), and <strong>112 historically Polish Roman Catholic parishes</strong> were founded in the state &mdash; the fourth-highest total in the country.</p>
+
+  <h3>Three great Polish capitals in Wisconsin</h3>
+
+  </div><!-- /prose -->
+
+  <div class="places-grid">
+    <div class="place">
+      <div class="place-tag">Urban heart</div>
+      <div class="place-name">Milwaukee's South Side</div>
+      <div class="place-desc">First Poles arrived in the 1840s; by 1915 about <strong>100,000</strong>, the city's second-largest ethnic group after Germans. <strong>St. Stanislaus parish</strong> (1866) was the first urban Polish Roman Catholic parish in America. The <strong>Basilica of St. Josaphat</strong> (1901), built from salvaged stone of Chicago's demolished Federal Building, was named a minor basilica by Pope Pius XI in 1929.</div>
+    </div>
+    <div class="place">
+      <div class="place-tag">Rural heartland</div>
+      <div class="place-name">Portage County &amp; Stevens Point</div>
+      <div class="place-desc">The <strong>largest rural Polish settlement in America</strong> &mdash; still. Founded 1857 by Michael Koziczkowski of Gdańsk. By 1906 the hamlet of <strong>Polonia</strong> (named for the homeland) counted 360 Polish farming families, Sacred Heart of Jesus church (1863), an orphanage, and a parish school.</div>
+    </div>
+    <div class="place">
+      <div class="place-tag">Western valleys</div>
+      <div class="place-name">Trempealeau County</div>
+      <div class="place-desc">The <strong>second-largest rural Polish settlement in America</strong>. Kashubian families crossed from Minnesota to found Pine Creek in 1862. Upper Silesian immigrants filled Independence, Arcadia, and Whitehall. The county is still roughly 17 percent Polish.</div>
+    </div>
+    <div class="place">
+      <div class="place-tag">Polka capital</div>
+      <div class="place-name">Pulaski</div>
+      <div class="place-desc">Platted in 1885 after a Chicago developer gave Brother Augustine Zeitz 120 acres for a Franciscan monastery. The village remains famously Polish and hosts <strong>Pulaski Polka Days</strong> every July &mdash; one of the largest Polish music festivals on earth.</div>
+    </div>
+  </div>
+
+  <div class="prose">
+
+  <p>Polish place names dot the Wisconsin map: <strong>Krakow, Sobieski, Poznan, Kopernik, Poniatowski, Torun, Lublin</strong>.</p>
+
+  <!-- ================= VALERIAN ================= -->
+
+  <h2 id="valerian" class="section-heading">Valerian &mdash; saint and man</h2>
+
+  <p><strong>Walerian</strong> is the Polish form of the Latin <em>Valerianus</em>, derived from the Roman family name <em>Valerius</em>, which in turn comes from the verb <strong>valere</strong> &mdash; "to be strong, to be healthy, to prevail." It is the same root that gives English <em>valiant</em>, <em>valor</em>, <em>value</em>, and <em>prevail</em>. A name that is also a blessing.</p>
+
+  <p>Three saints in the Catholic calendar carry the name, but the one most commonly celebrated in Poland is <strong>Saint Valerian the Martyr</strong> (3rd century), the husband of Saint Cecilia, patroness of church music. Converted to Christianity by his bride, baptized by Pope Urban I, he was beheaded with his brother Tiburtius for giving Christian burial to martyrs. <strong>His feast day is April 14.</strong></p>
+
+  <p>In Polish Catholic culture, <strong>name-days (<em>imieniny</em>) were traditionally celebrated more than birthdays</strong> &mdash; a boy baptized Walerian would be feted every April 14, when Polish spring is just breaking and the cherry blossoms are opening in the villages from which the Wiśniewski name came. Name-day and namesake tree bloomed together.</p>
+
+  <p>Polish diminutives include <em>Walek</em>, <em>Walerek</em>, and <em>Walerianek</em>. In America the four-syllable <em>wa-LER-yan</em> was unwieldy for English tongues, and the near-universal adaptation was the short, crisp <strong>Val</strong>.</p>
+
+  <!-- ================= LINK ================= -->
+
+  <h2 id="link" class="section-heading">The Link surname, examined with care</h2>
+
+  <p>The family tradition of "some Irish" on the Link side is almost certainly true as a fact about the family &mdash; but <strong>the Link surname itself is not the source.</strong></p>
+
+  <p><strong>Link is an emphatically German surname.</strong> The <em>Dictionary of American Family Names</em> (Oxford, 2nd ed., 2022) gives its primary etymology as a Middle High German nickname for a left-handed person, from <em>linc</em>, "left" &mdash; a distinguishing tag in a medieval world that viewed left-handedness with suspicion. Dutch <em>linker/links</em> and Yiddish <em>link</em> share the same Germanic root, which is why Link also appears commonly as an Ashkenazi Jewish surname.</p>
+
+  <p>Distribution data confirm the picture. Of roughly 60,000 Link bearers worldwide, about <strong>33,000 live in Germany</strong> &mdash; concentrated in <strong>Baden-Württemberg (31 percent), Bavaria (19 percent), and North Rhine-Westphalia (13 percent)</strong>, the Catholic/southern-German regions that fed heavy immigration to Wisconsin. The United States is the second-largest population. Ireland does not appear as a meaningful concentration.</p>
+
+  <h3>So where could the "Irish" in the family tradition come from?</h3>
+
+  <p>An honest ranking:</p>
+
+  <ol>
+    <li><strong>Most likely:</strong> Irish ancestry entered through a <em>female line</em> somewhere in Betty's maternal tree &mdash; a Link man (or a male ancestor of Betty's mother) married a woman with an Irish surname (O'Brien, Murphy, Kelly, Sullivan, Ryan, McCarthy, Fitzgerald), probably in the mid-to-late 19th century. By the time oral tradition reached the next generation, the Irish maiden name would be remembered simply as "some Irish on the Link side," even though the Link name itself is German. <em>This is exactly the pattern Wisconsin's interwoven Catholic communities produced routinely.</em></li>
+
+```
+<li><strong>Less likely but possible:</strong> "Link" is an anglicization of <strong>Lynch</strong> (or <em>Linch</em>), a major Irish surname. A phonetic slide <em>Linch &rarr; Link</em> is plausible but would need documentary support &mdash; an earlier generation recorded as Lynch or Linch &mdash; to be more than speculation.</li>
+
+<li><strong>Unlikely:</strong> Ellis Island name-changing, which did not meaningfully happen. Or confusion between Scots-Irish (Ulster Protestant) and Irish Catholic identity.</li>
+```
+
+  </ol>
+
+  <p>The rewarding next step for the family historian is to <strong>trace the maternal lines back</strong> &mdash; Betty's mother, her grandmothers, their mothers. That's where an Irish maiden name is most likely waiting to be found.</p>
+
+  <!-- ================= CATHOLIC CROSSROADS ================= -->
+
+  <h2 id="crossroads" class="section-heading">Wisconsin's Catholic crossroads</h2>
+
+  <p>What makes the Wisneski&ndash;Link marriage itself intelligible is Wisconsin's peculiar ethnic geometry.</p>
+
+  <p>Wisconsin is <strong>the most German state in the Union</strong> &mdash; about 43 percent of residents claim German ancestry, and Milwaukee was long nicknamed <em>Das Deutsche Athen</em>, "the German Athens." The "Holyland" of Fond du Lac and Calumet counties was settled by Catholic Germans from the Rhineland's Eifel region. The first Archbishop of Milwaukee, John Henni (appointed 1843), was Swiss-German and built the diocese on German-speaking parishes.</p>
+
+  <p>Wisconsin was also <strong>second in Irish ancestry</strong>. The Irish were Milwaukee's <em>first</em> major immigrant wave, arriving in the mid-1830s; the Great Famine (1845&ndash;1852) drove the surge. They settled the "Bloody Third Ward," the Merrill Park railroad neighborhood, and three "Irish Valleys" across the southwestern counties.</p>
+
+  <p>The crucial point: by the second and third generations, <strong>intermarriage among Wisconsin's Catholic immigrant groups &mdash; Irish, German, Polish, Czech, French-Canadian, Luxembourger, Belgian &mdash; was routine, not exceptional.</strong> A shared parish, parochial school, and sacramental calendar mattered more than ethnic origin in choosing a spouse. By the time Betty Link married Val Wisneski, interethnic Catholic union was the norm. The Link&ndash;Wisneski marriage is itself a tidy emblem of that pattern.</p>
+
+  <!-- ================= POLISH-AMERICAN LIFE ================= -->
+
+  <h2 id="life" class="section-heading">The texture of Polish-American life</h2>
+
+  <p>What would daily life have looked like in a 20th-century Wisconsin Polish-American family? The short answer: <strong>Catholicism set the rhythm, food carried the memory, and polka gave it a beat.</strong></p>
+
+  <h3>The religious year</h3>
+
+  <p>Christmas Eve meant <strong>Wigilia</strong>, the most sacred night of the Polish calendar &mdash; a thin bundle of hay beneath a starched white tablecloth to recall the manger, an extra place set for an unexpected guest, the meal held until the first star appeared. The family passed the <strong>opłatek</strong>, a wafer-thin sheet embossed with the Nativity, breaking pieces from each other's wafers and offering wishes of health, peace, forgiveness, prosperity. Twelve meatless dishes followed, one for each apostle: clear ruby beet <em>barszcz</em> with mushroom-stuffed <em>uszka</em>, pierogi with sauerkraut and mushroom, fried carp, herring, noodles with poppy seeds, <em>kutia</em>, dried-fruit <em>kompot</em>. The night ended at <strong>Pasterka</strong> &mdash; Midnight Mass &mdash; the organ thundering the great Polish carol <em>Bóg się rodzi</em>.</p>
+
+  <p>Easter brought <strong>Święconka</strong> &mdash; baskets lined with embroidered linen, tucked with boxwood sprigs, carried on Holy Saturday to be blessed with holy water. Each item had a meaning: decorated eggs (<em>pisanki</em>) for resurrection, a cross-stamped rye loaf for Christ the Bread of Life, salt for purification, kielbasa for abundance, horseradish for the bitter Passion, a butter lamb carrying a tiny red-and-white "Alleluja" flag. <strong>Dyngus Day</strong> on Easter Monday &mdash; boys dousing girls with water and tapping them with pussy willows &mdash; carried forward a tradition reaching back to the baptism of Prince Mieszko I in 966.</p>
+
+  <p>Presiding over all of it was <strong>Our Lady of Częstochowa</strong>, the Black Madonna of Jasna Góra monastery, crowned Queen of Poland by King John II Casimir in 1656, the two sword scars on her cheek from 1430 Hussite raiders that would never heal. Under communism she became a symbol of resistance; in Polish-American homes she watched from a living-room wall or a holy card tucked in a prayer book.</p>
+
+  <h3>The food</h3>
+
+  <p>The food outlasted the language &mdash; as it usually does. A Polish Wisconsin kitchen in the 1950s still smelled of sauerkraut simmering with caraway, pierogi frying in butter and onion, rye bread cooling on racks. The staples:</p>
+
+  <ul>
+    <li><strong>Pierogi</strong> &mdash; potato-cheese, sauerkraut-mushroom, meat, or sweet fruit</li>
+    <li><strong>Kielbasa</strong> &mdash; smoked and served with sauerkraut</li>
+    <li><strong>Gołąbki</strong> &mdash; "little pigeons," cabbage leaves around meat and rice</li>
+    <li><strong>Bigos</strong> &mdash; hunter's stew</li>
+    <li><strong>Barszcz</strong> &mdash; beet soup</li>
+    <li><strong>Żurek</strong> &mdash; sour rye soup</li>
+    <li><strong>Czarnina</strong> &mdash; duck blood soup with prunes (older households)</li>
+  </ul>
+
+  <p>Sweets included poppy-seed <strong>makowiec</strong>, buttery <strong>babka</strong>, <strong>chruściki</strong> angel wings, milky <strong>krówki</strong> fudges, and above all <strong>pączki</strong>, the filled doughnuts eaten before Lent, which Milwaukee still devours by the thousand every Fat Tuesday.</p>
+
+  <h3>Polka</h3>
+
+  <p>Polka provided the sound. Though the dance originated in 1840s Bohemia, Poles made it their own, and in 1993 the Wisconsin legislature named it the <strong>official state dance</strong> &mdash; a bill proposed by a Madison second-grade class and signed by Governor Tommy Thompson on April 29, 1994, <em>in Pulaski itself</em>. <strong>Walter "Li'l Wally" Jagiello</strong> (1930&ndash;2006) invented the slowed-down "Chicago style" and released 150 albums on his Jay Jay label. At a Polish wedding, the <strong>powitanie chlebem i solą</strong> &mdash; bread and salt greeting from the bride's parents &mdash; opened the night; a great shout of <strong>"Sto lat!"</strong> ("a hundred years!") welcomed the couple.</p>
+
+  <p>Language faded predictably across three generations &mdash; immigrants fluent, their children bilingual, grandchildren left with "kitchen Polish" of holiday phrases and prayers. But pride outlasted fluency. The 1978 election of <strong>Karol Wojtyła as Pope John Paul II</strong> and the rise of Solidarity in the 1980s sent a wave of pride through Polish America that lasted a generation.</p>
+
+  <!-- ================= EMBLEM ================= -->
+
+  <h2 id="emblem" class="section-heading">On the emblem</h2>
+
+  <p>The emblem at the top of this page is <strong>a sour-cherry branch</strong> &mdash; in bloom and in fruit at once. It is chosen, not inherited, and it is chosen for a specific reason.</p>
+
+  <p>The Wiśniewski surname literally means "from the place of cherries." White blossoms and red fruit are <strong>the colors of the Polish flag</strong>, <em>biało-czerwoni</em>. Without making any unfounded claim to Polish noble heraldry, the cherry branch honestly represents what the name actually means and what the family actually was: people who came from a village named for its cherry trees, in a land whose national colors happened to be those same blossoms and those same fruits.</p>
+
+  </div><!-- /prose -->
+
+  <div class="blazon">
+    <div class="blazon-label">What the emblem shows</div>
+    <p style="margin: 0 0 8px;">A sour-cherry branch (<em>wiśnia</em>) bearing both white blossoms with gold centers and red fruit hanging in pairs. The leaves are Polish-green; the bark is a warm brown. The colors white and red are the national colors of Poland.</p>
+    <p style="margin: 0;">An honest heritage device, drawn from the literal meaning of the surname &mdash; chosen rather than claimed, and appropriate for a Polish-American family without documented szlachta lineage.</p>
+  </div>
+
+  <div class="prose">
+
+  <p>Other symbols that belong to the Polish-American heritage and could accompany this page: the <strong>Orzeł Biały</strong> (White Eagle) on its red shield, Poland's oldest and most resonant emblem; the <strong>Polish flag</strong>, white over red; <strong>wycinanki</strong>, the colorful Polish folk paper cutouts; and <strong>Our Lady of Częstochowa</strong>, for a family with strong Catholic identity.</p>
+
+  </div><!-- /prose -->
+
+  <!-- ================= TIMELINE ================= -->
+
+  <h2 id="timeline" class="section-heading">Timeline</h2>
+  <p class="lead"><em>From a lost nation to a new one.</em></p>
+
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-year">966</div>
+      <div class="tl-title">Poland becomes Christian</div>
+      <div class="tl-desc">Prince Mieszko I is baptized. Polish Catholic identity begins, and will eventually carry its people through 123 years of statelessness.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">1656</div>
+      <div class="tl-title">Our Lady of Częstochowa crowned</div>
+      <div class="tl-desc">King John II Casimir crowns the Black Madonna of Jasna Góra as Queen of Poland. She will later become a symbol of resistance under communism.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">1772&ndash;95</div>
+      <div class="tl-title">The three partitions</div>
+      <div class="tl-desc">Russia, Prussia, and Austria divide and erase the Polish-Lithuanian Commonwealth. Poland ceases to exist as a country.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">1863</div>
+      <div class="tl-title">The January Uprising</div>
+      <div class="tl-desc">Failed revolt against Russian rule. 80,000 Poles deported to Siberia. Russification intensifies.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">1866</div>
+      <div class="tl-title">St. Stanislaus parish founded</div>
+      <div class="tl-desc">In Milwaukee &mdash; the first urban Polish Roman Catholic parish in the United States.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">1871&ndash;90</div>
+      <div class="tl-title">Bismarck's Kulturkampf</div>
+      <div class="tl-desc">Polish language banned from schools in Prussian Poland (1873). Children beaten for praying in Polish. 185 priests jailed. Mass emigration accelerates.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">1880&ndash;1914</div>
+      <div class="tl-title">Peak Polish emigration</div>
+      <div class="tl-desc">Roughly 2 million Poles arrive in the United States &mdash; on Russian, Austrian, and German passports. Wisconsin draws heavily from the Prussian partition.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">1901</div>
+      <div class="tl-title">Basilica of St. Josaphat rises</div>
+      <div class="tl-desc">Built in Milwaukee from the salvaged stone of Chicago's demolished Federal Building &mdash; 200,000 tons shipped north on 500 railroad flatcars.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">1918</div>
+      <div class="tl-title">Poland restored</div>
+      <div class="tl-desc">November 11, at Versailles. A nation that did not legally exist for 123 years walks back onto the map.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">1924</div>
+      <div class="tl-title">The door closes</div>
+      <div class="tl-desc">The Immigration Act effectively halts mass Polish emigration to the United States. By now Wisconsin's Polonia is firmly established.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">1978</div>
+      <div class="tl-title">A Polish pope</div>
+      <div class="tl-desc">Cardinal Karol Wojtyła of Kraków is elected Pope John Paul II &mdash; a moment of extraordinary pride for Polish America.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">1994</div>
+      <div class="tl-title">Polka becomes Wisconsin's state dance</div>
+      <div class="tl-desc">Governor Tommy Thompson signs the bill in Pulaski itself, on April 29.</div>
+    </div>
+  </div>
+
+  <!-- ================= DOCUMENTED VS LORE ================= -->
+
+  <h2 id="documented" class="section-heading">Known facts vs. family lore</h2>
+  <p class="lead"><em>What the records suggest, and what is still family memory.</em></p>
+
+  <table class="known-table">
+    <thead>
+      <tr>
+        <th>Claim or Tradition</th>
+        <th>Assessment</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Family came from Poland</td>
+        <td><strong>Almost certainly.</strong> The name Wisneski is the expected Americanization of Wiśniewski, Poland's 3rd most common surname.</td>
+      </tr>
+      <tr>
+        <td>Name means something to do with cherries</td>
+        <td><strong>Yes.</strong> From <em>wiśnia</em>, sour cherry. The name identifies a family "from the cherry-tree village."</td>
+      </tr>
+      <tr>
+        <td>Possibly came via Prussia / Germany</td>
+        <td><strong>Very likely.</strong> Most Wisconsin Poles came from the Prussian partition and arrived on German passports &mdash; often recorded as "German" on early U.S. records.</td>
+      </tr>
+      <tr>
+        <td>Descended from Polish nobility</td>
+        <td><strong>Probably not.</strong> With 100,000+ bearers, most Wiśniewski families are of peasant or petty-gentry origin. Any <em>herb</em> claim requires archival proof.</td>
+      </tr>
+      <tr>
+        <td>Some Irish on the Link side</td>
+        <td><strong>Very likely true &mdash; but not through the Link name itself.</strong> Link is German. The Irish ancestry probably enters through a maternal line (a Link or pre-Link grandmother with an Irish maiden name).</td>
+      </tr>
+      <tr>
+        <td>Betty Link's family was originally Irish</td>
+        <td><strong>Unlikely in the Link line itself.</strong> Link is overwhelmingly German. Possible anglicization from Lynch/Linch but needs documents.</td>
+      </tr>
+      <tr>
+        <td>Polish Catholic traditions at home</td>
+        <td><strong>Nearly universal</strong> for Polish-American families in Wisconsin &mdash; Wigilia, Święconka, opłatek, name-days, Our Lady of Częstochowa.</td>
+      </tr>
+      <tr>
+        <td>Name was changed at Ellis Island</td>
+        <td><strong>Myth.</strong> Ellis Island inspectors worked from manifests prepared in Europe and had Polish-speaking translators. Names changed gradually <em>afterward</em>, in American schools, workplaces, and paychecks.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- ================= NEXT STEPS ================= -->
+
+  <div class="prose">
+
+  <h2 id="next" class="section-heading">Next steps for research</h2>
+  <p class="lead"><em>How to turn this general heritage portrait into the specific villages and dates of actual ancestors.</em></p>
+
+  <ol>
+    <li><strong>Wisconsin vital records.</strong> Death certificates (1907+) and marriage records for Valerian and Elizabeth should name their parents and list birthplaces. These are the single richest source.</li>
+
+```
+<li><strong>U.S. federal censuses (1900, 1910, 1920, 1930, 1940).</strong> Especially the <strong>1910 "mother tongue" column</strong>, which will disambiguate any Wisneski ancestor recorded as "German" or "Prussian" by showing Polish as the home language.</li>
+
+<li><strong>Draft registration cards.</strong> WWI (for older male Wisneskis) and WWII (for Valerian himself) give precise birth dates and places.</li>
+
+<li><strong>Polish Catholic parish records.</strong> The mother parishes &mdash; St. Stanislaus, St. Josaphat, St. Hyacinth, St. Hedwig, Ss. Cyril and Methodius, St. Casimir (Milwaukee); Sacred Heart (Polonia); Ss. Peter and Paul (Independence); Assumption (Pulaski) &mdash; have surviving baptismal, marriage, and burial registers. Many are microfilmed by the Family History Library and searchable through <strong>FamilySearch.org</strong>.</li>
+
+<li><strong>Immigration records.</strong> Ship manifests indexed at <strong>Ancestry.com</strong> and the Statue of Liberty&ndash;Ellis Island Foundation will preserve the original Polish spelling (Wiśniewski) and often name the <strong>exact home village</strong> &mdash; the single most valuable datum for further work.</li>
+
+<li><strong>Polish-side research.</strong> Once a home village is identified: <strong>szukajwarchiwach.gov.pl</strong> (Polish State Archives), <strong>Geneteka</strong> (a free Polish genealogical database), <strong>PolishOrigins.com</strong>, and the <strong>Polish Genealogical Society of America</strong> (pgsa.org) open doors to parish records that sometimes reach back to the 1600s.</li>
+
+<li><strong>For the Link / Irish question:</strong> trace <strong>Betty's maternal lines</strong> back &mdash; her mother, grandmothers, great-grandmothers. An Irish maiden name is most likely waiting one or two generations upstream.</li>
+
+<li><strong>Consider a DNA test</strong> via AncestryDNA, 23andMe, or FamilyTreeDNA. Polish populations and the interconnected Catholic families of Wisconsin are well-represented in cousin-matching databases, and the ethnicity estimates can confirm Polish, German, and Irish components.</li>
+```
+
+  </ol>
+
+  </div><!-- /prose -->
+
+  <div class="divider"></div>
+
+  <div class="footer-bar">
+    <em>"From the place of cherries" &mdash; a family name that rustled like leaves, crossed an ocean, and kept its meaning even when no one in the family could still say it in Polish.</em>
+  </div>
+
+</div><!-- /container -->
+
+</body>
+</html>
