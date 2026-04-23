@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+<title>The LaBonte Family — From Aunis to the New World</title>
+<meta name="description" content="The story of the LaBonte / Baudriau dit Labonté family, from 17th-century France to New France, Quebec, and beyond.">
+<meta property="og:title" content="The LaBonte Family — From Aunis to the New World">
+<meta property="og:description" content="The story of the LaBonte / Baudriau dit Labonté family, from 17th-century France to New France, Quebec, and beyond.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://lukelabonte.github.io/public-documents/labonte/family-history.html">
+<meta property="og:image" content="https://lukelabonte.github.io/public-documents/preview.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The LaBonte Family — From Aunis to the New World">
+<meta name="twitter:description" content="The story of the LaBonte / Baudriau dit Labonté family, from 17th-century France to New France, Quebec, and beyond.">
+<meta name="twitter:image" content="https://lukelabonte.github.io/public-documents/preview.png">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+
+<style>
+/* Page-specific styles only — everything else uses the shared design system */
+
+/* Coat of arms — header icon replacement */
+.crest {
+  width: 56px;
+  height: auto;
+  margin: 0 auto 16px;
+  display: block;
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.12));
+}
+
+/* TOC */
+.toc {
+  background: var(--surface, #fff);
+  border: 1.5px solid var(--border, #e5dfd5);
+  border-radius: var(--radius, 12px);
+  padding: 20px 24px;
+  margin: 0 0 32px;
+}
+.toc-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.05rem;
+  margin: 0 0 12px;
+  color: var(--text, #2a2623);
+  letter-spacing: 0.02em;
+}
+.toc ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: toc;
+  columns: 2;
+  column-gap: 24px;
+}
+.toc li {
+  counter-increment: toc;
+  break-inside: avoid;
+  padding: 4px 0;
+  font-size: 0.92rem;
+}
+.toc li::before {
+  content: counter(toc) ".";
+  color: var(--accent, #B5632E);
+  font-weight: 600;
+  margin-right: 6px;
+  min-width: 1.5em;
+  display: inline-block;
+}
+.toc a {
+  color: var(--text-muted, #5a5048);
+  text-decoration: none;
+  border-bottom: 1px dotted transparent;
+}
+.toc a:hover {
+  color: var(--accent, #B5632E);
+  border-bottom-color: var(--accent, #B5632E);
+}
+@media (max-width: 560px) {
+  .toc ol { columns: 1; }
+}
+
+/* Pull quote */
+.pullquote {
+  margin: 28px 0;
+  padding: 20px 24px;
+  border-top: 1.5px solid var(--accent, #B5632E);
+  border-bottom: 1.5px solid var(--accent, #B5632E);
+  text-align: center;
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.2rem;
+  line-height: 1.45;
+  color: var(--text, #2a2623);
+  font-style: italic;
+}
+
+/* Timeline */
+.timeline {
+  margin: 16px 0 24px;
+  border-left: 2px solid var(--accent, #B5632E);
+  padding-left: 20px;
+}
+.tl-item {
+  position: relative;
+  padding: 6px 0 18px;
+}
+.tl-item::before {
+  content: "";
+  position: absolute;
+  left: -26px;
+  top: 12px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--bg, #FAF7F2);
+  border: 2px solid var(--accent, #B5632E);
+}
+.tl-year {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1rem;
+  color: var(--accent, #B5632E);
+  margin-bottom: 2px;
+}
+.tl-title {
+  font-weight: 600;
+  font-size: 0.98rem;
+  margin-bottom: 2px;
+}
+.tl-desc {
+  font-size: 0.92rem;
+  color: var(--text-muted, #5a5048);
+  line-height: 1.5;
+}
+
+/* Person cards */
+.people-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+  margin: 16px 0 24px;
+}
+.person {
+  background: var(--surface, #fff);
+  border: 1.5px solid var(--border, #e5dfd5);
+  border-radius: var(--radius, 12px);
+  padding: 16px 18px;
+}
+.person-name {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.1rem;
+  margin-bottom: 2px;
+  color: var(--text, #2a2623);
+}
+.person-years {
+  font-size: 0.82rem;
+  color: var(--accent, #B5632E);
+  font-style: italic;
+  margin-bottom: 8px;
+}
+.person-desc {
+  font-size: 0.9rem;
+  color: var(--text-muted, #5a5048);
+  line-height: 1.5;
+}
+
+/* Facts grid */
+.facts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px 24px;
+  margin: 16px 0 24px;
+}
+.fact-label {
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent, #B5632E);
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+.fact-value {
+  font-size: 0.95rem;
+  color: var(--text, #2a2623);
+  line-height: 1.45;
+}
+
+/* Known vs Lore table */
+.known-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 12px 0 24px;
+  font-size: 0.92rem;
+}
+.known-table th,
+.known-table td {
+  text-align: left;
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--border, #e5dfd5);
+  vertical-align: top;
+}
+.known-table th {
+  font-family: 'DM Serif Display', serif;
+  font-weight: 400;
+  font-size: 0.82rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent, #B5632E);
+  background: rgba(181, 99, 46, 0.04);
+}
+.known-table tr:last-child td { border-bottom: none; }
+@media (max-width: 560px) {
+  .known-table, .known-table tbody, .known-table tr, .known-table td, .known-table th {
+    display: block;
+    width: 100%;
+  }
+  .known-table thead { display: none; }
+  .known-table td {
+    padding: 8px 0;
+    border-bottom: none;
+  }
+  .known-table tr {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border, #e5dfd5);
+  }
+  .known-table tr:last-child { border-bottom: none; }
+  .known-table td:first-child {
+    font-weight: 600;
+    color: var(--text, #2a2623);
+  }
+}
+
+/* Blazon callout */
+.blazon {
+  margin: 20px 0;
+  padding: 16px 20px;
+  background: rgba(181, 99, 46, 0.06);
+  border-left: 3px solid var(--accent, #B5632E);
+  border-radius: 6px;
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+.blazon-label {
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent, #B5632E);
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+/* Simple list spacing in prose */
+.prose ul, .prose ol { margin: 8px 0 16px 20px; }
+.prose li { margin-bottom: 6px; line-height: 1.55; }
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+<a href="../index.html" class="back-btn">← All Documents</a>
+
+  <div class="header">
+    <!-- Coat of arms: gules, a baldric argent (the canting commoner Baudry arms) -->
+    <svg class="crest" viewBox="0 0 60 72" xmlns="http://www.w3.org/2000/svg" aria-label="Coat of arms: a silver baldric on red">
+      <defs>
+        <clipPath id="shieldClipHeader">
+          <path d="M 4 4 L 56 4 L 56 38 Q 56 58 30 68 Q 4 58 4 38 Z"/>
+        </clipPath>
+        <linearGradient id="baldricGradHeader" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#cfc9b9"/>
+          <stop offset="50%" stop-color="#ede7d7"/>
+          <stop offset="100%" stop-color="#c0baaa"/>
+        </linearGradient>
+      </defs>
+      <!-- Shield body, red (gules) -->
+      <path d="M 4 4 L 56 4 L 56 38 Q 56 58 30 68 Q 4 58 4 38 Z"
+            fill="#8b2f24" stroke="#B5632E" stroke-width="1.2" stroke-linejoin="round"/>
+      <!-- Baldric (sword-belt) in bend sinister -->
+      <g clip-path="url(#shieldClipHeader)">
+        <path d="M 0 16 L 60 50 L 60 56 L 0 22 Z"
+              fill="url(#baldricGradHeader)" stroke="#6b6355" stroke-width="0.4"/>
+        <path d="M 2 18 L 58 52 M 2 20.5 L 58 54.5"
+              stroke="#6b6355" stroke-width="0.25" opacity="0.55" fill="none"/>
+        <!-- Buckle -->
+        <g transform="translate(9 19) rotate(30)">
+          <rect x="-3.5" y="-2" width="7" height="4" rx="0.5"
+                fill="none" stroke="#B5632E" stroke-width="0.7"/>
+          <line x1="0" y1="-2" x2="0" y2="2" stroke="#B5632E" stroke-width="0.5"/>
+        </g>
+      </g>
+      <!-- Edge highlight -->
+      <path d="M 4 4 L 56 4 L 56 38 Q 56 58 30 68 Q 4 58 4 38 Z"
+            fill="none" stroke="#B5632E" stroke-width="0.5" opacity="0.5"/>
+    </svg>
+    <h1>The LaBonte Family</h1>
+    <p class="subtitle">From Aunis to the New World &mdash; three centuries, two oceans, three countries</p>
+    <div class="updated">A family history · Prepared April 2026</div>
+  </div>
+
+  <!-- ================= AT A GLANCE ================= -->
+
+  <h2 class="section-heading">At a glance</h2>
+  <div class="facts">
+    <div>
+      <div class="fact-label">The Name</div>
+      <div class="fact-value">Baudriau &mdash; from Frankish <em>Baldric</em>, "bold ruler." Anglicized in America to LaBonte.</div>
+    </div>
+    <div>
+      <div class="fact-label">First Ancestor</div>
+      <div class="fact-value"><strong>Antoine Baudrias</strong> (c. 1650&ndash;1730), likely a soldier of the King.</div>
+    </div>
+    <div>
+      <div class="fact-label">Origin</div>
+      <div class="fact-value">The province of Aunis &mdash; the Atlantic port of <strong>La Rochelle</strong>.</div>
+    </div>
+    <div>
+      <div class="fact-label">First Home in America</div>
+      <div class="fact-value">The Richelieu Valley of Quebec, near Montreal, from the 1690s.</div>
+    </div>
+    <div>
+      <div class="fact-label">The Nickname</div>
+      <div class="fact-value"><strong>"Labonté"</strong> &mdash; "the goodness" &mdash; a soldier's <em>nom de guerre</em> added in the 18th century.</div>
+    </div>
+    <div>
+      <div class="fact-label">The Move South</div>
+      <div class="fact-value">Part of the <em>Grande Saignée</em> &mdash; 900,000 French Canadians came to the U.S. between 1840&ndash;1930.</div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ================= TOC ================= -->
+
+  <div class="toc">
+    <div class="toc-title">Contents</div>
+    <ol>
+      <li><a href="#story">The Story in Brief</a></li>
+      <li><a href="#aunis">The Province of Aunis</a></li>
+      <li><a href="#rochelle">La Rochelle: Siege &amp; Port</a></li>
+      <li><a href="#name">What the Name Means</a></li>
+      <li><a href="#emblem">On the Emblem</a></li>
+      <li><a href="#crossing">Antoine's Crossing</a></li>
+      <li><a href="#habitant">Life as a Habitant</a></li>
+      <li><a href="#labonte">How "Labonté" Was Added</a></li>
+      <li><a href="#conquest">Conquest &amp; Revolution</a></li>
+      <li><a href="#saignee">The Great Bleeding South</a></li>
+      <li><a href="#royalty">About That Royal Lore</a></li>
+      <li><a href="#timeline">Timeline</a></li>
+      <li><a href="#people">Notable People</a></li>
+      <li><a href="#visit">A Descendant's Itinerary</a></li>
+      <li><a href="#documented">Known vs. Lore</a></li>
+      <li><a href="#next">Next Steps</a></li>
+    </ol>
+  </div>
+
+  <!-- ================= STORY ================= -->
+
+  <div class="prose">
+
+  <h2 id="story" class="section-heading">The story in brief</h2>
+
+  <p>The family began, as best we can tell, in a small Atlantic province of France called <strong>Aunis</strong> &mdash; a low, marshy coast of salt flats and vineyards wrapped around the ancient port of La Rochelle. A young man named <strong>Antoine Baudrias</strong>, born around 1650 to Léonard Boudrias and Jeanne, left that coast sometime before 1689 and sailed across the Atlantic to New France. He was, most likely, a soldier of the King.</p>
+
+  <p>He settled at La Prairie near Montreal, married a young woman named <strong>Jeanne Plumereau</strong> in June 1689, farmed a forty-arpent habitation at Lachine, fathered eleven children, and was buried at Notre-Dame de Montréal in January 1730. He signed a passenger list as "Antoine Beaudrias-Versaille" &mdash; <em>Versaille</em>, not yet <em>Labonté</em>.</p>
+
+  <p>The <strong>Labonté</strong> nickname came later. One of Antoine's grandsons, serving in the colonial militia, picked up the flattering military <em>nom de guerre</em> &mdash; <em>la bonté</em> means "the goodness" or "the kindness." It stuck. By the time descendants were crossing into the United States in the 19th century, most branches had quietly dropped "Baudriau" and kept "Labonté," which American clerks then shortened to LaBonte.</p>
+
+  <p>The family lived through the fall of New France in 1759, British rule from 1763, the American invasion of Quebec in 1775&ndash;76 (one Pierre Antoine Beaudriau dit Labonté is documented as having fought on the American side), the Patriote Rebellions of 1837&ndash;38 in the very villages of the Richelieu where they farmed, and finally the great 19th-century exodus that sent roughly <strong>900,000 French Canadians</strong> south into the United States between 1840 and 1930.</p>
+
+  <div class="pullquote">
+    The small people carried a large history on their backs &mdash; and the name they carried, improbably and beautifully, was <em>"the goodness."</em>
+  </div>
+
+  <!-- ================= AUNIS ================= -->
+
+  <h2 id="aunis" class="section-heading">The province of Aunis</h2>
+
+  <p>Aunis was, from 1374 until the French Revolution, <strong>officially the smallest province</strong> in the kingdom of France. Charles V carved it out of neighboring Saintonge and centered it on the fortified port of La Rochelle, with a short Atlantic coastline and the islands of Ré and Aix. It sat on a chalk plain descending gently from Poitou to the sea, stitched together by salt marshes, vineyards, and drainage canals. The Revolution dissolved it into Charente-Inférieure in 1790 &mdash; renamed <strong>Charente-Maritime</strong> in 1941. The old name survives in the "Pays d'Aunis" around Surgères, Marans, and La Rochelle.</p>
+
+  <h3>What commoners did for a living</h3>
+
+  <p>Four commodities defined rural life when Antoine was a boy. <strong>Salt</strong> harvested from coastal <em>marais salants</em> was the white gold of the Atlantic, shipped to northern Europe by the ton. <strong>Wine</strong> exported to England and Holland since the 12th century was gradually distilled, over the 17th, into <strong>cognac</strong> and the local fortified aperitif <strong>Pineau des Charentes</strong>. <strong>Cod</strong> from the Grand Banks and <strong>oysters</strong> from Marennes-Oléron filled out the maritime economy.</p>
+
+  <p>Commoners lived in whitewashed single-story houses with orange-tiled roofs. They paid the royal <em>taille</em> and the church tithe, worshipped in Romanesque parish churches, and followed a year ordered by the <em>vendanges</em> in autumn and the salt harvest from June to September. Daily bread was rye and buckwheat; Sunday's feast was salted fish and pea soup. A laboureur's life was hard, but it was not serfdom &mdash; he owned his land, could sell it, and voted on local militia matters.</p>
+
+  <p>Antoine Baudrias almost certainly grew up in a household of this kind, speaking a <strong>Saintongeais-inflected French</strong> whose echoes you can still hear in Quebec pronunciations like <em>moé</em> and <em>toé</em>.</p>
+
+  <!-- ================= LA ROCHELLE ================= -->
+
+  <h2 id="rochelle" class="section-heading">La Rochelle: siege &amp; port</h2>
+
+  <p>La Rochelle's defining ghost-story is the <strong>Great Siege of 1627&ndash;1628</strong>. By the 1620s, the city was France's second or third largest, with around 27,000 people and a quasi-independent Protestant government trading freely with England and Holland. Cardinal <strong>Richelieu</strong> saw this autonomy as incompatible with royal absolutism. After a failed English intervention by the Duke of Buckingham on Île de Ré, royal engineers built a <strong>1,400-meter seawall across the harbor mouth</strong>. When the city finally surrendered on 28 October 1628, famine and disease had reduced the population from 27,000 to about <strong>5,000</strong>.</p>
+
+  <p>Fifty-seven years later, Louis XIV's <strong>Revocation of the Edict of Nantes</strong> in October 1685 outlawed Protestant worship altogether. Between 200,000 and 400,000 Huguenots fled France &mdash; <em>but not to New France</em>. The crown required that all settlers in Canada be Catholic. This matters: <strong>Antoine Baudrias was Catholic</strong>, because no one else was allowed across. By the time he sailed around 1689, La Rochelle had been a royal Catholic port for two generations.</p>
+
+  <h3>The engagé system</h3>
+
+  <p>The historian <strong>Louis Pérouas</strong> showed that more than two-thirds of the settlers who embarked through La Rochelle came from just four neighboring provinces: <strong>Aunis, Saintonge, Poitou, and Angoumois</strong>. Of roughly 10,000 French emigrants who settled permanently in Canada between 1608 and 1760, a disproportionate share sailed from this one coast.</p>
+
+  <p>The mechanism was the <strong>engagé</strong> system. A young man signed a notarized three-year contract (the famous <em>"36-mois"</em>) with a merchant, religious house, or colonist. The patron paid his one-way crossing, food, and lodging. After his term he was free &mdash; and most took a land concession as a <em>habitant</em>. No engagement contract for Antoine has ever surfaced. That absence, plus his passenger-list name <em>"Beaudrias-Versaille,"</em> strongly suggests he arrived not as an engagé but as a <strong>soldier in the Troupes de la Marine</strong>.</p>
+
+  <p><em>Samuel de Champlain, founder of Quebec City, was born just south of Aunis at Brouage in Saintonge around 1570. Pierre Dugua de Mons, who financed and co-founded Acadia and Quebec, was also a Saintongeais. The coast Antoine left was, in a very real sense, the founding coast of French Canada.</em></p>
+
+  <!-- ================= NAME ================= -->
+
+  <h2 id="name" class="section-heading">What the name means</h2>
+
+  <p>The surname <strong>Baudry</strong> &mdash; with its regional variants Baudriau, Baudriault, Boudriau, Boudrias, Beaudriau, Baudrier, and Baudrillart &mdash; descends from the Frankish personal name <strong>Baldric</strong>, a warrior compound of <em>bald</em> ("bold, audacious") and <em>ric</em> ("powerful, ruler"). It was one of hundreds of Germanic prestige-names the Franks brought into Gaul that became the stock of baptismal names across medieval France.</p>
+
+  <p>The shift from <em>Baldric</em> to <em>Baudri</em> follows two regular sound-laws of Old French: vocalization of <em>l</em> before a consonant (<em>Bald-</em> &rarr; <em>Baud-</em>) and weakening of the final velar in <em>-ric</em> to <em>-ri</em>. By the 11th century, charters alternate freely between <em>Baldricus</em> and <em>Baudri</em>.</p>
+
+  <p>Western France added diminutive suffixes. <em>-eau / -iau</em> is the Poitevin-Angevin diminutive, <em>-ault</em> is its western graphic variant, and <em>-ias</em> is the Aunis-Saintonge phonetic flavor of the same suffix. So <strong>Baudrias</strong>, the form Antoine's name was recorded under, literally means <em>"little Baudry, spelled the way Aunis farmers said it."</em> Quebec scribes of the 1690s wrote down what they heard &mdash; Bourdria, Boudrias, Beaudrias, Baudriau &mdash; and the spelling drifted by generation.</p>
+
+  <h3>Medieval bearers of the name</h3>
+
+  <p>The medieval record of Baudrys reads like a minor annals of France. <strong>Baudri de Bourgueil</strong> (c. 1046&ndash;1130), abbot of Bourgueil and archbishop of Dol-de-Bretagne, wrote a celebrated chronicle of the First Crusade and 256 Latin poems. <strong>Baldéric of Noyon-Tournai</strong> (d. 1112) laid the first stone of Tournai Cathedral's choir. Two <strong>prince-bishops of Liège</strong> bore the name in the 10th and 11th centuries. <strong>Baudry le Teuton</strong>, an early 11th-century German knight, came to Normandy and founded the Norman house of Courcy &mdash; one of whose descendants fought at Hastings in 1066.</p>
+
+  <p>The closest thing to a royal connection the name can claim is <strong>Saint Baudry of Montfaucon</strong> (c. 568&ndash;630), founder of the first abbey in Argonne. Hagiographic tradition makes him a son of the Merovingian king <strong>Sigebert I of Austrasia</strong>, which would give the name a genuine Frankish-royal origin-story. Historians treat this as pious legend rather than documented pedigree.</p>
+
+  <div class="pullquote">
+    The family cannot claim descent from these figures, but it <em>can</em> claim the name &mdash; and the name meant "bold ruler."
+  </div>
+
+  <!-- ================= EMBLEM ================= -->
+
+  <h2 id="emblem" class="section-heading">On the emblem</h2>
+
+  <p>The shield at the top of this page is a <strong>red field crossed diagonally by a silver baldric</strong> &mdash; a soldier's sword-belt slung across the body from shoulder to hip. It is an old French device, simple and commoner in origin, and it rests on a pun.</p>
+
+  <p>In Old French, a <em>baudrier</em> is a baldric. Medieval heralds loved puns, and families named <strong>Baudry</strong> adopted this image as <em>armes parlantes</em> &mdash; "speaking arms" &mdash; a small visual joke that said the name aloud.</p>
+
+  <h3>What this emblem is not</h3>
+
+  <p>It is <strong>not</strong> a noble coat of arms. Several wealthy Baudry families in France &mdash; the Baudry d'Asson of Poitou, the Baudry d'Anjou, the Baudry du Theilleul of Normandy &mdash; did register distinct arms in the royal armorials of 1696, and those arms belong to <em>their</em> descendants, not to ours. Antoine Baudrias of Aunis was a commoner; no arms were ever recorded for his line.</p>
+
+  <h3>What it is</h3>
+
+  <p>The baldric device is the <strong>generic canting arms of commoner Baudry families</strong>, recorded in the old <em>Armorial poitevin</em> as the blazon that bourgeois and laboring Baudrys could legitimately use &mdash; not because any one family "owned" it, but because any Baudry could claim the pun. French heraldic law never restricted arms to the nobility; roughly seventy percent of the 115,000 arms in the 1696 royal armorial belonged to commoners.</p>
+
+  <p>So this emblem is chosen, not inherited. Chosen honestly, as a name-heritage device. The sword-belt also happens to suit the story: Antoine sailed to New France as a soldier of the King, and his descendants picked up the military nickname <em>Labonté</em> in the colonial regiments. A baldric on a shield is, fittingly, exactly the kind of thing a soldier of the Troupes de la Marine would have worn.</p>
+
+  <div class="blazon">
+    <div class="blazon-label">Full Blazon</div>
+    <p style="margin: 0 0 8px;"><em>Gules, a baldric in bend sinister argent, buckled Or.</em></p>
+    <p style="margin: 0;">In plain English: a red shield, a silver sword-belt running diagonally across it from upper-right to lower-left, with a gold buckle. The motto that pairs naturally with it &mdash; <strong><em>Fortitudo et Bonitas</em></strong> &mdash; binds the Frankish meaning of <em>Baldric</em> ("bold ruler") to the soldier's nickname <em>Labonté</em> ("goodness") in one line: <em>"Strength and Goodness."</em></p>
+  </div>
+
+  <!-- ================= CROSSING ================= -->
+
+  <h2 id="crossing" class="section-heading">Antoine's crossing</h2>
+
+  <h3>What is documented</h3>
+  <p>Antoine was born around <strong>1650 in Aunis, France</strong>, son of <strong>Léonard Boudrias</strong> and <strong>Jeanne "Aromour."</strong> He married <strong>Jeanne Plumereau</strong> on 2 June 1689 at Notre-Dame-de-La-Prairie-de-la-Madeleine. They had eleven children, all baptized at Sainte-Anges de Lachine between 1692 and 1711. He worked as a <em>laboureur</em> on the Cuillerier farm at Lachine in 1693, and bought a 40-arpent <em>habitation</em> for 200 livres in November 1697. He died 20 January 1730 and was buried the next day at Notre-Dame de Montréal. He is PRDH individual #4213.</p>
+
+  <h3>What is not</h3>
+  <p>The specific French parish where he was born or baptized is <strong>not known to any published source</strong>. Fichier Origine &mdash; the authoritative Franco-Quebec register of verified French origins &mdash; has no fiche for Baudrias, Baudriau, Boudrias, or Beaudriau. Every reputable source gives only "Aunis (Charente-Maritime)."</p>
+
+  <p>His mother's surname, <em>"Aromour,"</em> does not match any recognized Aunis or Saintonge name in French databases. It is almost certainly a <strong>phonetic mangling</strong> by a Quebec priest of a surname he'd never heard &mdash; likely <em>Amoureux, Lamoureux, Amoreau,</em> or <em>Armand</em>.</p>
+
+  <div class="note note-orange">
+    <strong>An important correction.</strong> The 1689 passenger list records him as <em>"Antoine Beaudrias-Versaille."</em> That hyphenated second name is his <em>own</em> military nickname &mdash; a soldier's <em>nom de guerre</em>. Antoine was likely "dit Versaille," not "dit Labonté." The "Labonté" epithet appears consistently only with his grandson's generation in the mid-18th century.
+  </div>
+
+  <!-- ================= HABITANT ================= -->
+
+  <h2 id="habitant" class="section-heading">Life as a habitant</h2>
+
+  <p>The family took root in the <strong>Richelieu Valley</strong> south of Montreal &mdash; the parishes of Chambly, Verchères, and Saint-Mathias-sur-Richelieu. This corridor had been fortified in 1665 by veterans of the famous <strong>Carignan-Salières Regiment</strong> and settled afterward, thickly, by soldier-habitants and their sons.</p>
+
+  <p>An 18th-century habitant held a long narrow strip of land running back from the river &mdash; a <em>censive</em> &mdash; inside a seigneurie. He paid a symbolic annual <em>cens</em> and a modest <em>rente</em> to the seigneur on St. Martin's Day (November 11), ground his wheat at the banal mill, and owed a few days of <em>corvée</em> labor at harvest. He was not a serf; he owned his land in all but name, could sell it, and voted on local militia matters.</p>
+
+  <p>The year followed a rhythm any farming family would recognize: <strong>spring plowing</strong> and sowing of wheat, peas, oats, and rye; a pause on <strong>St-Jean-Baptiste Day</strong> (June 24); haying in late July; the <strong>wheat harvest</strong> in late August, cut by sickle; threshing by flail through autumn; and ice-cutting in winter. Women spun wool from household sheep into the rough <em>étoffe du pays</em>. Men wore the hooded <em>capot</em> cinched with a <em>ceinture fléchée</em> against the long Canadian winter.</p>
+
+  <p>The <strong>parish was the universe</strong>. Every baptism, marriage, and burial went into the Catholic register &mdash; which is why Quebec's vital records today are among the most complete anywhere in the Americas. Every male 16 to 60 was enrolled in the <strong>militia</strong>, likely to be called up against Iroquois raiders, English fleets, or Mohawk war parties.</p>
+
+  <!-- ================= HOW LABONTÉ WAS ADDED ================= -->
+
+  <h2 id="labonte" class="section-heading">How "Labonté" was added</h2>
+
+  <p>French Canada produced more than <strong>7,500 secondary surnames</strong> over its history &mdash; what genealogists call <em>dit</em> names, from the French <em>dire</em>, "to be called." The system was so widespread that by the 18th century, most habitant families carried at least one. A typical Quebec farmer might be baptized Jean Baudriau, enlisted as Jean Baudriau <em>dit Versaille</em>, and recorded in the land register as Jean Versaille. Any of the three names was legitimate.</p>
+
+  <p>Most dit-names came from <strong>military service</strong>. A captain would bestow, or a recruit would adopt, a short vivid handle for the muster roll. They fell into neat families:</p>
+
+  <ul>
+    <li><strong>Place of origin:</strong> Le Picard, Langevin, Lyonnais, <em>Versaille</em></li>
+    <li><strong>Physical trait:</strong> Lejeune ("the young one"), Legros ("the big one")</li>
+    <li><strong>Flowers and nature:</strong> Lafleur, Larose, Lafontaine, Laviolette</li>
+    <li><strong>Qualities of character:</strong> Jolicœur, Belhumeur, Laliberté &mdash; and <strong>Labonté</strong>, "the goodness"</li>
+  </ul>
+
+  <p>Onomastic dictionaries classify <strong>Labonté as a soldier's nickname</strong> meaning "the kindness" or "the goodness." It is <em>rare</em> as a surname in France itself, but it flourished in Quebec precisely because so many former soldiers carried it home to their farms.</p>
+
+  <p>In the Baudriau line, the name first appears consistently with <strong>Pierre Antoine Baudriau dit Labonté</strong> and his brothers in the mid-18th century &mdash; likely sons of a Pierre Antoine Baudriau who married <strong>Marie-Anne Bombardier <em>dit</em> Labombarde</strong>, herself from another soldier-settler family. ("Labombarde" was the artilleryman's <em>nom de guerre</em>.) Two soldier-dit families marrying into each other is the quiet signature of Richelieu Valley society in the mid-1700s.</p>
+
+  <!-- ================= CONQUEST ================= -->
+
+  <h2 id="conquest" class="section-heading">Conquest, Revolution, Rebellion</h2>
+  <p class="lead"><em>Three flags over the same farm.</em></p>
+
+  <p>The Baudriau dit Labonté family lived through the <strong>Seven Years' War (1754&ndash;63)</strong> at the very center of the action. The Richelieu Valley was the invasion corridor between Lake Champlain and Montreal; its habitants were mobilized continuously, and its young men scattered across the <em>Compagnies Franches</em>. They experienced the siege of Quebec in 1759, the death of both Wolfe and Montcalm on the Plains of Abraham, Lévis's fleeting victory at Sainte-Foy, and the capitulation of Montreal on 8 September 1760. The Treaty of Paris in 1763 handed New France to Britain.</p>
+
+  <p>A remarkable footnote sits inside the family's history. A <strong>Pierre Antoine Beaudriau dit Labonté</strong> is the subject of a 2005 article in the <em>American-Canadian Genealogist</em> (issue 103) titled <em>"A Canadian in the American Revolution."</em> He was apparently among the small number of Canadians who joined the American rebel side when Generals Montgomery and Arnold invaded Quebec in 1775&ndash;76 &mdash; a path taken by perhaps a few hundred habitants, despite the Catholic Church's strong counsel to stay loyal to the British Crown.</p>
+
+  <p>Most habitants stayed neutral. The <strong>Quebec Act of 1774</strong> had guaranteed their Catholic religion, their French civil law (the <em>Coutume de Paris</em>), and their seigneurial tenure. This act &mdash; one of Britain's "Intolerable Acts" in colonial American eyes &mdash; is why French civil law still governs private life in Quebec today.</p>
+
+  <p>The next two generations lived through the constitutional turmoil of <strong>Lower Canada</strong> (1791&ndash;1841), the rise of the Parti patriote under Papineau, and the <strong>Patriote Rebellions of 1837&ndash;38</strong>, fought in the exact Richelieu villages &mdash; St-Denis, St-Charles, St-Eustache &mdash; where so many Baudriau dit Labonté cousins farmed. Then came the hangings at the Pied-du-Courant prison, the humiliating Durham Report, and the Act of Union of 1841.</p>
+
+  <p>French-Canadian survival under British rule rested on the <strong>"three-legged stool"</strong>: the Catholic parish, the French language, and extraordinary fertility &mdash; the <em>revanche des berceaux</em>, "the revenge of the cradles." Habitant families commonly produced 8 to 15 children per generation.</p>
+
+  <p>It was in this long 19th century that the compound name <em>"Baudriau dit Labonté"</em> collapsed into plain <strong>"Labonté."</strong> British census takers and English-speaking notaries simplified; the rare and unstable French original lost out to the short, sturdy nickname. By roughly 1850&ndash;1880, most branches had dropped "Baudriau" and kept "Labonté."</p>
+
+  <!-- ================= GRANDE SAIGNÉE ================= -->
+
+  <h2 id="saignee" class="section-heading">The great bleeding south</h2>
+  <p class="lead"><em>900,000 French Canadians, and the Labonté family among them.</em></p>
+
+  <p>By the middle of the 19th century, the seigneurial belt along the St. Lawrence could no longer feed its children. Quebec's population <strong>quadrupled between 1784 and 1844</strong>. Arable land barely expanded. The Hessian fly and wheat midge ravaged crops from the 1830s. The 1844 potato blight struck Quebec as it struck Ireland. Then came the industrial suction from the south &mdash; New England textile mills, Midwestern logging camps, and cheap rail tickets on the Grand Trunk Railway after 1853.</p>
+
+  <p>The result was what French-Canadian historians call the <strong><em>Grande Saignée</em></strong>, the "Great Bleeding." Roughly <strong>900,000 French Canadians</strong> emigrated to the United States between 1840 and 1930, with peak intensity from the Civil War through the 1890s. Perhaps half eventually returned. The rest, and their children, became <em>Franco-Americans</em>, speaking a distinct New England French and clustering in compact urban neighborhoods they called <strong>Petits Canadas</strong>.</p>
+
+  <p>The big four capitals of Franco-America were Lewiston (Maine); Manchester (New Hampshire), where nearly half the city was Franco at peak, working the Amoskeag textile complex &mdash; once the largest in the world; Lowell (Massachusetts); and Woonsocket (Rhode Island). Each had its own French-language parishes, parochial schools, newspapers, <em>caisses populaires</em> (credit unions &mdash; the first U.S. credit union, St. Mary's Bank in Manchester, was founded in 1908 by French Canadians), and chapters of the Société Saint-Jean-Baptiste. The ideology of <em>la survivance</em> &mdash; survival of language, faith, and culture &mdash; knit the diaspora together.</p>
+
+  <p><strong>Labonté was a classic Franco-American mill-town surname.</strong> American clerks anglicized it a dozen ways: LaBonte, Labonte, Labonty, Labountee, Labounty. Dropping the acute accent was nearly universal.</p>
+
+  <!-- ================= ROYALTY ================= -->
+
+  <h2 id="royalty" class="section-heading">About that royal lore</h2>
+
+  <p>Read literally, there is no evidence of royal or noble blood in any Baudriau / Boudriau / Labonté line. The documented French ancestors were commoners: Antoine's father was <strong>Léonard Boudrias of Aunis</strong>, a man with no noble particle before his name.</p>
+
+  <p>Read sympathetically, though, the tradition captures something <strong>authentic</strong> about French-Canadian history. Three legitimate "royal connections" apply to almost every habitant family of this profile.</p>
+
+  <h3>They were soldiers of the King</h3>
+  <p>A <em>Compagnie Franche de la Marine</em> recruit literally wore the King's livery, was paid from the royal treasury, and served under officers commissioned by Versailles. The very existence of a military <em>dit</em>-name in the line &mdash; <em>Versaille</em> for Antoine, <em>Labonté</em> for his descendants &mdash; is strong evidence of soldier ancestors serving the Crown.</p>
+
+  <h3>They may well have married a King's Daughter</h3>
+  <p>Between 1663 and 1673, roughly <strong>770&ndash;850 <em>Filles du Roi</em></strong> &mdash; "King's Daughters" &mdash; came to New France under Crown sponsorship. They were not princesses; they were orphans and farm girls from the Paris Hôpital Général, Dieppe, Normandy, and Aunis. But they were literally <em>wards of Louis XIV</em>, escorted across the Atlantic on the King's account, and dowered from his treasury. <strong>About two-thirds of all French Canadians alive today descend from at least one</strong>, so the odds are extremely high that a Labonté tree contains one. "Connected to royalty but not royals themselves" is almost a perfect paraphrase of the <em>Filles du Roi</em> program.</p>
+
+  <h3>And the name itself means "goodness"</h3>
+  <p>Whether given by an amused captain or chosen by the recruit, the nickname <em>Labonté</em> suggests a soldier known as good-natured, generous, or kind &mdash; the kind of man his comrades and neighbors would remember fondly. <em>Liked by the people</em> is built into the name.</p>
+
+  <p>The honest version: the Baudriau-Labontés were not royals. But they <em>served</em> royalty, they may well have <em>married into</em> the King's wards, and they carried, for three centuries, a name that insisted &mdash; with the gentle irony typical of French-Canadian humor &mdash; that their ancestor had been a good man.</p>
+
+  </div><!-- /prose -->
+
+  <!-- ================= TIMELINE ================= -->
+
+  <h2 id="timeline" class="section-heading">Timeline</h2>
+  <p class="lead"><em>Three centuries in one view.</em></p>
+
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-year">c. 1650</div>
+      <div class="tl-title">Antoine is born</div>
+      <div class="tl-desc">In the province of Aunis, on France's Atlantic coast, to Léonard Boudrias and Jeanne.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">1685</div>
+      <div class="tl-title">Edict of Nantes revoked</div>
+      <div class="tl-desc">Louis XIV outlaws Protestant worship. La Rochelle becomes a wholly Catholic royal port.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">c. 1689</div>
+      <div class="tl-title">The Atlantic crossing</div>
+      <div class="tl-desc">Antoine sails from La Rochelle as "Antoine Beaudrias-Versaille" &mdash; most likely a soldier of the Troupes de la Marine.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">2 Jun 1689</div>
+      <div class="tl-title">Marriage at La Prairie</div>
+      <div class="tl-desc">Antoine marries Jeanne Plumereau at Notre-Dame-de-La-Prairie-de-la-Madeleine, near Montreal.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">1697</div>
+      <div class="tl-title">Forty-arpent habitation</div>
+      <div class="tl-desc">Antoine buys his own farm at Lachine for 200 livres.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">1701</div>
+      <div class="tl-title">Great Peace of Montreal</div>
+      <div class="tl-desc">A century of Iroquois warfare ends. The Richelieu Valley opens to safe farming.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">1730</div>
+      <div class="tl-title">Antoine is buried</div>
+      <div class="tl-desc">At Notre-Dame de Montréal, leaving eleven children and a long descent.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">mid-1700s</div>
+      <div class="tl-title">"dit Labonté" appears</div>
+      <div class="tl-desc">The soldier's nickname is adopted by Antoine's grandchildren's generation in the Richelieu militia.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">1759&ndash;63</div>
+      <div class="tl-title">The Conquest</div>
+      <div class="tl-desc">Britain takes New France. The family lives through the siege of Quebec and the fall of Montreal.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">1775&ndash;76</div>
+      <div class="tl-title">A Labonté in the American Revolution</div>
+      <div class="tl-desc">Pierre Antoine Beaudriau dit Labonté fights on the rebel side during the American invasion of Quebec.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">1837&ndash;38</div>
+      <div class="tl-title">Patriote Rebellions</div>
+      <div class="tl-desc">Uprisings in the Richelieu villages the family called home. Hangings at Pied-du-Courant.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">1840+</div>
+      <div class="tl-title">The Grande Saignée begins</div>
+      <div class="tl-desc">French Canadians leave Quebec for U.S. mill towns and Midwestern farms.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">1850+</div>
+      <div class="tl-title">"Baudriau" is dropped</div>
+      <div class="tl-desc">Surnames simplify under English-speaking administration. "Labonté" stands alone.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">1900s</div>
+      <div class="tl-title">LaBonte in America</div>
+      <div class="tl-desc">The acute accent disappears. Spelling stabilizes as "LaBonte" or "Labonte."</div>
+    </div>
+  </div>
+
+  <!-- ================= PEOPLE ================= -->
+
+  <h2 id="people" class="section-heading">Notable people</h2>
+  <p class="lead"><em>Ancestors, relatives, and famous bearers of the name.</em></p>
+
+  <div class="people-grid">
+    <div class="person">
+      <div class="person-name">Antoine Baudrias</div>
+      <div class="person-years">c. 1650 &ndash; 1730</div>
+      <div class="person-desc">The immigrant ancestor. Sailed from Aunis around 1689, likely as a soldier. Married Jeanne Plumereau at La Prairie, farmed at Lachine, buried at Notre-Dame de Montréal.</div>
+    </div>
+    <div class="person">
+      <div class="person-name">Léonard Boudrias</div>
+      <div class="person-years">? &ndash; ?</div>
+      <div class="person-desc">Antoine's father, recorded only as "of Aunis, France." A commoner &mdash; the documented trail ends at him.</div>
+    </div>
+    <div class="person">
+      <div class="person-name">Jeanne Plumereau</div>
+      <div class="person-years">17th c.</div>
+      <div class="person-desc">Antoine's wife, married at Notre-Dame-de-La-Prairie in June 1689. Mother of the eleven Baudrias children baptized at Lachine between 1692 and 1711.</div>
+    </div>
+    <div class="person">
+      <div class="person-name">Pierre Antoine Beaudriau dit Labonté</div>
+      <div class="person-years">18th c.</div>
+      <div class="person-desc">Subject of a 2005 <em>American-Canadian Genealogist</em> article, "A Canadian in the American Revolution." Fought on the rebel side during the 1775&ndash;76 invasion of Quebec.</div>
+    </div>
+    <div class="person">
+      <div class="person-name">Marie-Anne Bombardier <em>dit</em> Labombarde</div>
+      <div class="person-years">1716 &ndash; ?</div>
+      <div class="person-desc">A Labonté matriarch. Her dit-name, Labombarde, is the artilleryman's nickname &mdash; evidence of yet another soldier in the family tree.</div>
+    </div>
+    <div class="person">
+      <div class="person-name">Terry &amp; Bobby Labonte</div>
+      <div class="person-years">Born 1956, 1964</div>
+      <div class="person-desc">NASCAR champions from Corpus Christi, Texas &mdash; two of only two brother pairs ever to both win Cup championships. Their father was a Maine-born Navy veteran, a classic Franco-American trajectory.</div>
+    </div>
+    <div class="person">
+      <div class="person-name">Charline Labonté</div>
+      <div class="person-years">Born 1982</div>
+      <div class="person-desc">Four-time Olympic gold medalist as goaltender for Canada's women's hockey team. Only the second woman ever to play in the QMJHL.</div>
+    </div>
+    <div class="person">
+      <div class="person-name">Philip Labonte</div>
+      <div class="person-years">Born 1975</div>
+      <div class="person-desc">Lead singer of the American metalcore band All That Remains. A modern Franco-American voice with deep New England roots.</div>
+    </div>
+    <div class="person">
+      <div class="person-name">Saint Baudry of Montfaucon</div>
+      <div class="person-years">c. 568 &ndash; 630</div>
+      <div class="person-desc">Founder of the first abbey in Argonne. Hagiography makes him a son of the Merovingian king Sigebert I &mdash; the closest the name comes to a royal origin story. Historians treat it as pious legend, not proof.</div>
+    </div>
+  </div>
+
+  <!-- ================= VISIT ================= -->
+
+  <div class="prose">
+
+  <h2 id="visit" class="section-heading">A descendant's itinerary</h2>
+  <p class="lead"><em>Where to walk the ground the family walked.</em></p>
+
+  <h3>Before leaving Paris</h3>
+  <p>Three sites in the capital connect directly to the New France story before heading west:</p>
+
+  <ul>
+    <li><strong>Chapelle Saint-Louis de la Salpêtrière</strong> (47&ndash;83 Boulevard de l'Hôpital, 13e, Metro Saint-Marcel) &mdash; Baroque masterpiece by Libéral Bruant, where roughly 240 of the 768 <em>Filles du Roi</em> were recruited and housed before sailing to New France. Freely enterable by day.</li>
+    <li><strong>Jardin de la Nouvelle-France</strong>, behind the Petit Palais off the Champs-Élysées, holds busts of Jacques Cartier and Samuel de Champlain (inscribed "Samuel Champlain de Brouage en Saintonge").</li>
+    <li><strong>Archives Nationales</strong>, Hôtel de Soubise (60 rue des Francs-Bourgeois, Marais) &mdash; holds <em>Ancien Régime</em> records of the Conseil souverain de la Nouvelle-France.</li>
+  </ul>
+
+  <h3>Then: La Rochelle, in two or three days</h3>
+  <p>The TGV INOUI from <strong>Paris Montparnasse to La Rochelle-Ville</strong> runs about seven direct services daily in <strong>2h 28m to 2h 41m</strong>. Advance fares from around &euro;19&ndash;30; walk-up &euro;40&ndash;70. May&ndash;June and September are the sweet spots.</p>
+
+  <p>In priority order:</p>
+
+  <ul>
+    <li><strong>Tour de la Chaîne</strong> &mdash; on the Vieux Port. Holds the permanent exhibition <em>"La Rochelle&ndash;Québec, embarquez vers la Nouvelle-France."</em> The chain this tower anchored closed the harbor every night. Antoine's ship sailed past it.</li>
+    <li><strong>Musée du Nouveau Monde</strong> (10 rue Fleuriau) &mdash; ten rooms on New France in a restored 18th-century shipowner's mansion. Adult &euro;8; combined tower-and-museum ticket &euro;13.</li>
+    <li><strong>Archives départementales (AD17)</strong> (35 rue François-de-Vaux-de-Foletier) &mdash; walk-in with photo ID, free. The best place on earth to search for undiscovered Baudrias records.</li>
+    <li><strong>Tour de la Lanterne</strong> &mdash; 55-meter Gothic spire, oldest lighthouse on the French Atlantic. Over 600 graffiti carved by imprisoned privateers.</li>
+    <li><strong>Vieux Port &amp; the arcades</strong> &mdash; two kilometers of 16th&ndash;18th-century arcades. Église Saint-Sauveur was the port parish a 1680s sailor would have known.</li>
+    <li><strong>Day trip &mdash; Brouage &amp; Rochefort</strong> &mdash; Brouage is Champlain's fortified salt-port birthplace (stranded inland by retreating sea). Rochefort is Colbert's 1666 naval arsenal, with the <em>Corderie Royale</em> and replica frigate <em>Hermione</em>.</li>
+  </ul>
+
+  <h3>Eating your ancestry</h3>
+  <p>The Aunis-Saintonge table is one of France's most distinctive and least touristed. Look for:</p>
+
+  <ul>
+    <li><strong>Huîtres de Marennes-Oléron</strong> &mdash; tinted faintly green by the <em>navicule bleue</em> algae, they make up roughly half of all oysters eaten in France.</li>
+    <li><strong>Moules de bouchot</strong> from the Baie de l'Aiguillon, and <strong>éclade de moules</strong> &mdash; mussels cooked on a plank under burning pine needles.</li>
+    <li><strong>Mouclade charentaise</strong> &mdash; mussels in cream, white wine, Pineau, and a whisper of saffron.</li>
+    <li><strong>Cagouilles</strong> &mdash; snails in wine-garlic-lardon sauce.</li>
+    <li><strong>Mojettes</strong> &mdash; small white beans served with pork rinds and walnut oil.</li>
+    <li><strong>Galette charentaise</strong> &mdash; buttery shortbread with candied angelica, invented at Beurlay in 1848.</li>
+  </ul>
+
+  <p>For drinks: <strong>Pineau des Charentes</strong> chilled as aperitif; <strong>cognac</strong> (Hennessy, Martell, Rémy Martin, and Courvoisier run tours from &euro;15); and, for the table, <strong>Beurre Charentes-Poitou AOP</strong> on <strong>pommes de terre de l'Île de Ré</strong>.</p>
+
+  </div><!-- /prose -->
+
+  <!-- ================= DOCUMENTED VS LORE ================= -->
+
+  <h2 id="documented" class="section-heading">Known facts vs. family lore</h2>
+  <p class="lead"><em>What the records prove, and what is still a good story.</em></p>
+
+  <table class="known-table">
+    <thead>
+      <tr>
+        <th>Claim or Tradition</th>
+        <th>Assessment</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Family came from France</td>
+        <td><strong>Documented.</strong> Antoine Baudrias from "Aunis, France" is in Quebec sacramental records.</td>
+      </tr>
+      <tr>
+        <td>Name means "bringer of goodness"</td>
+        <td><strong>Partly.</strong> <em>La bonté</em> does mean "goodness." But it's a later soldier's nickname &mdash; the older name <em>Baudriau / Baudry</em> actually means "bold ruler."</td>
+      </tr>
+      <tr>
+        <td>Connected to royalty</td>
+        <td><strong>Not by blood.</strong> No noble particle in any documented ancestor. But likely <em>served</em> the King as a soldier, and plausibly <em>married into</em> the Filles du Roi &mdash; the King's wards.</td>
+      </tr>
+      <tr>
+        <td>Liked by the people</td>
+        <td><strong>Built into the name.</strong> "Labonté" is literally a nickname for a kind man.</td>
+      </tr>
+      <tr>
+        <td>Antoine was "dit Labonté"</td>
+        <td><strong>Unlikely.</strong> His passenger-list name was <em>"Beaudrias-Versaille."</em> "Labonté" enters the family with his grandson's generation.</td>
+      </tr>
+      <tr>
+        <td>France &rarr; Canada &rarr; U.S.</td>
+        <td><strong>Fully documented.</strong> The classic French-Canadian migration path.</td>
+      </tr>
+      <tr>
+        <td>Specific French parish of origin</td>
+        <td><strong>Not known.</strong> Only "Aunis" is documented. Fichier Origine has no fiche &mdash; no one has yet located his French baptism.</td>
+      </tr>
+      <tr>
+        <td>Mother's surname "Aromour"</td>
+        <td><strong>Almost certainly garbled.</strong> Not a known French surname. Likely <em>Amoureux, Lamoureux, Amoreau,</em> or <em>Armand</em>, misheard by a Quebec priest.</td>
+      </tr>
+      <tr>
+        <td>A Labonté in the American Revolution</td>
+        <td><strong>Documented.</strong> Pierre Antoine Beaudriau dit Labonté &mdash; subject of a 2005 <em>American-Canadian Genealogist</em> article.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- ================= NEXT STEPS ================= -->
+
+  <div class="prose">
+
+  <h2 id="next" class="section-heading">Next steps for research</h2>
+  <p class="lead"><em>If you want to keep digging.</em></p>
+
+  <ol>
+    <li><strong>Obtain the 2005 <em>American-Canadian Genealogist</em>, issue 103.</strong> It contains both "A Canadian in the American Revolution: Pierre Antoine Beaudriau dit Labonté" and a companion "Baudriau-Labonté Ancestral Line."</li>
+
+```
+<li><strong>Contact the Archives nationales d'outre-mer</strong> at Aix-en-Provence. Ask for Troupes de la Marine muster rolls for companies sent to Canada between 1685 and 1689 bearing a soldier <em>Baudrias dit Versaille</em> or <em>dit Labonté</em>. If that record exists, it would name the recruitment parish &mdash; the single remaining path to the exact village he came from.</li>
+
+<li><strong>Search local FamilySearch affiliate libraries</strong> for county land transactions and state censuses.</li>
+
+<li><strong>Consult the St. Louis / Holy Family parish archives in Fond du Lac.</strong> Their 1850&ndash;1920 sacramental registers are published and are the richest French-Canadian Catholic record set in east-central Wisconsin.</li>
+
+<li><strong>Explore Quebec databases:</strong> PRDH-IGD (Université de Montréal), BAnQ Numérique, Généalogie Québec, and the Drouin Collection. Work back from the earliest known American Labonte to the Richelieu Valley parishes.</li>
+
+<li><strong>Consider a DNA test</strong> via FamilyTreeDNA or 23andMe's French-Canadian cousin-matching. French Canadians are one of the best-studied genetic populations in the world because of their excellent parish records.</li>
+```
+
+  </ol>
+
+  </div><!-- /prose -->
+
+  <div class="divider"></div>
+
+  <div class="footer-bar">
+    <em>"The small people carried a large history on their backs &mdash; and the name they carried, improbably and beautifully, was 'the goodness.'"</em>
+  </div>
+
+</div><!-- /container -->
+
+</body>
+</html>
