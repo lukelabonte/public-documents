@@ -33,6 +33,17 @@ padding-bottom: 10px;
 border-bottom: 1.5px solid var(–border);
 }
 
+/* ─── Sub-section label (Luke’s side / Kari’s side) ────────────────── */
+.sub-label {
+font-family: ‘DM Sans’, sans-serif;
+font-size: 0.72rem;
+letter-spacing: 0.14em;
+text-transform: uppercase;
+color: var(–accent, #B5632E);
+margin: 8px 0 8px 2px;
+font-weight: 600;
+}
+
 /* ─── Document Card ────────────────────────────────────────────────── */
 .doc-card {
 display: flex;
@@ -99,11 +110,13 @@ font-size: 0.825rem;
 ```
 <div class="section">
   <div class="section-title">Family</div>
+
+  <div class="sub-label">My side</div>
   <a href="labonte/family-history.html" class="doc-card">
     <div class="doc-icon">⚜️</div>
     <div class="doc-info">
       <div class="doc-title">The LaBonte Family — From Aunis to the New World</div>
-      <div class="doc-description">My paternal line · Three centuries of French-Canadian family history, traced from 17th-century France through New France to today</div>
+      <div class="doc-description">Paternal · Three centuries of French-Canadian family history, from 17th-century France through New France to today</div>
     </div>
     <div class="doc-arrow">→</div>
   </a>
@@ -111,15 +124,25 @@ font-size: 0.825rem;
     <div class="doc-icon">🍒</div>
     <div class="doc-info">
       <div class="doc-title">The Wisneski Family — From a Cherry-Tree Village to Wisconsin</div>
-      <div class="doc-description">My maternal line · Polish and German-Catholic roots, from a partitioned Poland to the Wisconsin South Side</div>
+      <div class="doc-description">Maternal · Polish and German-Catholic roots, from a partitioned Poland to the Wisconsin South Side</div>
     </div>
     <div class="doc-arrow">→</div>
   </a>
+
+  <div class="sub-label" style="margin-top: 20px;">Kari's side</div>
   <a href="dyreson/family-history.html" class="doc-card">
     <div class="doc-icon">🌿</div>
     <div class="doc-info">
       <div class="doc-title">The Dyreson Line — From a Valdres Valley to a Wisconsin Coulee</div>
-      <div class="doc-description">Kari's paternal line · Norwegian farmers from Valdres to the Driftless Area, told in five generations of patronymic names</div>
+      <div class="doc-description">Paternal · Norwegian farmers from Valdres to the Driftless Area, told in five generations of patronymic names</div>
+    </div>
+    <div class="doc-arrow">→</div>
+  </a>
+  <a href="gieck/family-history.html" class="doc-card">
+    <div class="doc-icon">🌾</div>
+    <div class="doc-info">
+      <div class="doc-title">The Gieck Line — From the Neckar to Honey Creek</div>
+      <div class="doc-description">Maternal · Swabian farmers from the Kingdom of Württemberg to the Honey Creek valley of Sauk County</div>
     </div>
     <div class="doc-arrow">→</div>
   </a>
